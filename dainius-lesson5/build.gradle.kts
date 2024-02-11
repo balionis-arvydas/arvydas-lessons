@@ -141,3 +141,27 @@ tasks.named<BootJar>("bootJar") {
     mainClass.set("com.balionis.dainius.lesson5.Application")
     archiveFileName.set("${archiveBaseName.get()}-all.${archiveExtension.get()}");
 }
+
+tasks {
+
+    create<Exec>("dockerBuild") {
+        dependsOn("bootJar")
+
+        description = "Build a service docker image"
+        group = "Docker"
+        commandLine("docker","build","-t","${this.project.name}:latest",".")
+    }
+
+    create<Exec>("dockerComposeUp") {
+        description = "Start a service on local docker"
+        group = "Docker"
+        commandLine("docker-compose","-f","docker-compose.yml","build")
+        commandLine("docker-compose","-f","docker-compose.yml","up","-d")
+    }
+
+    create<Exec>("dockerComposeDown") {
+        description = "Stop a service on local docker"
+        group = "Docker"
+        commandLine("docker-compose","-f","docker-compose.yml","down")
+    }
+}

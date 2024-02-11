@@ -1,0 +1,5 @@
+app:
+  service:
+    limit: 9
+server:
+  port: 9090
