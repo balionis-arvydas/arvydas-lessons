@@ -1,0 +1,71 @@
+---
+openapi: 3.0.0
+info:
+  title: Swagger Dainius Lesson4
+  description: |
+    This is a sample Dainius Lesson 4 server.
+  termsOfService: http://dainius.balionis.com/terms/
+  version: 1.0.0
+servers:
+  - url: https://dainius.balionis.com/api/1.0.0
+tags:
+  - name: moving
+    description: Access to Dainius moving calculator
+paths:
+  /api/v1/moving:
+    get:
+      operationId: getMoving
+      description: return moving formula (sum|avg) on cached numbers
+      tags:
+        - moving
+      responses:
+        "200":
+          description: return moving formula result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMovingResponse'
+        "500":
+          description: internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      operationId: addNumber
+      description: add a number to moving cache
+      tags:
+        - moving
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddNumberRequest'
+      responses:
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    GetMovingResponse:
+      type: object
+      properties:
+        number:
+          type: number
+          format: double
+    AddNumberRequest:
+      type: object
+      properties:
+        number:
+          type: number
+          format: double
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
