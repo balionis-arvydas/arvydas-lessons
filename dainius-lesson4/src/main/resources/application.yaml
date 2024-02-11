@@ -1,0 +1,9 @@
+app:
+  service:
+    limit: 3
+    function: "avg"
+
+server:
+  port: 9090
+  max-http-request-header-size: 16KB
+  shutdown: graceful
