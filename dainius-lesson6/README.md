@@ -23,7 +23,7 @@
 ```
 docker container ls
 CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                    NAMES
-99a13e4e3ac0   dainius-lesson6:latest   "/bin/sh -c 'java $J…"   21 seconds ago   Up 20 seconds   0.0.0.0:8080->9090/tcp   dainius-lesson5-service1-1
+99a13e4e3ac0   dainius-lesson6:latest   "/bin/sh -c 'java $J…"   21 seconds ago   Up 20 seconds   0.0.0.0:8080->9090/tcp   dainius-lesson5-service-1
 
 arvydas@bamac01 ~ % docker logs -f 99a13e4e3ac0                                     
 16:36:13.516 [main] INFO  c.b.dainius.lesson6.Application - starting
@@ -47,10 +47,10 @@ arvydas@bamac01 ~ % docker logs -f 99a13e4e3ac0
 
 ## Call service under docker
 ```
-curl -X GET http://localhost:9090/api/v1/heartbeat
+curl -X GET http://localhost:8080/api/v1/heartbeat
 ...
-curl -X POST http://localhost:9090/api/v1/moving --header 'Content-Type: application/json' --data '{ "number": "2.0"}'
-curl -X GET http://localhost:9090/api/v1/moving
+curl -X POST http://localhost:8080/api/v1/moving --header 'Content-Type: application/json' --data '{ "number": "2.0"}'
+curl -X GET http://localhost:8080/api/v1/moving
 
 // see docker container logs (see: 'Tail Docker Logs' above for how-to)
 ... 

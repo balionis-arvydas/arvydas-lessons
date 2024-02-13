@@ -5,7 +5,7 @@ networks:
     name: balionis
 
 services:
-  service1:
+  service:
     image: dainius-lesson6:latest
     ports:
       - "8080:9090"
