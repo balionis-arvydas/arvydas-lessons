@@ -1,5 +1,5 @@
 app:
   service:
-    limit: 9
+    name: test
 server:
   port: 0

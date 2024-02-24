@@ -1,6 +1,6 @@
 app:
   service:
-    limit: 3
+    name: myService
 
 server:
   port: 9090

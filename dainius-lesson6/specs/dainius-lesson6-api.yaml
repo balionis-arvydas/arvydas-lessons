@@ -1,67 +1,92 @@
----
 openapi: 3.0.0
 info:
-  title: Swagger Dainius Lesson4
+  title: Swagger Dainius Lesson6
   description: |
-    This is a sample Dainius Lesson 4 server.
+    This is a sample Dainius Lesson 6 server.
   termsOfService: http://dainius.balionis.com/terms/
   version: 1.0.0
 servers:
   - url: https://dainius.balionis.com/api/1.0.0
 tags:
-  - name: moving
-    description: Access to Dainius moving calculator
+  - name: pet
 paths:
-  /api/v1/moving:
-    get:
-      operationId: getMoving
-      description: return moving formula (sum|avg) on cached numbers
+  '/api/v1/pet':
+    post:
       tags:
-        - moving
+        - pet
+      operationId: addPet
+      requestBody:
+        $ref: '#/components/requestBodies/AddPetRequest'
       responses:
-        "200":
-          description: return moving formula result
+        '200':
+          description: success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetMovingResponse'
-        "500":
-          description: internal server error
+                $ref: '#/components/schemas/AddPetResponse'
+        '405':
+          description: invalid input
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-    post:
-      operationId: addNumber
-      description: add a number to moving cache
+  '/api/v1/pet/{petId}':
+    get:
       tags:
-        - moving
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AddNumberRequest'
+        - pet
+      operationId: getPetById
+      parameters:
+        - name: petId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
       responses:
-        "400":
-          description: bad request
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+        '400':
+          description: invalid petId supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: pet not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      tags:
+        - pet
+      operationId: deletePet
+      parameters:
+        - name: petId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '400':
+          description: Invalid petId supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Pet not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    GetMovingResponse:
-      type: object
-      properties:
-        number:
-          type: number
-          format: double
-    AddNumberRequest:
-      type: object
-      properties:
-        number:
-          type: number
-          format: double
     Error:
       type: object
       properties:
@@ -69,3 +94,40 @@ components:
           type: string
         message:
           type: string
+    Pet:
+      type: object
+      required:
+        - name
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        status:
+          type: string
+          enum:
+            - available
+            - pending
+            - sold
+    AddPetRequest:
+      type: object
+      required:
+        - pet
+      properties:
+        pet:
+          $ref: '#/components/schemas/Pet'
+    AddPetResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+  requestBodies:
+    AddPetRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AddPetRequest'
+      required: true
+  
