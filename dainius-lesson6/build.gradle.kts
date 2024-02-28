@@ -37,7 +37,10 @@ dependencies {
     testImplementation("org.mockito:mockito-core:5.3.1")
     testImplementation("org.mockito:mockito-junit-jupiter:5.3.1")
 
-    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-web") {
+        exclude(group = "org.springframework.boot", module = "spring-boot-starter-tomcat")
+    }
+    implementation("org.springframework.boot:spring-boot-starter-jetty")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.boot:spring-boot-starter-webflux")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
@@ -46,6 +49,12 @@ dependencies {
     implementation("io.swagger.core.v3:swagger-annotations:2.2.20")
     implementation("javax.validation:validation-api:2.0.1.Final")
     implementation("javax.annotation:javax.annotation-api:1.3.2")
+
+    implementation("org.springframework.boot:spring-boot-starter-jdbc")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    testImplementation("com.h2database:h2:2.2.224")
+    runtimeOnly("org.postgresql:postgresql:42.7.2")
+
 }
 
 openApiValidate {
@@ -119,7 +128,8 @@ tasks.jacocoTestCoverageVerification {
             excludes = listOf(
                 "com.balionis.dainius.lesson6.Application",
                 "com.balionis.dainius.lesson6.configuration.*",
-                "com.balionis.dainius.lesson6.generated.*"
+                "com.balionis.dainius.lesson6.generated.*",
+                "com.balionis.dainius.lesson6.entity.*"
             )
         }
     }

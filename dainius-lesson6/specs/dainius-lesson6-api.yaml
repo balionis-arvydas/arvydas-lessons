@@ -107,9 +107,9 @@ components:
         status:
           type: string
           enum:
-            - available
-            - pending
-            - sold
+            - AVAILABLE
+            - PENDING
+            - SOLD
     AddPetRequest:
       type: object
       required:

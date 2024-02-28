@@ -1,5 +1,6 @@
 package com.balionis.dainius.lesson6.configuration;
 
+import com.balionis.dainius.lesson6.repository.PetRepository;
 import com.balionis.dainius.lesson6.service.PetService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +15,7 @@ public class AppConfiguration {
     private final AppConfigurationProperties appConfigurationProperties;
 
     @Bean
-    public PetService petService() {
-        return new PetService(appConfigurationProperties.getName());
+    public PetService petService(PetRepository petRepository) {
+        return new PetService(appConfigurationProperties.getName(), petRepository);
     }
 }

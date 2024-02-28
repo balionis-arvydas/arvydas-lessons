@@ -12,7 +12,7 @@ services:
       - "5432:5432"
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: postgres_pwd
       POSTGRES_DB: dainius_db
     volumes:
       - ./postgres-setup:/docker-entrypoint-initdb.d
