@@ -151,17 +151,4 @@ tasks {
         group = "Docker"
         commandLine("docker","build","-t","${this.project.name}:latest",".")
     }
-
-    create<Exec>("dockerComposeUp") {
-        description = "Start a service on local docker"
-        group = "Docker"
-        commandLine("docker-compose","-f","docker-compose.yml","build")
-        commandLine("docker-compose","-f","docker-compose.yml","up","-d")
-    }
-
-    create<Exec>("dockerComposeDown") {
-        description = "Stop a service on local docker"
-        group = "Docker"
-        commandLine("docker-compose","-f","docker-compose.yml","down")
-    }
 }

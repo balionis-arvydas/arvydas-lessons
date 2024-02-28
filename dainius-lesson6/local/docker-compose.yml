@@ -1,0 +1,31 @@
+version: '3.5'
+
+networks:
+  balionis-network:
+    name: balionis-network
+
+services:
+  local-postgres:
+    container_name: local-postgres
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dainius_db
+    volumes:
+      - ./postgres-setup:/docker-entrypoint-initdb.d
+    networks:
+      - balionis-network
+  local-service:
+    container_name: local-service
+    image: dainius-lesson6:latest
+    ports:
+      - "8080:9090"
+    environment:
+      JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
+    volumes:
+      - ./docker/config:/app/config
+    networks:
+      - balionis-network
