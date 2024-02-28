@@ -90,7 +90,71 @@ arvydas@bamac01 ~ % docker logs -f 99a13e4e3ac0
 ## Call pet store service under docker
 ```
 curl -X POST http://localhost:8080/api/v1/pet --header 'Content-Type: application/json' --data '{ "pet": { "name": "myDog", "status": "AVAILABLE" } }'
-curl -X GET  http://localhost:8080/api/v1/pet/<UUID>
-
+{"id":"864bbd39-4ce5-43ee-8da6-b7701ae16c5b"}
+...
+curl -X GET  http://localhost:8080/api/v1/pet/864bbd39-4ce5-43ee-8da6-b7701ae16c5b
+{"id":"864bbd39-4ce5-43ee-8da6-b7701ae16c5b","name":"myDog","status":"AVAILABLE"}
+...
 ```
 
+## Postgres troubleshooting 
+
+```
+arvydas@bamac01 local % docker container ls
+CONTAINER ID   IMAGE                    COMMAND                  CREATED         STATUS         PORTS                    NAMES
+8157dab0bad5   dainius-lesson6:latest   "/bin/sh -c 'java $J…"   9 minutes ago   Up 9 minutes   0.0.0.0:8080->9090/tcp   local-service
+80af3e73a2e8   postgres:latest          "docker-entrypoint.s…"   9 minutes ago   Up 9 minutes   0.0.0.0:5432->5432/tcp   local-postgres
+...
+arvydas@bamac01 local % docker exec -it 80af3e73a2e8 sh
+...
+# psql -U postgres
+psql (16.2 (Debian 16.2-1.pgdg120+2))
+Type "help" for help.
+
+postgres=# \d
+Did not find any relations.
+postgres=# \l
+List of databases
+Name    |  Owner   | Encoding | Locale Provider |  Collate   |   Ctype    | ICU Locale | ICU Rules |   Access privileges   
+------------+----------+----------+-----------------+------------+------------+------------+-----------+-----------------------
+dainius_db | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           |
+postgres   | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           |
+template0  | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/postgres          +
+|          |          |                 |            |            |            |           | postgres=CTc/postgres
+template1  | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/postgres          +
+|          |          |                 |            |            |            |           | postgres=CTc/postgres
+(4 rows)
+...
+postgres=# \c dainius_db;
+You are now connected to database "dainius_db" as user "postgres".
+...
+dainius_db=# \d
+List of relations
+Schema | Name | Type  |  Owner   
+--------+------+-------+----------
+public | pets | table | postgres
+(1 row)
+...
+dainius_db=# \d pets
+Table "public.pets"
+Column   |            Type             | Collation | Nullable | Default
+------------+-----------------------------+-----------+----------+---------
+pet_id     | uuid                        |           | not null |
+name       | character varying(100)      |           | not null |
+status     | character(30)               |           | not null |
+created_at | timestamp without time zone |           | not null |
+updated_at | timestamp without time zone |           | not null |
+Indexes:
+"pets_pkey" PRIMARY KEY, btree (pet_id)
+...
+dainius_db=# select * from pets;
+pet_id                | name  |             status             |         created_at         |         updated_at         
+--------------------------------------+-------+--------------------------------+----------------------------+----------------------------
+864bbd39-4ce5-43ee-8da6-b7701ae16c5b | myDog | AVAILABLE                      | 2024-02-28 19:48:23.658357 | 2024-02-28 19:48:23.658357
+(1 row)
+...
+dainius_db=# \q
+...
+# exit
+% ... 
+```
