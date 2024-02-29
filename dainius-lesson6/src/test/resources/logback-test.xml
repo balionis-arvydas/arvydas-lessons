@@ -8,6 +8,8 @@
 
     <logger level="debug" name="com.balionis.dainius.lesson6"/>
 
+    <logger level="debug" name="liquibase.executor"/>
+
     <root level="info">
         <appender-ref ref="STDOUT" />
     </root>

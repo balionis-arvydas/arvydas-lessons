@@ -53,6 +53,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     testImplementation("com.h2database:h2:2.2.224")
+    testImplementation("org.liquibase:liquibase-core:4.21.1")
     runtimeOnly("org.postgresql:postgresql:42.7.2")
 
 }

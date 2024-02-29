@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: JIRA-0000-create-pets-table
+      author: arvydas
+      changes:
+        - createTable:
+            tableName: pets
+            columns:
+              - column:
+                  name: pet_id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_pet_id
+              - column:
+                  name: name
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: CHAR(30)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMPTZ
+                  defaultValueComputed: "CURRENT_TIMESTAMP"
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMPTZ
+                  defaultValueComputed: "CURRENT_TIMESTAMP"
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            tableName: pets

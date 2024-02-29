@@ -5,6 +5,15 @@ server:
   port: 0
 
 spring:
+  datasource:
+    url: jdbc:h2:mem:myDB;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;
+    username: sa
+    password: sags
+  liquibase:
+    enabled: true
+    user: sa
+    password: sags
+    change-log: "classpath:/db/changelog/db.changelog-master.yaml"
   jpa:
     show-sql: true
     properties:
@@ -12,7 +21,3 @@ spring:
         dialect: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: none
-  datasource:
-    url: jdbc:h2:mem:myDB;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;INIT=RUNSCRIPT FROM 'src/test/resources/h2_dainius_schema.sql';
-    username: sa
-    password: sags
