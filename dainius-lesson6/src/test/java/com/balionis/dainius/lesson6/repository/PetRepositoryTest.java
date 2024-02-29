@@ -1,7 +1,6 @@
 package com.balionis.dainius.lesson6.repository;
 
 import com.balionis.dainius.lesson6.entity.PetEntity;
-import com.balionis.dainius.lesson6.entity.PetStatus;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,8 +13,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.time.Clock;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 import static com.balionis.dainius.lesson6.TestHelper.createMockPetEntity;
