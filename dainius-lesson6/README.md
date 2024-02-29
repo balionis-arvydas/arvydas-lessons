@@ -6,6 +6,10 @@
 
 3. Add spring jpa.
 
+4. Add liquibase into tests.
+
+5. Have docker compose which starts postres, liquibase (commented), service 
+
 # Build
 ```
 ./gradlew clean dockerBuild --console=plain
