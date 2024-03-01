@@ -1,0 +1,23 @@
+app:
+  service:
+    name: test
+server:
+  port: 0
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:myDB;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;
+    username: sa
+    password: sags
+  liquibase:
+    enabled: true
+    user: sa
+    password: sags
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none

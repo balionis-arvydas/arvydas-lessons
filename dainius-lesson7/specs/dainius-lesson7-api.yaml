@@ -1,0 +1,133 @@
+openapi: 3.0.0
+info:
+  title: Swagger Dainius Lesson7
+  description: |
+    This is a sample Dainius Lesson 7 server.
+  termsOfService: http://dainius.balionis.com/terms/
+  version: 1.0.0
+servers:
+  - url: https://dainius.balionis.com/api/1.0.0
+tags:
+  - name: pet
+paths:
+  '/api/v1/pet':
+    post:
+      tags:
+        - pet
+      operationId: addPet
+      requestBody:
+        $ref: '#/components/requestBodies/AddPetRequest'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddPetResponse'
+        '405':
+          description: invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  '/api/v1/pet/{petId}':
+    get:
+      tags:
+        - pet
+      operationId: getPetById
+      parameters:
+        - name: petId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+        '400':
+          description: invalid petId supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: pet not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      tags:
+        - pet
+      operationId: deletePet
+      parameters:
+        - name: petId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '400':
+          description: Invalid petId supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Pet not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+    Pet:
+      type: object
+      required:
+        - name
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        status:
+          type: string
+          enum:
+            - AVAILABLE
+            - PENDING
+            - SOLD
+    AddPetRequest:
+      type: object
+      required:
+        - pet
+      properties:
+        pet:
+          $ref: '#/components/schemas/Pet'
+    AddPetResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+  requestBodies:
+    AddPetRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AddPetRequest'
+      required: true
+  
