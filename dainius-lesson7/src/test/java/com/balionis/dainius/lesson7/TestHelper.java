@@ -11,7 +11,7 @@ public class TestHelper {
     public static PetEntity createMockPetEntity(UUID petId) {
         var now = LocalDateTime.now(Clock.systemUTC());
         var petEntity = new PetEntity();
-        petEntity.setPetId(petId);
+        petEntity.setPetId(petId.toString());
         petEntity.setName("myPet");
         petEntity.setStatus(PetStatus.AVAILABLE);
         petEntity.setCreatedAt(now);

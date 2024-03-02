@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface PetRepository extends CrudRepository<PetEntity, UUID> {
+public interface PetRepository extends CrudRepository<PetEntity, String> {
 }

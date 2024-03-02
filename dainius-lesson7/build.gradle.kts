@@ -54,7 +54,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     testImplementation("com.h2database:h2:2.2.224")
     testImplementation("org.liquibase:liquibase-core:4.21.1")
-    runtimeOnly("org.postgresql:postgresql:42.7.2")
+    runtimeOnly("mysql:mysql-connector-java:8.0.33")
 
 }
 
@@ -156,7 +156,7 @@ tasks.named<BootJar>("bootJar") {
 tasks {
 
     create<Exec>("dockerBuild") {
-        dependsOn("bootJar")
+        dependsOn("build")
 
         description = "Build a service docker image"
         group = "Docker"

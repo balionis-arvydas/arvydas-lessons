@@ -42,13 +42,13 @@ class PetRepositoryTest {
 
         var petEntitySaved = petRepository.save(createMockPetEntity(petId));
 
-        var petEntityFound = petRepository.findById(petId)
+        var petEntityFound = petRepository.findById(petId.toString())
                 .orElseGet(() -> fail("No record found"));
 
         assertThat(petRepository.count()).isEqualTo(1);
         assertTrue(new ReflectionEquals(petEntitySaved).matches(petEntityFound));
 
-        petRepository.deleteById(petId);
+        petRepository.deleteById(petId.toString());
         assertThat(petRepository.count()).isEqualTo(0);
 
     }

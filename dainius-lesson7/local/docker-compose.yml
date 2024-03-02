@@ -4,39 +4,48 @@ networks:
   balionis-network:
     name: balionis-network
 
+volumes:
+  balionis-data:
+    name: balionis-data
+
 services:
-  local-postgres:
-    container_name: local-postgres
-    image: postgres:latest
+  local-mysql:
+    container_name: local-mysql
+    image: mysql:latest
     ports:
-      - "5432:5432"
+      - "3306:3306"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres_pwd
-      POSTGRES_DB: dainius_db
+      MYSQL_ROOT_PASSWORD: root_pwd
+      MYSQL_USER: mysql_adm
+      MYSQL_PASSWORD: mysql_pwd
+      MYSQL_DATABASE: dainius_db
     networks:
       - balionis-network
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready", "-d", "db_prod" ]
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
       interval: 10s
       timeout: 60s
       retries: 5
       start_period: 10s
+    volumes:
+      - balionis-data:/var/lib/mysql
   local-liquibase:
     image: liquibase/liquibase
     container_name: local-liquibase
-    command: update --url=jdbc:postgresql://local-postgres:5432/dainius_db?user=postgres'&'password=postgres_pwd --changelog-file=changelog/db.changelog-master.yaml
+    command: update --url=jdbc:mysql://local-mysql:3306/dainius_db?user=root'&'password=root_pwd --changelog-file=changelog/db.changelog-master.yaml
+    environment:
+      INSTALL_MYSQL: true
     volumes:
       - ../src/main/resources/db/changelog:/liquibase/changelog
       - ../src/main/resources/db/changeset:/liquibase/db/changeset
     networks:
       - balionis-network
     depends_on:
-      local-postgres:
+      local-mysql:
         condition: service_healthy
   local-service:
     container_name: local-service
-    image: dainius-lesson6:latest
+    image: dainius-lesson7:latest
     ports:
       - "8080:9090"
     environment:
@@ -46,5 +55,5 @@ services:
     networks:
       - balionis-network
     depends_on:
-      local-postgres:
+      local-mysql:
         condition: service_healthy

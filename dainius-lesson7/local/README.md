@@ -22,30 +22,34 @@ make down
 
 In order to validate the database, run:
 ```shell
-docker exec -it local-postgres /bin/sh
-# psql -U postgres 
-psql (16.2 (Debian 16.2-1.pgdg120+2))
-postgres=# \l
-                                                       List of databases
-    Name    |  Owner   | Encoding | Locale Provider |  Collate   |   Ctype    | ICU Locale | ICU Rules |   Access privileges   
-------------+----------+----------+-----------------+------------+------------+------------+-----------+-----------------------
- dainius_db | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | 
- postgres   | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | 
- template0  | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/postgres          +
-            |          |          |                 |            |            |            |           | postgres=CTc/postgres
- template1  | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/postgres          +
-            |          |          |                 |            |            |            |           | postgres=CTc/postgres
-(4 rows)
-postgres=# \c dainius_db
-You are now connected to database "dainius_db" as user "postgres".
-dainius_db=# \d
-        List of relations
- Schema | Name | Type  |  Owner   
---------+------+-------+----------
- public | pets | table | postgres
-(1 row)
-dainius_db=# select * from pets limit 10;
- pet_id | name | status | created_at | last_modified_at 
---------+------+--------+------------+------------------
-(0 rows)
+% docker exec -it local-mysql bash 
+bash-4.4# mysql dainius_db --user root --password
+Enter password: root_pwd 
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| dainius_db         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use dainius_db;
+Database changed
+mysql> show tables;
++-----------------------+
+| Tables_in_dainius_db  |
++-----------------------+
+| DATABASECHANGELOG     |
+| DATABASECHANGELOGLOCK |
+| pets                  |
++-----------------------+
+3 rows in set (0.01 sec)
+
+mysql> select * from pets;
+Empty set (0.01 sec)
 ```

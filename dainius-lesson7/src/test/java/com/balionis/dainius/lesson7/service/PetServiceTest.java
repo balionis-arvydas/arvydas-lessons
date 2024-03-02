@@ -2,14 +2,11 @@ package com.balionis.dainius.lesson7.service;
 
 import static com.balionis.dainius.lesson7.TestHelper.createMockPetEntity;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
 import com.balionis.dainius.lesson7.entity.PetEntity;
-import com.balionis.dainius.lesson7.entity.PetStatus;
 import com.balionis.dainius.lesson7.generated.model.Pet;
 import com.balionis.dainius.lesson7.repository.PetRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -52,7 +49,7 @@ public class PetServiceTest {
 
     @Test
     public void should_delete() {
-        doNothing().when(petRepository).deleteById(any(UUID.class));
+        doNothing().when(petRepository).deleteById(any(String.class));
 
         petService.deletePet(UUID.randomUUID());
 
@@ -66,7 +63,7 @@ public class PetServiceTest {
 
         var petEntity = createMockPetEntity(petId);
 
-        when(petRepository.findById(petId)).thenReturn(Optional.of(petEntity));
+        when(petRepository.findById(petId.toString())).thenReturn(Optional.of(petEntity));
 
         petService.getPet(petId);
 

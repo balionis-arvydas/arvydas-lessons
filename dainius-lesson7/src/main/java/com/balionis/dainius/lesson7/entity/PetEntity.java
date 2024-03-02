@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
 @Table(name = "pets")
@@ -13,7 +12,7 @@ public class PetEntity {
 
     @Id
     @Column(name = "pet_id")
-    private UUID petId;
+    private String petId;
 
     @Column
     private String name;

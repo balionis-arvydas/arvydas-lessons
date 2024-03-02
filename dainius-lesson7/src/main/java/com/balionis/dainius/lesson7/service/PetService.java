@@ -26,7 +26,7 @@ public class PetService {
         log.info("name={}, pet={}, petId={}", name, pet, petId);
 
         PetEntity petEntity = new PetEntity();
-        petEntity.setPetId(petId);
+        petEntity.setPetId(petId.toString());
         petEntity.setName(pet.getName());
         petEntity.setStatus(PetStatus.valueOf(pet.getStatus().getValue()));
 
@@ -40,14 +40,15 @@ public class PetService {
 
     public void deletePet(UUID petId) {
         log.info("name={}, petId={}", name, petId);
-        petRepository.deleteById(petId);
+        petRepository.deleteById(petId.toString());
     }
 
     public Pet getPet(UUID petId) {
         log.info("name={}, petId={}", name, petId);
-        var pet = petRepository.findById(petId);
+        var petIdStr = petId.toString();
+        var pet = petRepository.findById(petIdStr);
         return pet.map(entity ->
-                        new Pet().id(entity.getPetId())
+                        new Pet().id(UUID.fromString(entity.getPetId()))
                                 .name(entity.getName())
                                 .status(Pet.StatusEnum.valueOf(entity.getStatus().name())))
                 .orElseThrow(() -> new IllegalArgumentException(petId.toString()));
