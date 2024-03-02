@@ -4,7 +4,7 @@
 
 2. Move from postgres to MySQL.
 
-3. Move from spring jpa to JOOQ.
+3. Add liquibase addColumn.
 
 # Build
 ```
