@@ -113,21 +113,6 @@ subprojects {
                             project.projectDir.absolutePath
                 )
             }
-
-            create("dockerPush") {
-                dependsOn("dockerBuild")
-
-                description = "Push the built docker image for our service."
-                group = "Docker"
-
-                doLast {
-                    dockerTags.forEach {
-                        exec {
-                            commandLine("docker", "push", "$dockerImage:$it")
-                        }
-                    }
-                }
-            }
         }
     }
 }

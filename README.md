@@ -17,6 +17,16 @@
   - What is the benefit of swagger/openapi spec?
   - What is Spring WebTestClient?
 5. [dainius-lesson5](./dainius-lesson5)
-  - What is VIRTUALIZATION?
   - What is the benefit of docker?
+6. [dainius-lesson6](./dainius-lesson6)
+  - What is Spring JPA?
+  - What is Liquibase?
+  - What is PostgreSQL
+7. [dainius-lesson7](./dainius-lesson7)
+  - What is Spring JPA?
+  - What is Liquibase?
+  - What is MySQL
+8. [dainius-lesson8](./dainius-lesson8)
+  - What is Kafka?
+...
 ...
