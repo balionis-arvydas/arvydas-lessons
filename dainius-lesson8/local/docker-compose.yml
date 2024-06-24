@@ -1,0 +1,29 @@
+version: '3.5'
+
+networks:
+  balionis-network:
+    name: balionis-network
+
+services:
+  local-producer:
+    container_name: local-producer
+    image: dainius-lesson8-producer:latest
+    ports:
+      - "8081:9090"
+    environment:
+      JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
+    volumes:
+      - ./docker/config/producer:/app/config
+    networks:
+      - balionis-network
+  local-consumer:
+    container_name: local-consumer
+    image: dainius-lesson8-consumer:latest
+    ports:
+      - "8082:9090"
+    environment:
+      JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
+    volumes:
+      - ./docker/config/consumer:/app/config
+    networks:
+      - balionis-network
