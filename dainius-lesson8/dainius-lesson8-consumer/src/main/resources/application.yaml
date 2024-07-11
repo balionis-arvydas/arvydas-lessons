@@ -1,6 +1,6 @@
 app:
   service:
-    name: myService
+    name: myConsumerService
 
 server:
   port: 9090
