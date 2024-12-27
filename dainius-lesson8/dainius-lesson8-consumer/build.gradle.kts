@@ -24,6 +24,26 @@ dependencies {
     annotationProcessor(Libs.SPRING_BOOT_CONFIGURATION_PROCESSOR)
 }
 
+tasks.jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            element = "CLASS"
+            limit {
+                counter = "LINE"
+                value = "COVEREDRATIO"
+                minimum = "0.90".toBigDecimal()
+            }
+            excludes = listOf(
+                "com.balionis.dainius.lesson8.consumer.Application",
+                "com.balionis.dainius.lesson8.consumer.configuration.*",
+                "com.balionis.dainius.lesson8.consumer.generated.*"
+            )
+        }
+    }
+    dependsOn(tasks.test)
+    finalizedBy(tasks.jacocoTestReport)
+}
+
 tasks.named<BootJar>("bootJar") {
     mainClass.set("com.balionis.dainius.lesson8.consumer.Application")
     archiveFileName.set("${archiveBaseName.get()}-all.${archiveExtension.get()}");

@@ -65,22 +65,6 @@ subprojects {
             finalizedBy(tasks.jacocoTestCoverageVerification)
         }
 
-        tasks.jacocoTestCoverageVerification {
-            violationRules {
-                rule {
-                    element = "CLASS"
-                    limit {
-                        counter = "LINE"
-                        value = "COVEREDRATIO"
-                        minimum = "0.90".toBigDecimal()
-                    }
-                    excludes = jacocoExclusions.get(project.name)
-                }
-            }
-            dependsOn(tasks.test)
-            finalizedBy(tasks.jacocoTestReport)
-        }
-
         jacoco {
             toolVersion = "0.8.9"
         }
