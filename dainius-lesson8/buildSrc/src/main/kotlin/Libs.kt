@@ -18,4 +18,9 @@ object Libs {
     const val SPRING_BOOT_STARTER_TEST = "org.springframework.boot:spring-boot-starter-test"
     const val SPRING_BOOT_STARTER_WEBFLUX = "org.springframework.boot:spring-boot-starter-webflux"
     const val SPRING_BOOT_CONFIGURATION_PROCESSOR = "org.springframework.boot:spring-boot-configuration-processor"
+
+    const val JAVAX_SERVLET_API = "javax.servlet:javax.servlet-api:4.0.1"
+    const val SWAGGER_ANNOTATIONS = "io.swagger.core.v3:swagger-annotations:2.2.20"
+    const val JAVAX_VALIDATION_API = "javax.validation:validation-api:2.0.1.Final"
+    const val JAVAX_ANNOTATION_API = "javax.annotation:javax.annotation-api:1.3.2"
 }

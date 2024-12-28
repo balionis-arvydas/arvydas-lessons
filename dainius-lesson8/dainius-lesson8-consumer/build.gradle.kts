@@ -27,10 +27,10 @@ dependencies {
     testImplementation(Libs.SPRING_BOOT_STARTER_WEBFLUX)
     annotationProcessor(Libs.SPRING_BOOT_CONFIGURATION_PROCESSOR)
 
-    compileOnly("javax.servlet:javax.servlet-api:4.0.1")
-    implementation("io.swagger.core.v3:swagger-annotations:2.2.20")
-    implementation("javax.validation:validation-api:2.0.1.Final")
-    implementation("javax.annotation:javax.annotation-api:1.3.2")
+    compileOnly(Libs.JAVAX_SERVLET_API)
+    implementation(Libs.SWAGGER_ANNOTATIONS)
+    implementation(Libs.JAVAX_VALIDATION_API)
+    implementation(Libs.JAVAX_ANNOTATION_API)
 }
 
 openApiValidate {
