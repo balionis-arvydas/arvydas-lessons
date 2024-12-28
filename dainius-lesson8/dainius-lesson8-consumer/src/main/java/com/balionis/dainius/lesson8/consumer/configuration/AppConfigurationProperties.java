@@ -12,6 +12,8 @@ public class AppConfigurationProperties {
 
     private String name;
 
+    private int pageSize;
+
     @PostConstruct
     public void logPostConstruct() {
         log.info("appConfigurationProperties={}", this);

@@ -1,6 +1,7 @@
 app:
   service:
     name: myConsumerService
+    pageSize: 100
 
 server:
   port: 9090

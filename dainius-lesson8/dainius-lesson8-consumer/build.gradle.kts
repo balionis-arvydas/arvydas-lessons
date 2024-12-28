@@ -1,5 +1,9 @@
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
+plugins {
+    id("org.openapi.generator") version "7.2.0"
+}
+
 dependencies {
 
     compileOnly(Libs.LOMBOK)
@@ -22,6 +26,53 @@ dependencies {
     testImplementation(Libs.SPRING_BOOT_STARTER_TEST)
     testImplementation(Libs.SPRING_BOOT_STARTER_WEBFLUX)
     annotationProcessor(Libs.SPRING_BOOT_CONFIGURATION_PROCESSOR)
+
+    compileOnly("javax.servlet:javax.servlet-api:4.0.1")
+    implementation("io.swagger.core.v3:swagger-annotations:2.2.20")
+    implementation("javax.validation:validation-api:2.0.1.Final")
+    implementation("javax.annotation:javax.annotation-api:1.3.2")
+}
+
+openApiValidate {
+    inputSpec.set("$projectDir/specs/dainius-lesson8-consumer-api.yaml")
+}
+
+openApiGenerate {
+    generatorName.set("spring")
+    inputSpec.set("$projectDir/specs/dainius-lesson8-consumer-api.yaml")
+    outputDir.set("$buildDir/generated")
+    apiPackage.set("com.balionis.dainius.lesson8.consumer.generated.api")
+    modelPackage.set("com.balionis.dainius.lesson8.consumer.generated.model")
+    configOptions.set(mapOf(
+        "dateLibrary" to "java8",
+        "generateApis" to "true",
+        "generateApiTests" to "false",
+        "generateModels" to "true",
+        "generateModelTests" to "false",
+        "generateModelDocumentation" to "false",
+        "generateSupportingFiles" to "false",
+        "hideGenerationTimestamp" to "true",
+        "interfaceOnly" to "true",
+        "library" to "spring-boot",
+        "serializableModel" to "true",
+        "useBeanValidation" to "true",
+        "useTags" to "true",
+        "implicitHeaders" to "true",
+        "openApiNullable" to "false",
+        "oas3" to "true"
+    ))
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs(listOf("${buildDir}/generated/src/main/java"))
+        }
+    }
+}
+
+tasks.compileJava {
+    dependsOn(tasks.openApiGenerate)
 }
 
 tasks.jacocoTestCoverageVerification {

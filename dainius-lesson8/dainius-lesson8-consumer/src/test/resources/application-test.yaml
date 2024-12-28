@@ -1,5 +1,7 @@
 app:
   service:
     name: test
+    pageSize: 0
+
 server:
   port: 0
