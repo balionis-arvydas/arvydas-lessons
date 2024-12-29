@@ -23,4 +23,6 @@ object Libs {
     const val SWAGGER_ANNOTATIONS = "io.swagger.core.v3:swagger-annotations:2.2.20"
     const val JAVAX_VALIDATION_API = "javax.validation:validation-api:2.0.1.Final"
     const val JAVAX_ANNOTATION_API = "javax.annotation:javax.annotation-api:1.3.2"
+
+    const val SPRING_KAFKA = "org.springframework.kafka:spring-kafka"
 }

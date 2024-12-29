@@ -31,6 +31,8 @@ dependencies {
     implementation(Libs.SWAGGER_ANNOTATIONS)
     implementation(Libs.JAVAX_VALIDATION_API)
     implementation(Libs.JAVAX_ANNOTATION_API)
+
+    implementation(Libs.SPRING_KAFKA)
 }
 
 openApiValidate {

@@ -12,8 +12,16 @@ public class AppConfigurationProperties {
 
     private String name;
 
+    private KafkaConfigurationProperties kafka;
+
     @PostConstruct
     public void logPostConstruct() {
         log.info("appConfigurationProperties={}", this);
+    }
+
+    @Data
+    public static class KafkaConfigurationProperties {
+        private String topicName;
+        private int timeoutSeconds;
     }
 }
