@@ -25,6 +25,22 @@ make down
 ...
 < HTTP/1.1 200 
 ...
+% curl -v -X GET http://localhost:8082/api/v1/heartbeat   
+...
+< HTTP/1.1 200 
+...
+```
+### Test kafka brokers
+
+```
+docker exec -it local-local-kafka-1 bash 
+$KAFKA_HOME/bin/kafka-topics.sh --list --zookeeper local-zookeeper:2181
+my-messages
+```
+
+### Test kafka producer
+
+```
 % curl -v -X POST http://localhost:8081/api/v1/producer/message \
 --header 'Content-Type: application/json' \
 --data '{ "messageId": "00000000-0000-0000-0000-000000000000", "message":"hello" }'   
@@ -32,10 +48,11 @@ make down
 < HTTP/1.1 200 
 < Content-Length: 0
 ...
-% curl -v -X GET http://localhost:8082/api/v1/heartbeat   
-...
-< HTTP/1.1 200 
-...
+```
+
+### Test kafka consumer
+
+```
 % curl -v -X GET http://localhost:8082/api/v1/consumer/message   
 ...
 < HTTP/1.1 200 

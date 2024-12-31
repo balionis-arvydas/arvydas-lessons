@@ -24,6 +24,7 @@ public class KafkaProducer {
     public void sendMessage(SendMessageRequest request) {
         try  {
             kafkaTemplate.send(createRecord(request)).get(kafkaTimeoutSeconds, TimeUnit.SECONDS);
+            log.info("sent messageId={}", request.getMessageId());
         } catch (ExecutionException | TimeoutException | InterruptedException exc) {
             throw new ApplicationException("cannot send request="+request, exc);
         }

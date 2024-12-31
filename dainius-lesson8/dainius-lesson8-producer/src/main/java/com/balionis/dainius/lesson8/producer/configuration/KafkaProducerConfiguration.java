@@ -1,7 +1,6 @@
 package com.balionis.dainius.lesson8.producer.configuration;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +14,6 @@ import java.util.Map;
 
 @Configuration
 @RequiredArgsConstructor
-@Slf4j
 public class KafkaProducerConfiguration {
 
     private final KafkaProducerConfigurationProperties kafkaProducerConfigurationProperties;
