@@ -2,9 +2,9 @@ object Libs {
 
     const val LOMBOK = "org.projectlombok:lombok"
 
-    const val SLF4J_API = "org.slf4j:slf4j-api:2.0.11"
-    const val LOGBACK_CORE = "ch.qos.logback:logback-core:1.4.14"
-    const val LOGBACK_CLASSIC = "ch.qos.logback:logback-classic:1.4.14"
+    const val SLF4J_API = "org.slf4j:slf4j-api:2.0.17"
+    const val LOGBACK_CORE = "ch.qos.logback:logback-core:1.5.18"
+    const val LOGBACK_CLASSIC = "ch.qos.logback:logback-classic:1.5.18"
 
     const val JUNIT_JUPITER_API = "org.junit.jupiter:junit-jupiter-api:5.9.3"
     const val JUNIT_JUPITER_ENGINE = "org.junit.jupiter:junit-jupiter-engine:5.9.3"

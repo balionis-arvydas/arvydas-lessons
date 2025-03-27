@@ -2,8 +2,16 @@ app:
   service:
     name: myConsumerService
     pageSize: 100
+    kafka:
+      topic-name: my-messages
 
 server:
   port: 9090
   max-http-request-header-size: 16KB
   shutdown: graceful
+
+# TODO: move it under spring.kafka.consumer.properties?
+kafka:
+  bootstrap-servers: "localhost:9090"
+  polling-timeout: 3000
+  concurrency: 3

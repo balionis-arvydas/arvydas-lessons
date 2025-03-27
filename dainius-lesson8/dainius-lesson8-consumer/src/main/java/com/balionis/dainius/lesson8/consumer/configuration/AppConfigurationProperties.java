@@ -14,8 +14,15 @@ public class AppConfigurationProperties {
 
     private int pageSize;
 
+    private KafkaConfigurationProperties kafka;
+
     @PostConstruct
     public void logPostConstruct() {
         log.info("appConfigurationProperties={}", this);
+    }
+
+    @Data
+    public static class KafkaConfigurationProperties {
+        private String topicName;
     }
 }
