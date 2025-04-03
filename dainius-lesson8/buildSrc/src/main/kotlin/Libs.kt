@@ -25,4 +25,6 @@ object Libs {
     const val JAVAX_ANNOTATION_API = "javax.annotation:javax.annotation-api:1.3.2"
 
     const val SPRING_KAFKA = "org.springframework.kafka:spring-kafka"
+    const val SPRING_KAFKA_TEST = "org.springframework.kafka:spring-kafka-test"
+
 }

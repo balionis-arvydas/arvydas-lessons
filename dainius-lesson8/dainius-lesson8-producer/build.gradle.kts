@@ -85,8 +85,7 @@ tasks.jacocoTestCoverageVerification {
             limit {
                 counter = "LINE"
                 value = "COVEREDRATIO"
-                // TODO: revert back to 0.90
-                minimum = "0.00".toBigDecimal()
+                minimum = "0.90".toBigDecimal()
             }
             excludes = listOf(
                 "com.balionis.dainius.lesson8.producer.Application",

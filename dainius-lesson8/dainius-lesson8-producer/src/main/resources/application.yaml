@@ -11,4 +11,4 @@ server:
   shutdown: graceful
 
 kafka:
-  bootstrap-servers: "localhost:9090"
+  bootstrap-servers: "localhost:3333"

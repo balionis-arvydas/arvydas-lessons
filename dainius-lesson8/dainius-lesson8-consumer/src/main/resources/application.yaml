@@ -12,6 +12,6 @@ server:
 
 # TODO: move it under spring.kafka.consumer.properties?
 kafka:
-  bootstrap-servers: "localhost:9090"
+  bootstrap-servers: "localhost:3333"
   polling-timeout: 3000
   concurrency: 3
