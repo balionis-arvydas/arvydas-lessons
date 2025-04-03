@@ -1,7 +1,9 @@
 package com.balionis.dainius.lesson9.consumer.stream;
 
-import com.balionis.dainius.lesson9.consumer.generated.model.Message;
 import com.balionis.dainius.lesson9.consumer.service.ConsumerService;
+import com.balionis.dainius.lesson9.consumer.stream.mappers.KafkaMessageMapper;
+import com.balionis.dainius.lesson9.consumer.stream.model.KafkaMessage;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +14,19 @@ import java.util.UUID;
 
 @Slf4j
 @Component
+@RequiredArgsConstructor
 public class KafkaConsumer {
 
     @Autowired
-    private ConsumerService consumerService;
+    private final ConsumerService consumerService;
+
+    @Autowired
+    private final KafkaMessageMapper kafkaMessageMapper;
 
     @KafkaListener(groupId = "${app.service.name}", topics = "${app.service.kafka.topic-name}")
-    public void listen(ConsumerRecord<String, String> record) {
+    public void listen(ConsumerRecord<String, KafkaMessage> record) {
         log.info("record.key={}, record.value={}", record.key(), record.value());
-        var message = new Message(UUID.fromString(record.key()), record.value());
+        var message = kafkaMessageMapper.apply(record.value());
         consumerService.addMessage(message);
     }
 }

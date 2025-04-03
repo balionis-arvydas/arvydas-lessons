@@ -33,6 +33,9 @@ dependencies {
 
     implementation(Libs.SPRING_KAFKA)
     testImplementation(Libs.SPRING_KAFKA_TEST)
+
+    implementation(Libs.MAPSTRUCT_CORE)
+    annotationProcessor(Libs.MAPSTRUCT_PROCESSOR)
 }
 
 openApiValidate {
@@ -89,7 +92,8 @@ tasks.jacocoTestCoverageVerification {
             excludes = listOf(
                 "com.balionis.dainius.lesson9.consumer.Application",
                 "com.balionis.dainius.lesson9.consumer.configuration.*",
-                "com.balionis.dainius.lesson9.consumer.generated.*"
+                "com.balionis.dainius.lesson9.consumer.generated.*",
+                "com.balionis.dainius.lesson9.consumer.stream.mappers.impl.*"
             )
         }
     }
