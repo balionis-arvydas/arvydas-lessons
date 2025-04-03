@@ -28,5 +28,7 @@
   - What is MySQL
 8. [dainius-lesson8](./dainius-lesson8)
   - What is Kafka?
-...
+  - What is Spring Kafka (default config)
+8. [dainius-lesson9](./dainius-lesson9)
+- How to configure Spring Kafka factories and templates manually?
 ...
