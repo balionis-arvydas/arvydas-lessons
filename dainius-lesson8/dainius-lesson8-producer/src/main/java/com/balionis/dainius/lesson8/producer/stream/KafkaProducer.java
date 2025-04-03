@@ -2,6 +2,8 @@ package com.balionis.dainius.lesson8.producer.stream;
 
 import com.balionis.dainius.lesson8.producer.ApplicationException;
 import com.balionis.dainius.lesson8.producer.generated.model.SendMessageRequest;
+import com.balionis.dainius.lesson8.producer.stream.mappers.KafkaMessageMapper;
+import com.balionis.dainius.lesson8.producer.stream.model.KafkaMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -15,11 +17,13 @@ import java.util.concurrent.TimeoutException;
 @RequiredArgsConstructor
 public class KafkaProducer {
 
-    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, KafkaMessage> kafkaTemplate;
 
     private final String topicName;
 
     private final int kafkaTimeoutSeconds;
+
+    private final KafkaMessageMapper kafkaMessageMapper;
 
     public void sendMessage(SendMessageRequest request) {
         try  {
@@ -30,7 +34,8 @@ public class KafkaProducer {
         }
     }
 
-    private ProducerRecord<String, String> createRecord(SendMessageRequest request) {
-        return new ProducerRecord<>(topicName, request.getMessageId().toString(), request.getMessage());
+    private ProducerRecord<String, KafkaMessage> createRecord(SendMessageRequest request) {
+        var message = kafkaMessageMapper.apply(request);
+        return new ProducerRecord<>(topicName, message.getMessageId().toString(), message);
     }
 }

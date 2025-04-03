@@ -16,6 +16,8 @@ spring:
   kafka:
     bootstrap-servers: "localhost:3333"
     producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
       acks: all
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        "spring.json.type.mapping": "message:com.balionis.dainius.lesson8.producer.stream.model.KafkaMessage"

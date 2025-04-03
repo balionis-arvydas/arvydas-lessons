@@ -11,12 +11,6 @@ server:
   max-http-request-header-size: 16KB
   shutdown: graceful
 
-# TODO: move it under spring.kafka.consumer.properties?
-#kafka:
-#  bootstrap-servers: "localhost:3333"
-#  polling-timeout: 3000
-#  concurrency: 3
-
 spring:
   application:
     name: dainius-lession8-consumer
@@ -30,4 +24,6 @@ spring:
       client-id: ${spring.application.name}
       fetch-max-wait: 3000
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        "spring.json.type.mapping": "message:com.balionis.dainius.lesson8.consumer.stream.model.KafkaMessage"

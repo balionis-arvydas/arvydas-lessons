@@ -2,10 +2,13 @@ package com.balionis.dainius.lesson8.producer.stream;
 
 import com.balionis.dainius.lesson8.producer.ApplicationException;
 import com.balionis.dainius.lesson8.producer.generated.model.SendMessageRequest;
+import com.balionis.dainius.lesson8.producer.stream.mappers.KafkaMessageMapper;
+import com.balionis.dainius.lesson8.producer.stream.model.KafkaMessage;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mapstruct.factory.Mappers;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -29,16 +32,19 @@ public class KafkaProducerTest {
     private static final String TEST_TOPIC = "test-topic";
 
     @Mock
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private KafkaTemplate<String, KafkaMessage> kafkaTemplate;
 
     @Mock
-    private CompletableFuture<SendResult<String, String>> kafkaResult;
+    private CompletableFuture<SendResult<String, KafkaMessage>> kafkaResult;
 
     private KafkaProducer kafkaProducer;
 
+    private KafkaMessageMapper kafkaMessageMapper;
+
     @BeforeEach
     void setUp() {
-        kafkaProducer = new KafkaProducer(kafkaTemplate, TEST_TOPIC, 1);
+        kafkaMessageMapper = Mappers.getMapper(KafkaMessageMapper.class);
+        kafkaProducer = new KafkaProducer(kafkaTemplate, TEST_TOPIC, 1, kafkaMessageMapper);
     }
 
     @Test
@@ -46,7 +52,9 @@ public class KafkaProducerTest {
 
         var request = createRequest();
 
-        var record = new ProducerRecord<>(TEST_TOPIC, request.getMessageId().toString(), request.getMessage());
+        var message = kafkaMessageMapper.apply(request);
+
+        var record = new ProducerRecord<>(TEST_TOPIC, message.getMessageId().toString(), message);
 
         when(kafkaTemplate.send(record)).thenReturn(kafkaResult);
 
@@ -60,7 +68,9 @@ public class KafkaProducerTest {
 
         var request = createRequest();
 
-        var record = new ProducerRecord<>(TEST_TOPIC, request.getMessageId().toString(), request.getMessage());
+        var message = kafkaMessageMapper.apply(request);
+
+        var record = new ProducerRecord<>(TEST_TOPIC, message.getMessageId().toString(), message);
 
         doThrow(new TimeoutException("cannot send"))
                 .when(kafkaResult).get(1, TimeUnit.SECONDS);

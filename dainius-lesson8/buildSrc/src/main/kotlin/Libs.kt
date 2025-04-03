@@ -27,4 +27,7 @@ object Libs {
     const val SPRING_KAFKA = "org.springframework.kafka:spring-kafka"
     const val SPRING_KAFKA_TEST = "org.springframework.kafka:spring-kafka-test"
 
+    const val MAPSTRUCT_CORE = "org.mapstruct:mapstruct:1.6.3"
+    const val MAPSTRUCT_PROCESSOR = "org.mapstruct:mapstruct-processor:1.6.3"
+
 }
