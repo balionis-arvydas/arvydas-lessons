@@ -29,7 +29,10 @@
 8. [dainius-lesson8](./dainius-lesson8)
   - What is Kafka?
   - What is Spring Kafka (default config)
-8. [dainius-lesson9](./dainius-lesson9)
-- How to configure Spring Kafka factories and templates manually?
-- How to pass the JSON message from producer to consumer?
+  - How to pass the JSON message from producer to consumer?
+9. [dainius-lesson9](./dainius-lesson9)
+  - How to configure Spring Kafka factories and templates manually?
+10.[dianius-lesson10](./dainius-lesson10)
+  - use dainius-lession9 as baseline
+  - move from wurstmeister to confluent kafka
 ...

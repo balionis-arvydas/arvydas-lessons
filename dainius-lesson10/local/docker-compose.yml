@@ -1,0 +1,55 @@
+networks:
+  balionis-network:
+    name: balionis-network
+
+services:
+  local-zookeeper:
+    container_name: local-zookeeper
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+    networks:
+      - balionis-network
+  local-kafka:
+    container_name: local-kafka
+    image: wurstmeister/kafka:2.13-2.6.0
+    ports:
+      - "9094:9094"
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: "local-zookeeper:2181"
+      KAFKA_INTER_BROKER_LISTENER_NAME: "INSIDE"
+      KAFKA_ADVERTISED_LISTENERS: "INSIDE://:9092,OUTSIDE://127.0.0.1:9094,DOCKER_INTERNAL://local-kafka:19092"
+      KAFKA_LISTENERS: "INSIDE://:9092,OUTSIDE://:9094,DOCKER_INTERNAL://:19092"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT,DOCKER_INTERNAL:PLAINTEXT"
+      KAFKA_CREATE_TOPICS: "my-messages:1:1"
+      KAFKA_LOG_DIRS: "/kafka/kafka-logs"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - local-zookeeper
+    networks:
+      - balionis-network
+  local-producer:
+    container_name: local-producer
+    image: dainius-lesson10-producer:latest
+    ports:
+      - "8081:9090"
+    environment:
+      JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
+      KAFKA_BROKER: "local-kafka:19092"
+    volumes:
+      - ./docker/config/producer:/app/config
+    networks:
+      - balionis-network
+  local-consumer:
+    container_name: local-consumer
+    image: dainius-lesson10-consumer:latest
+    ports:
+      - "8082:9090"
+    environment:
+      JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
+      KAFKA_BROKER: "local-kafka:19092"
+    volumes:
+      - ./docker/config/consumer:/app/config
+    networks:
+      - balionis-network

@@ -1,0 +1,5 @@
+app:
+  service:
+    name: test
+server:
+  port: 0
