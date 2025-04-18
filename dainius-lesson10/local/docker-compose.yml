@@ -5,24 +5,35 @@ networks:
 services:
   local-zookeeper:
     container_name: local-zookeeper
-    image: wurstmeister/zookeeper
+    image: confluentinc/cp-zookeeper:7.3.2
     ports:
       - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_SERVER_ID: 1
+      ZOOKEEPER_SERVERS: zookeeper:2888:3888
     networks:
       - balionis-network
   local-kafka:
     container_name: local-kafka
-    image: wurstmeister/kafka:2.13-2.6.0
+    image: confluentinc/cp-kafka:7.3.2
     ports:
       - "9094:9094"
     environment:
       KAFKA_ZOOKEEPER_CONNECT: "local-zookeeper:2181"
       KAFKA_INTER_BROKER_LISTENER_NAME: "INSIDE"
-      KAFKA_ADVERTISED_LISTENERS: "INSIDE://:9092,OUTSIDE://127.0.0.1:9094,DOCKER_INTERNAL://local-kafka:19092"
-      KAFKA_LISTENERS: "INSIDE://:9092,OUTSIDE://:9094,DOCKER_INTERNAL://:19092"
+      KAFKA_ADVERTISED_LISTENERS: "INSIDE://:9092,OUTSIDE://${DOCKER_HOST_IP:-127.0.0.1}:9094,DOCKER_INTERNAL://local-kafka:19092"
+      KAFKA_LISTENERS: "INSIDE://:9092,OUTSIDE://${DOCKER_HOST_IP:-127.0.0.1}:9094,DOCKER_INTERNAL://:19092"
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT,DOCKER_INTERNAL:PLAINTEXT"
       KAFKA_CREATE_TOPICS: "my-messages:1:1"
-      KAFKA_LOG_DIRS: "/kafka/kafka-logs"
+      KAFKA_LOG4J_LOGGERS: "kafka.controller=INFO,kafka.producer.async.DefaultEventHandler=INFO,state.change.logger=INFO"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_JMX_PORT: 9999
+      KAFKA_JMX_HOSTNAME: ${DOCKER_HOST_IP:-127.0.0.1}
+      KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
+      KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
