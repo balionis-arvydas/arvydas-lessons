@@ -29,4 +29,7 @@ object Libs {
 
     const val MAPSTRUCT_CORE = "org.mapstruct:mapstruct:1.6.3"
     const val MAPSTRUCT_PROCESSOR = "org.mapstruct:mapstruct-processor:1.6.3"
+
+    const val AVRO = "org.apache.avro:avro:1.11.0"
+    const val AVRO_TOOLS = "org.apache.avro:avro-tools:1.11.0"
 }

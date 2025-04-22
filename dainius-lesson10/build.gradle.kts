@@ -11,7 +11,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.7"
 }
 
-val javaProjects = setOf(
+val springProjects = setOf(
     "dainius-lesson10-producer",
     "dainius-lesson10-consumer"
 )
@@ -34,7 +34,7 @@ val dockerProjects = setOf(
 
 subprojects {
 
-    if (javaProjects.contains(this.project.name)) {
+    if (springProjects.contains(this.project.name)) {
         apply {
             plugin("java")
             plugin("jacoco")

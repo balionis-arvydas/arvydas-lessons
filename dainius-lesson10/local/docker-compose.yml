@@ -40,6 +40,22 @@ services:
       - local-zookeeper
     networks:
       - balionis-network
+  local-schema-registry:
+    image: confluentinc/cp-schema-registry:5.1.2
+    container_name: local-schema-registry
+    restart: always
+    ports:
+      - "8181:8181"
+    environment:
+      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: "local-zookeeper:2181"
+      SCHEMA_REGISTRY_HOST_NAME: local-schema-registry
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8181
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'PLAINTEXT://local-kafka:19092'
+    depends_on:
+      - local-zookeeper
+      - local-kafka
+    networks:
+      - balionis-network
   local-producer:
     container_name: local-producer
     image: dainius-lesson10-producer:latest
