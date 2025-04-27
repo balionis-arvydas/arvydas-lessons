@@ -1,7 +1,0 @@
-@namespace("com.balionis.lesson10.avro.generated.v1")
-protocol MyMessages {
-	record Message {
-		string messageId;
-		string message;
-	}
-}
