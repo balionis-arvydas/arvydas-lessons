@@ -27,7 +27,7 @@ object Libs {
     const val SPRING_KAFKA = "org.springframework.kafka:spring-kafka"
     const val SPRING_KAFKA_TEST = "org.springframework.kafka:spring-kafka-test"
 
-    const val AVRO = "org.apache.avro:avro:1.11.0"
+    const val AVRO = "org.apache.avro:avro:1.11.4"
 
     const val KAFKA_AVRO_SERIALIZER = "io.confluent:kafka-avro-serializer:7.8.0"
     const val KAFKA_SCHEMA_SERIALIZER = "io.confluent:kafka-schema-serializer:7.8.0"
