@@ -4,9 +4,6 @@
   - What is SDLC?
   - What is the benefit of dependencies (libraries) 
   - What is the benefit of gradle
-2. [dainius-lesson2](./dainius-lesson2)
-  - Why do we do automated testing?
-  - What is the benefit of JUnit?
 3. [dainius-lesson3](./dainius-lesson3)
   - Why do we need configuration management?
   - What is (conditional) dependency injection?
