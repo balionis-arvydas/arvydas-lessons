@@ -11,5 +11,10 @@ spring:
     bootstrap-servers: "${spring.embedded.kafka.brokers:localhost:3333}"
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-
+      value-serializer: com.balionis.dainius.lesson10.consumer.stream.serializers.TestKafkaAvroSerializer
+    consumer:
+      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+    properties:
+      "spring.deserializer.key.delegate.class": org.apache.kafka.common.serialization.StringDeserializer
+      "spring.deserializer.value.delegate.class": com.balionis.dainius.lesson10.consumer.stream.serializers.TestKafkaAvroDeserializer

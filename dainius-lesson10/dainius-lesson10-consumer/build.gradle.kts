@@ -36,6 +36,7 @@ dependencies {
     testImplementation(Libs.SPRING_KAFKA_TEST)
 
     implementation(Libs.KAFKA_AVRO_SERIALIZER)
+    testImplementation(Libs.KAFKA_SCHEMA_SERIALIZER)
     implementation(project(":dainius-lesson10-avro"))
 }
 
