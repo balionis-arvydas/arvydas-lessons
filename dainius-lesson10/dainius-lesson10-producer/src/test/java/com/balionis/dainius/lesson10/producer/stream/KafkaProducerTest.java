@@ -1,14 +1,13 @@
 package com.balionis.dainius.lesson10.producer.stream;
 
+import com.balionis.dainius.lesson10.avro.generated.v1.KafkaMessage;
 import com.balionis.dainius.lesson10.producer.ApplicationException;
 import com.balionis.dainius.lesson10.producer.generated.model.SendMessageRequest;
 import com.balionis.dainius.lesson10.producer.stream.mappers.KafkaMessageMapper;
-import com.balionis.dainius.lesson10.producer.stream.model.KafkaMessage;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mapstruct.factory.Mappers;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -43,7 +42,7 @@ public class KafkaProducerTest {
 
     @BeforeEach
     void setUp() {
-        kafkaMessageMapper = Mappers.getMapper(KafkaMessageMapper.class);
+        kafkaMessageMapper = new KafkaMessageMapper();
         kafkaProducer = new KafkaProducer(kafkaTemplate, TEST_TOPIC, 1, kafkaMessageMapper);
     }
 

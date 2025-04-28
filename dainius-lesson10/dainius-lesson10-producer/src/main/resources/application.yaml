@@ -12,12 +12,13 @@ server:
 
 spring:
   application:
-    name: dainius-lession8-producer
+    name: dainius-lession10-producer
   kafka:
     bootstrap-servers: "localhost:3333"
     producer:
       acks: all
+      retries: 3
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-      properties:
-        "spring.json.type.mapping": "message:com.balionis.dainius.lesson10.producer.stream.model.KafkaMessage"
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+    properties:
+      "schema.registry.url": ${KAFKA_SCHEMA_REGISTRY_URL:mock://}

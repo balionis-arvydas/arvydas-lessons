@@ -1,9 +1,9 @@
 package com.balionis.dainius.lesson10.producer.stream;
 
+import com.balionis.dainius.lesson10.avro.generated.v1.KafkaMessage;
 import com.balionis.dainius.lesson10.producer.ApplicationException;
 import com.balionis.dainius.lesson10.producer.generated.model.SendMessageRequest;
 import com.balionis.dainius.lesson10.producer.stream.mappers.KafkaMessageMapper;
-import com.balionis.dainius.lesson10.producer.stream.model.KafkaMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.ProducerRecord;

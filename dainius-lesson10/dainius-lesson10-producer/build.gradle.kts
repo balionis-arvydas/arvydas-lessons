@@ -34,8 +34,8 @@ dependencies {
 
     implementation(Libs.SPRING_KAFKA)
 
-    implementation(Libs.MAPSTRUCT_CORE)
-    annotationProcessor(Libs.MAPSTRUCT_PROCESSOR)
+    implementation(Libs.KAFKA_AVRO_SERIALIZER)
+    implementation(Libs.DAINIUS_LESSON10_AVRO)
 }
 
 openApiValidate {

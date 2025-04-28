@@ -1,10 +1,14 @@
 package com.balionis.dainius.lesson10.consumer.stream.mappers;
 
+import com.balionis.dainius.lesson10.avro.generated.v1.KafkaMessage;
 import com.balionis.dainius.lesson10.consumer.generated.model.Message;
-import com.balionis.dainius.lesson10.consumer.stream.model.KafkaMessage;
-import org.mapstruct.Mapper;
 
-@Mapper(implementationPackage = "com.balionis.dainius.lesson10.consumer.stream.mappers.impl")
-public interface KafkaMessageMapper {
-    Message apply(KafkaMessage message);
+import java.util.UUID;
+
+public class KafkaMessageMapper {
+    public Message apply(KafkaMessage message) {
+        return new Message()
+                .messageId(UUID.fromString(message.getMessageId()))
+                .message(message.getMessage());
+    }
 }

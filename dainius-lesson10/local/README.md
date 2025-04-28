@@ -21,7 +21,7 @@ make down
 ## Test
 
 ```
-% curl -v -X GET http://localhost:8081/api/v1/heartbeat
+% curl -v -X GET http://localhost:9091/api/v1/heartbeat
 ...
 < HTTP/1.1 200 
 ...
@@ -35,7 +35,7 @@ make down
 10:36:02.408 [http-nio-9090-exec-1] INFO  c.b.d.l.p.service.HeartbeatService - name=myProducerService
 ...
 
-% curl -v -X GET http://localhost:8082/api/v1/heartbeat   
+% curl -v -X GET http://localhost:9092/api/v1/heartbeat   
 ...
 < HTTP/1.1 200 
 ...
@@ -61,7 +61,7 @@ my-messages
 ### Test kafka producer
 
 ```
-% curl -v -X POST http://localhost:8081/api/v1/producer/message \
+% curl -v -X POST http://localhost:9091/api/v1/producer/message \
 --header 'Content-Type: application/json' \
 --data '{ "messageId": "00000000-0000-0000-0000-000000000000", "message":"hello" }'   
 ...
@@ -80,7 +80,7 @@ my-messages
 ### Test kafka consumer
 
 ```
-% curl -v -X GET http://localhost:8082/api/v1/consumer/message   
+% curl -v -X GET http://localhost:9092/api/v1/consumer/message   
 ...
 < HTTP/1.1 200 
 {"messages":[]}

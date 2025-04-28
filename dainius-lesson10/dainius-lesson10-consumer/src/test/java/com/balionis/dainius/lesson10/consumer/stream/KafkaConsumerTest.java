@@ -6,10 +6,10 @@ import static org.awaitility.Durations.FIVE_SECONDS;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 
+import com.balionis.dainius.lesson10.avro.generated.v1.KafkaMessage;
 import com.balionis.dainius.lesson10.consumer.Application;
 import com.balionis.dainius.lesson10.consumer.generated.model.Message;
 import com.balionis.dainius.lesson10.consumer.service.ConsumerService;
-import com.balionis.dainius.lesson10.consumer.stream.model.KafkaMessage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +47,10 @@ public class KafkaConsumerTest {
     @Test
     void should_listen_success() {
 
-        var message = KafkaMessage.builder().messageId(UUID.randomUUID()).message("hello").build();
+        var message = KafkaMessage.newBuilder()
+                .setMessageId(UUID.randomUUID().toString())
+                .setMessage("hello")
+                .build();
         kafkaTemplate.send(topicName, message.getMessageId().toString(), message);
 
         await().pollDelay(ONE_SECOND).atMost(FIVE_SECONDS)

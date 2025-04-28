@@ -1,9 +1,8 @@
 package com.balionis.dainius.lesson10.consumer.stream;
 
-import com.balionis.dainius.lesson10.consumer.generated.model.Message;
+import com.balionis.dainius.lesson10.avro.generated.v1.KafkaMessage;
 import com.balionis.dainius.lesson10.consumer.service.ConsumerService;
 import com.balionis.dainius.lesson10.consumer.stream.mappers.KafkaMessageMapper;
-import com.balionis.dainius.lesson10.consumer.stream.model.KafkaMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;

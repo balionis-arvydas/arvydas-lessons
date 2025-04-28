@@ -1,10 +1,13 @@
 package com.balionis.dainius.lesson10.producer.stream.mappers;
 
 import com.balionis.dainius.lesson10.producer.generated.model.SendMessageRequest;
-import com.balionis.dainius.lesson10.producer.stream.model.KafkaMessage;
-import org.mapstruct.Mapper;
+import com.balionis.dainius.lesson10.avro.generated.v1.KafkaMessage;
 
-@Mapper(implementationPackage = "com.balionis.dainius.lesson10.producer.stream.mappers.impl")
-public interface KafkaMessageMapper {
-    KafkaMessage apply(SendMessageRequest message);
+public class KafkaMessageMapper {
+    public KafkaMessage apply(SendMessageRequest message) {
+        return KafkaMessage.newBuilder()
+                .setMessageId(message.getMessageId().toString())
+                .setMessage(message.getMessage())
+                .build();
+    }
 }

@@ -1,11 +1,10 @@
 package com.balionis.dainius.lesson10.producer.configuration;
 
+import com.balionis.dainius.lesson10.avro.generated.v1.KafkaMessage;
 import com.balionis.dainius.lesson10.producer.service.HeartbeatService;
 import com.balionis.dainius.lesson10.producer.stream.KafkaProducer;
 import com.balionis.dainius.lesson10.producer.stream.mappers.KafkaMessageMapper;
-import com.balionis.dainius.lesson10.producer.stream.model.KafkaMessage;
 import lombok.RequiredArgsConstructor;
-import org.mapstruct.factory.Mappers;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -32,6 +31,6 @@ public class AppConfiguration {
 
     @Bean
     public KafkaMessageMapper kafkaMessageMapper() {
-        return Mappers.getMapper(KafkaMessageMapper.class);
+        return new KafkaMessageMapper();
     }
 }
