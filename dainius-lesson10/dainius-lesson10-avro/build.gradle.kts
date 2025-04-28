@@ -46,26 +46,3 @@ sourceSets {
 tasks.compileJava {
     dependsOn(tasks["generateAvroJava"])
 }
-
-val instrumentedJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("instrumented")
-    from(sourceSets.main.get().output)
-}
-
-configurations {
-    create("instrumentedJars") {
-        isCanBeConsumed = true
-        isCanBeResolved = false
-        attributes {
-            attribute(Category.CATEGORY_ATTRIBUTE, objects.named(Category.LIBRARY))
-            attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage.JAVA_RUNTIME))
-            attribute(LibraryElements.LIBRARY_ELEMENTS_ATTRIBUTE, objects.named("instrumented-jar"))
-        }
-    }
-}
-
-artifacts {
-    add("instrumentedJars", instrumentedJar)
-}
-
-

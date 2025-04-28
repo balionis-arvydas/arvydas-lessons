@@ -106,14 +106,3 @@ tasks.named<BootJar>("bootJar") {
     mainClass.set("com.balionis.dainius.lesson10.producer.Application")
     archiveFileName.set("${archiveBaseName.get()}-all.${archiveExtension.get()}");
 }
-
-configurations {
-    implementation {
-        isCanBeConsumed = false
-        isCanBeResolved = true
-        attributes {
-            attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage.JAVA_RUNTIME))
-            attribute(LibraryElements.LIBRARY_ELEMENTS_ATTRIBUTE, objects.named("instrumented-jar"))
-        }
-    }
-}
