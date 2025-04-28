@@ -27,14 +27,9 @@ object Libs {
     const val SPRING_KAFKA = "org.springframework.kafka:spring-kafka"
     const val SPRING_KAFKA_TEST = "org.springframework.kafka:spring-kafka-test"
 
-    const val MAPSTRUCT_CORE = "org.mapstruct:mapstruct:1.6.3"
-    const val MAPSTRUCT_PROCESSOR = "org.mapstruct:mapstruct-processor:1.6.3"
-
     const val AVRO = "org.apache.avro:avro:1.11.0"
 
     const val KAFKA_AVRO_SERIALIZER = "io.confluent:kafka-avro-serializer:7.8.0"
-    const val KAFKA_SCHEMA_SERIALIZER = "io.confluent:kafka-schema-serializer:7.8.0"
-
-    const val DAINIUS_LESSON10_AVRO = "com.balionis:dainius-lesson10-avro:1.0-SNAPSHOT-7495ca6"
+    // const val KAFKA_SCHEMA_SERIALIZER = "io.confluent:kafka-schema-serializer:7.8.0"
 
 }

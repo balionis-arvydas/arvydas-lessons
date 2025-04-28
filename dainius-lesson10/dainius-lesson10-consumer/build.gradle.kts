@@ -36,7 +36,7 @@ dependencies {
     testImplementation(Libs.SPRING_KAFKA_TEST)
 
     implementation(Libs.KAFKA_AVRO_SERIALIZER)
-    implementation(Libs.DAINIUS_LESSON10_AVRO)
+    implementation(project(":dainius-lesson10-avro"))
 }
 
 openApiValidate {
@@ -105,4 +105,15 @@ tasks.jacocoTestCoverageVerification {
 tasks.named<BootJar>("bootJar") {
     mainClass.set("com.balionis.dainius.lesson10.consumer.Application")
     archiveFileName.set("${archiveBaseName.get()}-all.${archiveExtension.get()}");
+}
+
+configurations {
+    implementation {
+        isCanBeConsumed = false
+        isCanBeResolved = true
+        attributes {
+            attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage.JAVA_RUNTIME))
+            attribute(LibraryElements.LIBRARY_ELEMENTS_ATTRIBUTE, objects.named("instrumented-jar"))
+        }
+    }
 }
