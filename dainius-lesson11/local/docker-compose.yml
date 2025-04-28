@@ -1,0 +1,95 @@
+networks:
+  balionis-network:
+    name: balionis-network
+
+services:
+  local-zookeeper:
+    container_name: local-zookeeper
+    hostname: local-zookeeper
+    image: confluentinc/cp-zookeeper:7.6.5
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_SERVER_ID: 1
+      ZOOKEEPER_SERVERS: zookeeper:2888:3888
+    networks:
+      - balionis-network
+  local-kafka:
+    container_name: local-kafka
+    hostname: local-kafka
+    image: confluentinc/cp-kafka:7.6.5
+    ports:
+      - "9094:9094"
+      - "19092:19092"
+      - "29092:29092"
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: "local-zookeeper:2181"
+      KAFKA_INTER_BROKER_LISTENER_NAME: "INSIDE"
+      KAFKA_ADVERTISED_LISTENERS: "INSIDE://:9092,OUTSIDE://127.0.0.1:9094,DOCKER_INTERNAL://local-kafka:19092,PLAINTEXT://local-kafka:29092"
+      KAFKA_LISTENERS: "INSIDE://:9092,OUTSIDE://:9094,DOCKER_INTERNAL://:19092,PLAINTEXT://:29092"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT,DOCKER_INTERNAL:PLAINTEXT,PLAINTEXT:PLAINTEXT"
+      KAFKA_CREATE_TOPICS: "my-messages:1:1"
+      KAFKA_LOG4J_LOGGERS: "kafka.controller=INFO,kafka.producer.async.DefaultEventHandler=INFO,state.change.logger=INFO"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_JMX_PORT: 9999
+      KAFKA_JMX_HOSTNAME: ${DOCKER_HOST_IP:-127.0.0.1}
+      KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
+      KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - local-zookeeper
+      - local-schema-registry
+    networks:
+      - balionis-network
+  local-schema-registry:
+    image: confluentinc/cp-schema-registry:7.6.5
+    hostname: local-schema-registry
+    container_name: local-schema-registry
+    restart: always
+    ports:
+      - "8085:8085"
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: local-schema-registry
+      SCHEMA_REGISTRY_LISTENERS: "http://0.0.0.0:8085"
+      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: "local-zookeeper:2181"
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'PLAINTEXT://local-kafka:29092'
+    depends_on:
+      - local-zookeeper
+    networks:
+      - balionis-network
+  local-producer:
+    container_name: local-producer
+    hostname: local-producer
+    image: dainius-lesson11-producer:latest
+    ports:
+      - "9091:9090"
+    environment:
+      JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: "local-kafka:19092"
+      KAFKA_SCHEMA_REGISTRY_URL: "http://local-schema-registry:8085"
+    volumes:
+      - ./docker/config/producer:/app/config
+    depends_on:
+      - local-kafka
+    networks:
+      - balionis-network
+  local-consumer:
+    container_name: local-consumer
+    hostname: local-consumer
+    image: dainius-lesson11-consumer:latest
+    ports:
+      - "9092:9090"
+    environment:
+      JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: "local-kafka:19092"
+      KAFKA_SCHEMA_REGISTRY_URL: "http://local-schema-registry:8085"
+    volumes:
+      - ./docker/config/consumer:/app/config
+    depends_on:
+      - local-kafka
+    networks:
+      - balionis-network

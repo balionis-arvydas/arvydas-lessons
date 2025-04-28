@@ -32,7 +32,12 @@
   - How to pass the JSON message from producer to consumer?
 9. [dainius-lesson9](./dainius-lesson9)
   - How to configure Spring Kafka factories and templates manually?
-10. [dianius-lesson10](./dainius-lesson10)
-  - use dainius-lession88888888 as baseline
+10. [dainius-lesson10](./dainius-lesson10)
+  - use dainius-lession8 as baseline
   - move from wurstmeister to confluent kafka
+11. [dainius-lesson11](./dainius-lesson11)
+  - use dainius-lession10 as baseline
+  - add kafka monitoring
+  - add kafka retries
+  - add kafka message scheduling in producer
 ...
