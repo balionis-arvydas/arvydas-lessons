@@ -38,6 +38,9 @@ dependencies {
     implementation(Libs.KAFKA_AVRO_SERIALIZER)
     testImplementation(Libs.KAFKA_SCHEMA_SERIALIZER)
     implementation(project(":dainius-lesson11-avro"))
+
+    implementation(Libs.SPRING_BOOT_STARTER_ACTUATOR)
+    implementation(Libs.MICROMETER_REGISTRY_PROMETHEUS)
 }
 
 openApiValidate {

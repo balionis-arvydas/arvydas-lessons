@@ -97,3 +97,49 @@ my-messages
 ...
 
 ```
+
+#### Test kafka consumer observability 
+
+```
+% curl -s -X GET http://localhost:9002/actuator/health | jq .
+{
+  "status": "UP",
+  "components": {
+    "diskSpace": {
+      "status": "UP",
+      "details": {
+        "total": 62671097856,
+        "free": 53008785408,
+        "threshold": 10485760,
+        "path": "/app/.",
+        "exists": true
+      }
+    },
+    "livenessState": {
+      "status": "UP"
+    },
+    "ping": {
+      "status": "UP"
+    },
+    "readinessState": {
+      "status": "UP"
+    }
+  },
+  "groups": [
+    "liveness",
+    "readiness"
+  ]
+}
+```
+
+```
+% curl -s -X GET 'http://localhost:9002/actuator/prometheus?includedNames=kafka_consumer_fetch_manager_records_lag%2Ckafka_consumer_request_rate'
+# HELP kafka_consumer_fetch_manager_records_lag The latest lag of the partition
+# TYPE kafka_consumer_fetch_manager_records_lag gauge
+kafka_consumer_fetch_manager_records_lag{client_id="dainius-lesson11-consumer-0",kafka_version="3.7.1",partition="0",spring_id="consumerFactory.dainius-lesson11-consumer-0",topic="my-messages"} 0.0
+# HELP kafka_consumer_request_rate The number of requests sent per second
+# TYPE kafka_consumer_request_rate gauge
+kafka_consumer_request_rate{client_id="dainius-lesson11-consumer-0",kafka_version="3.7.1",spring_id="consumerFactory.dainius-lesson11-consumer-0"} 0.6845685010158113
+```
+
+

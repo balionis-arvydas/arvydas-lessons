@@ -32,4 +32,7 @@ object Libs {
     const val KAFKA_AVRO_SERIALIZER = "io.confluent:kafka-avro-serializer:7.8.0"
     const val KAFKA_SCHEMA_SERIALIZER = "io.confluent:kafka-schema-serializer:7.8.0"
 
+    const val SPRING_BOOT_STARTER_ACTUATOR = "org.springframework.boot:spring-boot-starter-actuator"
+    const val MICROMETER_REGISTRY_PROMETHEUS = "io.micrometer:micrometer-registry-prometheus:1.13.4"
+
 }

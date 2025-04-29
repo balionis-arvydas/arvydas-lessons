@@ -12,7 +12,7 @@ server:
 
 spring:
   application:
-    name: dainius-lession10-producer
+    name: dainius-lesson11-producer
   kafka:
     bootstrap-servers: "localhost:3333"
     producer:

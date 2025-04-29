@@ -83,6 +83,7 @@ services:
     image: dainius-lesson11-consumer:latest
     ports:
       - "9092:9090"
+      - "9002:9001"
     environment:
       JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
       SPRING_KAFKA_BOOTSTRAP_SERVERS: "local-kafka:19092"
