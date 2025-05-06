@@ -142,4 +142,46 @@ kafka_consumer_fetch_manager_records_lag{client_id="dainius-lesson11-consumer-0"
 kafka_consumer_request_rate{client_id="dainius-lesson11-consumer-0",kafka_version="3.7.1",spring_id="consumerFactory.dainius-lesson11-consumer-0"} 0.6845685010158113
 ```
 
+## Run Monitoring
+
+In order to start a full environment, run:
+```shell
+make up-monitoring
+```
+
+To kill all the containers, execute:
+```shell
+make down-monitoring
+```
+
+## Test Monitoring
+
+### Test Prometheus 
+
+```shell
+curl -G 'http://localhost:9090/api/v1/metadata'
+...
+{"status":"success","data":{"application_ready_time_seconds":[{"type":"gauge","unit":"","help":"Time taken... }
+```
+
+### Test Grafana
+
+```shell
+curl -X GET 'http://admin:grafana@localhost:3000/api/datasources'
+...
+[{"id":1,"uid":"PBFA97CFB590B2093","orgId":1,"name":"Prometheus","type":"prometheus",...,"readOnly":false}] 
+```
+
+```shell
+curl -X POST 'http://admin:grafana@localhost:3000/api/dashboards/db' \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  --data-binary '@docker/config/dashboards/demo-consumer.json'
+...
+curl http://localhost:3000 
+...
+```
+
+
+
 
