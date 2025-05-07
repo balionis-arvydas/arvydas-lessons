@@ -146,12 +146,12 @@ kafka_consumer_request_rate{client_id="dainius-lesson11-consumer-0",kafka_versio
 
 In order to start a full environment, run:
 ```shell
-make up-monitoring
+COMPONENTS=monitoring make up
 ```
 
 To kill all the containers, execute:
 ```shell
-make down-monitoring
+COMPONENTS=monitoring make down
 ```
 
 ## Test Monitoring
@@ -180,6 +180,8 @@ curl -X POST 'http://admin:grafana@localhost:3000/api/dashboards/db' \
 ...
 curl http://localhost:3000 
 ...
+username: admin
+password: grafana
 ```
 
 

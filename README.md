@@ -34,7 +34,6 @@
   - move from wurstmeister to confluent kafka
 11. [dainius-lesson11](./dainius-lesson11)
   - use dainius-lession10 as baseline
-  - add kafka monitoring
-  - add kafka retries
-  - add kafka message scheduling in producer
+  - add kafka monitoring with grafana
+  - add kafka tracing with <TBC>
 ...

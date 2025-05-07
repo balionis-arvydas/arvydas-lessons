@@ -15,6 +15,8 @@ services:
       ZOOKEEPER_SERVERS: zookeeper:2888:3888
     networks:
       - balionis-network
+    profiles:
+      - kafka
   local-kafka:
     container_name: local-kafka
     hostname: local-kafka
@@ -45,6 +47,8 @@ services:
       - local-schema-registry
     networks:
       - balionis-network
+    profiles:
+      - kafka
   local-schema-registry:
     image: confluentinc/cp-schema-registry:7.6.5
     hostname: local-schema-registry
@@ -61,6 +65,8 @@ services:
       - local-zookeeper
     networks:
       - balionis-network
+    profiles:
+      - kafka
   local-producer:
     container_name: local-producer
     hostname: local-producer
@@ -77,6 +83,8 @@ services:
       - local-kafka
     networks:
       - balionis-network
+    profiles:
+      - service
   local-consumer:
     container_name: local-consumer
     hostname: local-consumer
@@ -94,3 +102,38 @@ services:
       - local-kafka
     networks:
       - balionis-network
+    profiles:
+      - service
+  local-prometheus:
+    image: prom/prometheus
+    container_name: local-prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - 9090:9090
+    restart: unless-stopped
+    volumes:
+      - ./docker/config/prometheus:/etc/prometheus
+      - prometheus_data:/prometheus
+    networks:
+      - balionis-network
+    profiles:
+      - monitoring
+  local-grafana:
+    image: grafana/grafana
+    container_name: local-grafana
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=grafana
+    volumes:
+      - ./docker/config/grafana/datasources:/etc/grafana/provisioning/datasources:ro
+      - ./docker/config/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+    networks:
+      - balionis-network
+    profiles:
+      - monitoring
+volumes:
+  prometheus_data:

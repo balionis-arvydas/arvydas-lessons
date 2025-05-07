@@ -1,6 +1,6 @@
 # dainius-lesson11
 
-This project shows how to retry and monitor kafka messages. It is a clone from lesson11.
+This project shows how to monitor and trace kafka messages. It is a clone from lesson10.
 
 ## Build
 
