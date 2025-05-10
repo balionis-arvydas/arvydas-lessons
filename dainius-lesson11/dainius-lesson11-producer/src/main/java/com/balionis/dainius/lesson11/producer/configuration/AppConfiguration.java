@@ -5,9 +5,11 @@ import com.balionis.dainius.lesson11.producer.service.HeartbeatService;
 import com.balionis.dainius.lesson11.producer.stream.KafkaProducer;
 import com.balionis.dainius.lesson11.producer.stream.mappers.KafkaMessageMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.web.client.RestTemplate;
 
 @Configuration
 @RequiredArgsConstructor
@@ -32,5 +34,10 @@ public class AppConfiguration {
     @Bean
     public KafkaMessageMapper kafkaMessageMapper() {
         return new KafkaMessageMapper();
+    }
+
+    @Bean
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder.build();
     }
 }

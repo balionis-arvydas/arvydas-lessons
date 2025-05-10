@@ -77,6 +77,7 @@ services:
       JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
       SPRING_KAFKA_BOOTSTRAP_SERVERS: "local-kafka:19092"
       KAFKA_SCHEMA_REGISTRY_URL: "http://local-schema-registry:8085"
+      JAEGER_TRACING_URL: "http://local-jaeger:9411/api/v2/spans"
     volumes:
       - ./docker/config/producer:/app/config
     depends_on:
@@ -96,6 +97,7 @@ services:
       JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
       SPRING_KAFKA_BOOTSTRAP_SERVERS: "local-kafka:19092"
       KAFKA_SCHEMA_REGISTRY_URL: "http://local-schema-registry:8085"
+      JAEGER_TRACING_URL: "http://local-jaeger:9411/api/v2/spans"
     volumes:
       - ./docker/config/consumer:/app/config
     depends_on:
@@ -105,7 +107,7 @@ services:
     profiles:
       - service
   local-prometheus:
-    image: prom/prometheus
+    image: prom/prometheus:latest
     container_name: local-prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
@@ -120,7 +122,7 @@ services:
     profiles:
       - monitoring
   local-grafana:
-    image: grafana/grafana
+    image: grafana/grafana:latest
     container_name: local-grafana
     ports:
       - 3000:3000
@@ -131,6 +133,18 @@ services:
     volumes:
       - ./docker/config/grafana/datasources:/etc/grafana/provisioning/datasources:ro
       - ./docker/config/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+    networks:
+      - balionis-network
+    profiles:
+      - monitoring
+  local-jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: local-jaeger
+    ports:
+      - "16686:16686" # the Jaeger UI
+      - "9411:9411"   # the Zipkin collector http
+    environment:
+      - COLLECTOR_ZIPKIN_HOST_PORT=:9411
     networks:
       - balionis-network
     profiles:

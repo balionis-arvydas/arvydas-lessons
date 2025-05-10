@@ -184,6 +184,37 @@ username: admin
 password: grafana
 ```
 
+### Test Jaeger 
+
+#### Grab traceId from producer logs
+
+```
+% curl -v -X POST http://localhost:9091/api/v1/producer/message \
+--header 'Content-Type: application/json' \
+--data '{ "messageId": "00000000-0000-0000-0000-000000000000", "message":"hello" }'   
+...
+< HTTP/1.1 200 
+< Content-Length: 0
+...
+
+% docker logs local-producer --follow
+...
+10:48:57.111 [fb3b7415be34f3d48cc394236bcb4c31,5924168bffca07ff] [http-nio-9090-exec-3] INFO  c.b.d.l.p.rest.ProducerController - sendMessageRequest=class SendMessageRequest {
+    messageId: 00000000-0000-0000-0000-000000000000
+    message: hello
+}
+...
+```
+
+#### Find traceId in Jaeger UI (macOS)
+
+```
+open -a "Google Chrome" "http://localhost:16686/" 
+
+// search for fb3b7415be34f3d48cc394236bcb4c31
+```
+
+
 
 
 

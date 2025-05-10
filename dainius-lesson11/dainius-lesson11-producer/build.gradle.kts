@@ -36,6 +36,12 @@ dependencies {
 
     implementation(Libs.KAFKA_AVRO_SERIALIZER)
     implementation(project(":dainius-lesson11-avro"))
+
+    implementation(Libs.SPRING_BOOT_STARTER_ACTUATOR)
+    implementation(Libs.MICROMETER_REGISTRY_PROMETHEUS)
+
+    implementation(Libs.MICROMETER_TRACING_BRIDGE_OTEL)
+    implementation(Libs.OPENTELEMENTRY_EXPORTER_ZIPKIN)
 }
 
 openApiValidate {

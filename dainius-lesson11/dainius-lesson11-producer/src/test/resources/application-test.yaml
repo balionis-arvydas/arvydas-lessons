@@ -3,3 +3,8 @@ app:
     name: test
 server:
   port: 0
+
+management:
+  zipkin:
+    tracing:
+      endpoint: "http://localhost:3334"

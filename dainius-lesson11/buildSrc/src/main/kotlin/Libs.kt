@@ -34,5 +34,6 @@ object Libs {
 
     const val SPRING_BOOT_STARTER_ACTUATOR = "org.springframework.boot:spring-boot-starter-actuator"
     const val MICROMETER_REGISTRY_PROMETHEUS = "io.micrometer:micrometer-registry-prometheus:1.13.4"
-
+    const val MICROMETER_TRACING_BRIDGE_OTEL = "io.micrometer:micrometer-tracing-bridge-otel:1.3.11"
+    const val OPENTELEMENTRY_EXPORTER_ZIPKIN = "io.opentelemetry:opentelemetry-exporter-zipkin:1.37.0"
 }

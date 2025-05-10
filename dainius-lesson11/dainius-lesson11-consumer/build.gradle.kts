@@ -41,6 +41,10 @@ dependencies {
 
     implementation(Libs.SPRING_BOOT_STARTER_ACTUATOR)
     implementation(Libs.MICROMETER_REGISTRY_PROMETHEUS)
+
+    implementation(Libs.MICROMETER_TRACING_BRIDGE_OTEL)
+    implementation(Libs.OPENTELEMENTRY_EXPORTER_ZIPKIN)
+
 }
 
 openApiValidate {

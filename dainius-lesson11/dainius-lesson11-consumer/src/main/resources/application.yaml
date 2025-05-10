@@ -69,3 +69,10 @@ management:
   server:
     port: 9001
 
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: "${JAEGER_TRACING_URL:mock://}"
+
