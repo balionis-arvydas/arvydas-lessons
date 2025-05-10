@@ -18,3 +18,8 @@ spring:
     properties:
       "spring.deserializer.key.delegate.class": org.apache.kafka.common.serialization.StringDeserializer
       "spring.deserializer.value.delegate.class": com.balionis.dainius.lesson11.consumer.stream.serializers.TestKafkaAvroDeserializer
+
+management:
+  zipkin:
+    tracing:
+      endpoint: "http://localhost:3334"

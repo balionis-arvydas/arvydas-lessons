@@ -10,3 +10,4 @@ scrape_configs:
     static_configs:
       - targets:
           - local-consumer:9001
+          - local-producer:9001

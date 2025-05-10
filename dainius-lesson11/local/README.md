@@ -178,7 +178,12 @@ curl -X POST 'http://admin:grafana@localhost:3000/api/dashboards/db' \
   -H 'Content-Type: application/json' \
   --data-binary '@docker/config/dashboards/demo-consumer.json'
 ...
-curl http://localhost:3000 
+```
+
+#### Test Grafana UI (macOS)
+
+```
+open -a "Google Chrome" "http://localhost:3000" 
 ...
 username: admin
 password: grafana
@@ -199,7 +204,7 @@ password: grafana
 
 % docker logs local-producer --follow
 ...
-10:48:57.111 [fb3b7415be34f3d48cc394236bcb4c31,5924168bffca07ff] [http-nio-9090-exec-3] INFO  c.b.d.l.p.rest.ProducerController - sendMessageRequest=class SendMessageRequest {
+10:48:57.111 [3541e014d9cf00757069e32fa23a59c1,5924168bffca07ff] [http-nio-9090-exec-3] INFO  c.b.d.l.p.rest.ProducerController - sendMessageRequest=class SendMessageRequest {
     messageId: 00000000-0000-0000-0000-000000000000
     message: hello
 }
@@ -209,9 +214,8 @@ password: grafana
 #### Find traceId in Jaeger UI (macOS)
 
 ```
-open -a "Google Chrome" "http://localhost:16686/" 
-
-// search for fb3b7415be34f3d48cc394236bcb4c31
+open -a "Google Chrome" "http://localhost:16686/trace/3541e014d9cf00757069e32fa23a59c1" 
+...
 ```
 
 

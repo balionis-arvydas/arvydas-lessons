@@ -1,6 +1,6 @@
 .PHONY: help up down restart
 
-COMPONENTS ?= "kafka service"
+COMPONENTS ?= "monitoring kafka service"
 COMPONENT_LIST = $(shell echo $(COMPONENTS) | tr " " ",")
 
 help:
