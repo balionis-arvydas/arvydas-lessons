@@ -23,7 +23,7 @@ public class KafkaConsumer {
     @Autowired
     private final KafkaMessageMapper kafkaMessageMapper;
 
-    @KafkaListener(topics = "${app.service.kafka.topic-name}")
+    @KafkaListener(topics = "${app.service.kafka.topic-name}", containerFactory = "messageContainerFactory")
     public void listen(ConsumerRecord<String, KafkaMessage> record) {
         log.info("record.key={}, record.value={}", record.key(), record.value());
         var message = kafkaMessageMapper.apply(record.value());
