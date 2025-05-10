@@ -35,5 +35,5 @@
 11. [dainius-lesson11](./dainius-lesson11)
   - use dainius-lession10 as baseline
   - add kafka monitoring with grafana
-  - add kafka tracing with <TBC>
+  - add kafka tracing with spring 3
 ...
