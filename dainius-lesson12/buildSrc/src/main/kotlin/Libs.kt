@@ -24,14 +24,6 @@ object Libs {
     const val JAVAX_VALIDATION_API = "javax.validation:validation-api:2.0.1.Final"
     const val JAVAX_ANNOTATION_API = "javax.annotation:javax.annotation-api:1.3.2"
 
-    const val SPRING_KAFKA = "org.springframework.kafka:spring-kafka"
-    const val SPRING_KAFKA_TEST = "org.springframework.kafka:spring-kafka-test"
-
-    const val AVRO = "org.apache.avro:avro:1.11.4"
-
-    const val KAFKA_AVRO_SERIALIZER = "io.confluent:kafka-avro-serializer:7.8.0"
-    const val KAFKA_SCHEMA_SERIALIZER = "io.confluent:kafka-schema-serializer:7.8.0"
-
     const val SPRING_BOOT_STARTER_ACTUATOR = "org.springframework.boot:spring-boot-starter-actuator"
     const val MICROMETER_REGISTRY_PROMETHEUS = "io.micrometer:micrometer-registry-prometheus:1.13.4"
     const val MICROMETER_TRACING_BRIDGE_OTEL = "io.micrometer:micrometer-tracing-bridge-otel:1.3.11"

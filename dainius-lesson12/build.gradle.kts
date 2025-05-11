@@ -15,24 +15,18 @@ plugins {
 }
 
 val javaProjects = setOf(
-    "dainius-lesson11-producer",
-    "dainius-lesson11-consumer"
+    "dainius-lesson12-producer-app"
 )
 
 val jacocoExclusions = mapOf(
-    "dainius-lesson11-producer" to listOf(
-        "com.balionis.dainius.lesson11.producer.Application",
-        "com.balionis.dainius.lesson11.producer.configuration.*"
-    ),
-    "dainius-lesson11-consumer" to listOf(
-        "com.balionis.dainius.lesson11.consumer.Application",
-        "com.balionis.dainius.lesson11.consumer.configuration.*"
+    "dainius-lesson12-producer-app" to listOf(
+        "com.balionis.dainius.lesson12.producer.Application",
+        "com.balionis.dainius.lesson12.producer.configuration.*"
     )
 )
 
 val dockerProjects = setOf(
-    "dainius-lesson11-producer",
-    "dainius-lesson11-consumer"
+    "dainius-lesson12-producer-app"
 )
 
 subprojects {
@@ -81,7 +75,7 @@ subprojects {
     }
 
     if (dockerProjects.contains(this.project.name)) {
-        val dockerImage = "${this.project.name}"
+        val dockerImage = "${this.project.name}".replace("-app","")
         extra["dockerImage"] = dockerImage
 
         tasks {

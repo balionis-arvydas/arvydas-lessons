@@ -1,6 +1,8 @@
-# dainius-lesson11
+# dainius-lesson12
 
-This project shows how to monitor and trace kafka messages. It is a clone from lesson10.
+This project shows how to retry web services. 
+
+While it's a clone from lesson11, it retains only actuator/tracer from lesson11.
 
 ## Build
 
