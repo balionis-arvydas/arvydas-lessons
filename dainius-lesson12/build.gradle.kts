@@ -12,19 +12,22 @@ plugins {
     id("jacoco")
     id("org.springframework.boot") version "3.3.4" apply false
     id("io.spring.dependency-management") version "1.1.7"
-    id("org.openapi.generator") version "7.2.0" apply false
+    id("org.openapi.generator") version "7.13.0" apply false
 }
 
 val javaProjects = setOf(
-    "dainius-lesson12-producer-app"
+    "dainius-lesson12-producer-app",
+    "dainius-lesson12-consumer-app"
 )
 
 val apiProjects = setOf(
-    "dainius-lesson12-producer-api"
+    "dainius-lesson12-producer-api",
+    "dainius-lesson12-consumer-api"
 )
 
 val dockerProjects = setOf(
-    "dainius-lesson12-producer-app"
+    "dainius-lesson12-producer-app",
+    "dainius-lesson12-consumer-app"
 )
 
 subprojects {

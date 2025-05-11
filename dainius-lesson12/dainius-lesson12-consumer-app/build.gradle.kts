@@ -38,15 +38,15 @@ dependencies {
 }
 
 openApiValidate {
-    inputSpec.set("$projectDir/../dainius-lesson12-producer-api/src/main/resources/openapi/dainius-lesson12-producer-api.yaml")
+    inputSpec.set("$projectDir/../dainius-lesson12-consumer-api/src/main/resources/openapi/dainius-lesson12-consumer-api.yaml")
 }
 
 openApiGenerate {
     generatorName.set("spring")
-    inputSpec.set("$projectDir/../dainius-lesson12-producer-api/src/main/resources/openapi/dainius-lesson12-producer-api.yaml")
+    inputSpec.set("$projectDir/../dainius-lesson12-consumer-api/src/main/resources/openapi/dainius-lesson12-consumer-api.yaml")
     outputDir.set("${layout.buildDirectory.get()}/generated")
-    apiPackage.set("com.balionis.dainius.lesson12.producer.generated.api")
-    modelPackage.set("com.balionis.dainius.lesson12.producer.generated.model")
+    apiPackage.set("com.balionis.dainius.lesson12.consumer.generated.api")
+    modelPackage.set("com.balionis.dainius.lesson12.consumer.generated.model")
     configOptions.set(mapOf(
         "dateLibrary" to "java8",
         "generateApis" to "true",
@@ -89,9 +89,9 @@ tasks.jacocoTestCoverageVerification {
                 minimum = "0.90".toBigDecimal()
             }
             excludes = listOf(
-                "com.balionis.dainius.lesson12.producer.Application",
-                "com.balionis.dainius.lesson12.producer.configuration.*",
-                "com.balionis.dainius.lesson12.producer.generated.*"
+                "com.balionis.dainius.lesson12.consumer.Application",
+                "com.balionis.dainius.lesson12.consumer.configuration.*",
+                "com.balionis.dainius.lesson12.consumer.generated.*"
             )
         }
     }
@@ -100,6 +100,6 @@ tasks.jacocoTestCoverageVerification {
 }
 
 tasks.named<BootJar>("bootJar") {
-    mainClass.set("com.balionis.dainius.lesson12.producer.Application")
+    mainClass.set("com.balionis.dainius.lesson12.consumer.Application")
     archiveFileName.set("${archiveBaseName.get()}-all.${archiveExtension.get()}");
 }

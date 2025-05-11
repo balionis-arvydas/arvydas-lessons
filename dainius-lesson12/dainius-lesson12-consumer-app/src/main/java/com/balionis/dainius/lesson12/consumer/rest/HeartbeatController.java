@@ -1,8 +1,8 @@
-package com.balionis.dainius.lesson12.producer.rest;
+package com.balionis.dainius.lesson12.consumer.rest;
 
-import com.balionis.dainius.lesson12.producer.generated.api.HeartbeatApi;
-import com.balionis.dainius.lesson12.producer.generated.model.GetHeartbeatResponse;
-import com.balionis.dainius.lesson12.producer.service.HeartbeatService;
+import com.balionis.dainius.lesson12.consumer.generated.api.HeartbeatApi;
+import com.balionis.dainius.lesson12.consumer.generated.model.GetHeartbeatResponse;
+import com.balionis.dainius.lesson12.consumer.service.HeartbeatService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

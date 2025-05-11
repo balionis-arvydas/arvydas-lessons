@@ -1,12 +1,12 @@
-package com.balionis.dainius.lesson12.producer.rest;
+package com.balionis.dainius.lesson12.consumer.rest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
-import com.balionis.dainius.lesson12.producer.Application;
-import com.balionis.dainius.lesson12.producer.generated.model.GetHeartbeatResponse;
-import com.balionis.dainius.lesson12.producer.service.HeartbeatService;
+import com.balionis.dainius.lesson12.consumer.Application;
+import com.balionis.dainius.lesson12.consumer.generated.model.GetHeartbeatResponse;
+import com.balionis.dainius.lesson12.consumer.service.HeartbeatService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

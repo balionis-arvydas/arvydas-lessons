@@ -1,4 +1,4 @@
-package com.balionis.dainius.lesson12.producer.service;
+package com.balionis.dainius.lesson12.consumer.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

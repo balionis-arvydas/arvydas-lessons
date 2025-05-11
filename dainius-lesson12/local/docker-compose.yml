@@ -9,11 +9,28 @@ services:
     image: dainius-lesson12-producer:latest
     ports:
       - "9091:9090"
+      - "9001:9000"
     environment:
       JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
       JAEGER_TRACING_URL: "http://local-jaeger:9411/api/v2/spans"
     volumes:
       - ./docker/config/producer:/app/config
+    networks:
+      - balionis-network
+    profiles:
+      - service
+  local-consumer:
+    container_name: local-consumer
+    hostname: local-consumer
+    image: dainius-lesson12-consumer:latest
+    ports:
+      - "9092:9090"
+      - "9002:9000"
+    environment:
+      JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
+      JAEGER_TRACING_URL: "http://local-jaeger:9411/api/v2/spans"
+    volumes:
+      - ./docker/config/consumer:/app/config
     networks:
       - balionis-network
     profiles:

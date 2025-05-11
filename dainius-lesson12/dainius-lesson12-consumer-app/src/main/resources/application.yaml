@@ -9,7 +9,7 @@ server:
 
 spring:
   application:
-    name: dainius-lesson11-producer
+    name: dainius-lesson11-consumer
   main:
     banner-mode: "off"
 

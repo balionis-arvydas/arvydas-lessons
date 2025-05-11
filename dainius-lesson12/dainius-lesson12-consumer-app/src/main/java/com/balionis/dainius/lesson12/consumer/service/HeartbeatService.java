@@ -1,4 +1,4 @@
-package com.balionis.dainius.lesson12.producer.service;
+package com.balionis.dainius.lesson12.consumer.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

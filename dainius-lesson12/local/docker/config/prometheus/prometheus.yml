@@ -9,4 +9,5 @@ scrape_configs:
     scheme: http
     static_configs:
       - targets:
-          - local-producer:9001
+          - local-producer:9000
+          - local-consumer:9000

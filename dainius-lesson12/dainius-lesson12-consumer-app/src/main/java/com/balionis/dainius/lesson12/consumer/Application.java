@@ -1,6 +1,6 @@
-package com.balionis.dainius.lesson12.producer;
+package com.balionis.dainius.lesson12.consumer;
 
-import com.balionis.dainius.lesson12.producer.configuration.AppConfigurationProperties;
+import com.balionis.dainius.lesson12.consumer.configuration.AppConfigurationProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

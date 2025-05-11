@@ -12,16 +12,16 @@ dependencies {
 }
 
 openApiValidate {
-    inputSpec.set("$projectDir/src/main/resources/openapi/dainius-lesson12-producer-api.yaml")
+    inputSpec.set("$projectDir/src/main/resources/openapi/dainius-lesson12-consumer-api.yaml")
 }
 
 openApiGenerate {
     generatorName.set("java")
-    inputSpec.set("$projectDir/src/main/resources/openapi/dainius-lesson12-producer-api.yaml")
+    inputSpec.set("$projectDir/src/main/resources/openapi/dainius-lesson12-consumer-api.yaml")
     outputDir.set("${layout.buildDirectory.get()}/generated")
-    apiPackage.set("com.balionis.dainius.lesson12.producer.generated.api")
-    modelPackage.set("com.balionis.dainius.lesson12.producer.generated.model")
-    invokerPackage.set("com.balionis.dainius.lesson12.producer.generated.invoker")
+    apiPackage.set("com.balionis.dainius.lesson12.consumer.generated.api")
+    modelPackage.set("com.balionis.dainius.lesson12.consumer.generated.model")
+    invokerPackage.set("com.balionis.dainius.lesson12.consumer.generated.invoker")
     configOptions.set(mapOf(
         "dateLibrary" to "java8",
         "generateApis" to "true",
