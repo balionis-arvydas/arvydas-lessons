@@ -35,6 +35,7 @@ subprojects {
             plugin("jacoco")
             plugin("org.springframework.boot")
             plugin("io.spring.dependency-management")
+            plugin("org.openapi.generator")
         }
 
         java {

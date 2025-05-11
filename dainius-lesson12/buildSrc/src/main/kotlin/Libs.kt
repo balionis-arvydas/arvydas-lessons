@@ -23,6 +23,7 @@ object Libs {
     const val SWAGGER_ANNOTATIONS = "io.swagger.core.v3:swagger-annotations:2.2.20"
     const val JAVAX_VALIDATION_API = "javax.validation:validation-api:2.0.1.Final"
     const val JAVAX_ANNOTATION_API = "javax.annotation:javax.annotation-api:1.3.2"
+    const val SPOTBUGS_ANNOTATIONS = "com.github.spotbugs:spotbugs-annotations:4.2.0"
 
     const val SPRING_BOOT_STARTER_ACTUATOR = "org.springframework.boot:spring-boot-starter-actuator"
     const val MICROMETER_REGISTRY_PROMETHEUS = "io.micrometer:micrometer-registry-prometheus:1.13.4"

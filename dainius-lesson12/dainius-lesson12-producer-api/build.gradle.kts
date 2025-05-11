@@ -7,6 +7,7 @@ dependencies {
     compileOnly(Libs.SWAGGER_ANNOTATIONS)
     compileOnly(Libs.JAVAX_VALIDATION_API)
     compileOnly(Libs.JAVAX_ANNOTATION_API)
+    compileOnly(Libs.SPOTBUGS_ANNOTATIONS)
 }
 
 openApiValidate {
@@ -14,11 +15,12 @@ openApiValidate {
 }
 
 openApiGenerate {
-    generatorName.set("spring")
+    generatorName.set("java")
     inputSpec.set("$projectDir/src/main/resources/openapi/dainius-lesson12-producer-api.yaml")
     outputDir.set("${layout.buildDirectory.get()}/generated")
     apiPackage.set("com.balionis.dainius.lesson12.producer.generated.api")
     modelPackage.set("com.balionis.dainius.lesson12.producer.generated.model")
+    invokerPackage.set("com.balionis.dainius.lesson12.producer.generated.invoker")
     configOptions.set(mapOf(
         "dateLibrary" to "java8",
         "generateApis" to "true",
@@ -29,7 +31,7 @@ openApiGenerate {
         "generateSupportingFiles" to "false",
         "hideGenerationTimestamp" to "true",
         "interfaceOnly" to "true",
-        "library" to "spring-boot",
+        "library" to "resttemplate",
         "serializableModel" to "true",
         "useBeanValidation" to "true",
         "useTags" to "true",
@@ -53,4 +55,8 @@ tasks.compileJava {
 
 tasks.named<BootJar>("bootJar") {
     enabled = false
+}
+
+tasks.named<Jar>("jar") {
+    archiveClassifier.set("")
 }
