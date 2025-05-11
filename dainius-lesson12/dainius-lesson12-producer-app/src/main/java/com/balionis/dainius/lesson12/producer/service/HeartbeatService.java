@@ -5,14 +5,17 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatusCode;
 
+import java.time.Instant;
+import java.time.OffsetDateTime;
+
 @RequiredArgsConstructor
 @Slf4j
 public class HeartbeatService {
 
     private final String name;
 
-    public HttpStatusCode checkStatus() {
+    public OffsetDateTime checkStatus() {
         log.info("name={}", name);
-        return HttpStatus.OK;
+        return OffsetDateTime.now();
     }
 }

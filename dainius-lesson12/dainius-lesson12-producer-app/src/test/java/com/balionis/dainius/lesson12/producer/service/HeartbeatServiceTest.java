@@ -8,6 +8,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 
+import java.time.Duration;
+import java.time.Instant;
+import java.time.OffsetDateTime;
+
 /**
  */
 @ExtendWith(MockitoExtension.class)
@@ -22,6 +26,6 @@ public class HeartbeatServiceTest {
 
     @Test
     public void should_get() {
-        assertThat(heartbeatService.checkStatus()).isEqualTo(HttpStatus.OK);
+        assertThat(heartbeatService.checkStatus()).isAfter(OffsetDateTime.now().minus(Duration.ofSeconds(10)));
     }
 }

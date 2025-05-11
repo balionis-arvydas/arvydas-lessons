@@ -12,17 +12,15 @@ plugins {
     id("jacoco")
     id("org.springframework.boot") version "3.3.4" apply false
     id("io.spring.dependency-management") version "1.1.7"
+    id("org.openapi.generator") version "7.2.0" apply false
 }
 
 val javaProjects = setOf(
     "dainius-lesson12-producer-app"
 )
 
-val jacocoExclusions = mapOf(
-    "dainius-lesson12-producer-app" to listOf(
-        "com.balionis.dainius.lesson12.producer.Application",
-        "com.balionis.dainius.lesson12.producer.configuration.*"
-    )
+val apiProjects = setOf(
+    "dainius-lesson12-producer-api"
 )
 
 val dockerProjects = setOf(
@@ -71,6 +69,19 @@ subprojects {
                 xml.required.set(true)
                 csv.required.set(false)
             }
+        }
+    }
+
+    if (apiProjects.contains(this.project.name)) {
+        apply {
+            plugin("java-library")
+            plugin("org.springframework.boot")
+            plugin("io.spring.dependency-management")
+            plugin("org.openapi.generator")
+        }
+
+        java {
+            sourceCompatibility = JavaVersion.VERSION_17
         }
     }
 

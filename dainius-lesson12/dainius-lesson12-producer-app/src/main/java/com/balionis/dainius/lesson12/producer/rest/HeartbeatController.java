@@ -1,27 +1,28 @@
 package com.balionis.dainius.lesson12.producer.rest;
 
+import com.balionis.dainius.lesson12.producer.generated.api.HeartbeatApi;
+import com.balionis.dainius.lesson12.producer.generated.model.GetHeartbeatResponse;
 import com.balionis.dainius.lesson12.producer.service.HeartbeatService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.time.Instant;
+import java.time.OffsetDateTime;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/v1")
 @RequiredArgsConstructor
-public class HeartbeatController {
+public class HeartbeatController implements HeartbeatApi {
 
     private final HeartbeatService heartbeatService;
 
-    @GetMapping("/heartbeat")
-    HttpEntity<Void> heartbeat() {
+    @Override
+    public ResponseEntity<GetHeartbeatResponse> getHeartbeat() {
         log.info("alive...");
-        var status = heartbeatService.checkStatus();
-        return ResponseEntity.status(status).build();
+        var when = heartbeatService.checkStatus();
+        return ResponseEntity.ok(new GetHeartbeatResponse().checkTs(when));
     }
 }

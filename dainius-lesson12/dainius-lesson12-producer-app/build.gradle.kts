@@ -1,9 +1,5 @@
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
-plugins {
-    id("org.openapi.generator") version "7.2.0"
-}
-
 dependencies {
 
     compileOnly(Libs.LOMBOK)
@@ -37,50 +33,9 @@ dependencies {
 
     implementation(Libs.MICROMETER_TRACING_BRIDGE_OTEL)
     implementation(Libs.OPENTELEMENTRY_EXPORTER_ZIPKIN)
-}
 
-openApiValidate {
-    inputSpec.set("$projectDir/specs/dainius-lesson12-producer-api.yaml")
+    implementation(project(":dainius-lesson12-producer-api"))
 }
-
-openApiGenerate {
-    generatorName.set("spring")
-    inputSpec.set("$projectDir/specs/dainius-lesson12-producer-api.yaml")
-    outputDir.set("${layout.buildDirectory.get()}/generated")
-    apiPackage.set("com.balionis.dainius.lesson12.producer.generated.api")
-    modelPackage.set("com.balionis.dainius.lesson12.producer.generated.model")
-    configOptions.set(mapOf(
-        "dateLibrary" to "java8",
-        "generateApis" to "true",
-        "generateApiTests" to "false",
-        "generateModels" to "true",
-        "generateModelTests" to "false",
-        "generateModelDocumentation" to "false",
-        "generateSupportingFiles" to "false",
-        "hideGenerationTimestamp" to "true",
-        "interfaceOnly" to "true",
-        "library" to "spring-boot",
-        "serializableModel" to "true",
-        "useBeanValidation" to "true",
-        "useTags" to "true",
-        "implicitHeaders" to "true",
-        "openApiNullable" to "false",
-        "oas3" to "true"
-    ))
-}
-
-sourceSets {
-    main {
-        java {
-            srcDirs(listOf("${layout.buildDirectory.get()}/generated/src/main/java"))
-        }
-    }
-}
-
-tasks.compileJava {
-    dependsOn(tasks.openApiGenerate)
-}
-
 
 tasks.jacocoTestCoverageVerification {
     violationRules {
@@ -93,8 +48,7 @@ tasks.jacocoTestCoverageVerification {
             }
             excludes = listOf(
                 "com.balionis.dainius.lesson12.producer.Application",
-                "com.balionis.dainius.lesson12.producer.configuration.*",
-                "com.balionis.dainius.lesson12.producer.generated.*"
+                "com.balionis.dainius.lesson12.producer.configuration.*"
             )
         }
     }
