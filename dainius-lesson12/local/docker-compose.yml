@@ -13,6 +13,11 @@ services:
     environment:
       JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
       JAEGER_TRACING_URL: "http://local-jaeger:9411/api/v2/spans"
+    healthcheck:
+      test: curl -m 5 --silent --fail --request GET http://localhost:9090/api/v1/heartbeat > /dev/null || exit 1
+      interval: 5s
+      timeout: 2s
+      retries: 3
     volumes:
       - ./docker/config/producer:/app/config
     networks:
@@ -29,6 +34,11 @@ services:
     environment:
       JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
       JAEGER_TRACING_URL: "http://local-jaeger:9411/api/v2/spans"
+    healthcheck:
+      test: curl -m 5 --silent --fail --request GET http://localhost:9090/api/v1/heartbeat > /dev/null || exit 1
+      interval: 3s
+      timeout: 2s
+      retries: 3
     volumes:
       - ./docker/config/consumer:/app/config
     networks:

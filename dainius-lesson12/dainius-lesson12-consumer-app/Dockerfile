@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY ./build/libs/dainius-lesson12-consumer-app-all.jar ./app.jar
 
+RUN apk --no-cache add curl
+
 EXPOSE 9090
 
 ENTRYPOINT java $JAVA_OPTS -jar app.jar
