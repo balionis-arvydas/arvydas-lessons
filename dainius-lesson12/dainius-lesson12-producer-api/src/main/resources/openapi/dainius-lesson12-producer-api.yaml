@@ -10,7 +10,9 @@ servers:
   - url: https://dainius.balionis.com/api/1.0.0
 tags:
   - name: heartbeat
-    description: Access to Dainius producer heartbeat
+    description: Access to Dainius producer heartbeat api
+  - name: producer
+    description: Access to Dainius producer message api
 paths:
   /api/v1/heartbeat:
     get:
@@ -31,16 +33,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /api/v1/producer/message:
+    post:
+      operationId: addMessage
+      description: add message
+      tags:
+        - producer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddMessageRequest'
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddMessageResponse'
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 components:
   schemas:
-    GetHeartbeatResponse:
-      type: object
-      properties:
-        checkTs:
-          type: string
-          format: date-time
-      required:
-        - checkTs
     Error:
       type: object
       properties:
@@ -51,3 +69,26 @@ components:
       required:
         - code
         - message
+    GetHeartbeatResponse:
+      type: object
+      properties:
+        checkTs:
+          type: string
+          format: date-time
+      required:
+        - checkTs
+    AddMessageRequest:
+      type: object
+      properties:
+        failFactor:
+          type: integer
+      required:
+        - failFactor
+    AddMessageResponse:
+      type: object
+      properties:
+        messageId:
+          type: string
+          format: uuid
+      required:
+        - messageId
