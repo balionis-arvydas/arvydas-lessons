@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson3.service;
+package com.balionis.arvydas.lesson03.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

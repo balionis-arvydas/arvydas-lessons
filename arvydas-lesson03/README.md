@@ -1,4 +1,4 @@
-# arvydas-lesson3
+# arvydas-lesson03
 
 1. Baseline is arvydas-lesson2
 
@@ -13,5 +13,5 @@
 
 # Run
 ```
-APP_SERVICE_FUNCTION=sum java -Dlogback.configurationFile=./src/test/resources/logback-test.xml -jar build/libs/arvydas-lesson3-all.jar 2 3 5
+APP_SERVICE_FUNCTION=sum java -Dlogback.configurationFile=./src/test/resources/logback-test.xml -jar build/libs/arvydas-lesson03-all.jar 2 3 5
 ```

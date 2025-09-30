@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson3.service;
+package com.balionis.arvydas.lesson03.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -11,11 +11,11 @@ import java.util.List;
 /**
  */
 @ExtendWith(MockitoExtension.class)
-public class SumMovingServiceFunctionTest {
+public class AvgMovingServiceFunctionTest {
 
     @Test
     public void should_have_0_of_empty() {
-        var function = new SumMovingServiceFunction();
+        var function = new AvgMovingServiceFunction();
         List<Double> values = List.of();
 
         assertEquals(0.0, function.apply(values), 0.001);
@@ -23,7 +23,7 @@ public class SumMovingServiceFunctionTest {
 
     @Test
     public void should_have_9_of_9() {
-        var function = new SumMovingServiceFunction();
+        var function = new AvgMovingServiceFunction();
         var values = List.of(9.0);
 
         assertEquals(9.0, function.apply(values), 0.001);
@@ -31,9 +31,9 @@ public class SumMovingServiceFunctionTest {
 
     @Test
     public void should_have_1_5_of_124() {
-        var function = new SumMovingServiceFunction();
+        var function = new AvgMovingServiceFunction();
         var values = List.of(1.0, 2.0, 4.0);
 
-        assertEquals(7.0, function.apply(values), 0.001);
+        assertEquals(2.333, function.apply(values), 0.001);
     }
 }

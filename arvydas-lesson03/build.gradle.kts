@@ -67,8 +67,8 @@ tasks.jacocoTestCoverageVerification {
                 value = "COVEREDRATIO"
                 minimum = "0.90".toBigDecimal()
             }
-            excludes = listOf("com.balionis.arvydas.lesson3.Application",
-                "com.balionis.arvydas.lesson3.configuration.*")
+            excludes = listOf("com.balionis.arvydas.lesson03.Application",
+                "com.balionis.arvydas.lesson03.configuration.*")
         }
     }
     dependsOn(tasks.test)
@@ -86,12 +86,12 @@ tasks.jacocoTestReport {
 }
 
 tasks.named<BootJar>("bootJar") {
-    mainClass.set("com.balionis.arvydas.lesson3.Application")
+    mainClass.set("com.balionis.arvydas.lesson03.Application")
     archiveFileName.set("${archiveBaseName.get()}-all.${archiveExtension.get()}");
 }
 
 application {
-    mainClass.set("com.balionis.arvydas.lesson3.Application")
+    mainClass.set("com.balionis.arvydas.lesson03.Application")
 }
 
 tasks.named<JavaExec>("run") {

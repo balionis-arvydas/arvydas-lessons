@@ -1,7 +1,7 @@
-package com.balionis.arvydas.lesson3;
+package com.balionis.arvydas.lesson03;
 
-import com.balionis.arvydas.lesson3.configuration.AppConfigurationProperties;
-import com.balionis.arvydas.lesson3.service.MovingService;
+import com.balionis.arvydas.lesson03.configuration.AppConfigurationProperties;
+import com.balionis.arvydas.lesson03.service.MovingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
