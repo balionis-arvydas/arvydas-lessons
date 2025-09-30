@@ -32,5 +32,5 @@
 
 # Run
 ```
-java -Dlogback.configurationFile=./src/test/resources/logback-test.xml -jar build/libs/arvydas-lesson1-all.jar arg1 arg2 arg3
+java -Dlogback.configurationFile=./src/test/resources/logback-test.xml -jar build/libs/arvydas-lesson01-all.jar arg1 arg2 arg3
 ```

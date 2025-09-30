@@ -32,7 +32,7 @@ tasks.test {
 
 var fatJar = task("fatJar", type = Jar::class) {
     manifest {
-        attributes["Main-Class"] = "com.balionis.arvydas.lesson1.Application"
+        attributes["Main-Class"] = "com.balionis.arvydas.lesson01.Application"
     }
     archiveClassifier = "all"
     from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
