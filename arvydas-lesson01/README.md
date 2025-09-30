@@ -1,4 +1,4 @@
-# arvydas-lesson1
+# arvydas-lesson01
 
 1. Monolith vs Dependencies
 

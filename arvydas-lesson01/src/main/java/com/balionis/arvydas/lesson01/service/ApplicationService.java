@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson1.service;
+package com.balionis.arvydas.lesson01.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

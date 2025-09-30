@@ -1,6 +1,6 @@
-package com.balionis.arvydas.lesson1;
+package com.balionis.arvydas.lesson01;
 
-import com.balionis.arvydas.lesson1.service.ApplicationService;
+import com.balionis.arvydas.lesson01.service.ApplicationService;
 
 public class Application {
 
