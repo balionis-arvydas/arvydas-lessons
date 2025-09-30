@@ -2,7 +2,7 @@ FROM openjdk:17-jdk-alpine
 
 WORKDIR /app
 
-COPY ./build/libs/dainius-lesson5-all.jar ./app.jar
+COPY ./build/libs/arvydas-lesson5-all.jar ./app.jar
 
 EXPOSE 9090
 

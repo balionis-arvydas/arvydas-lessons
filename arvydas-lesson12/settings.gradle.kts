@@ -1,6 +1,6 @@
-rootProject.name = "dainius-lesson12"
+rootProject.name = "arvydas-lesson12"
 
-include("dainius-lesson12-producer-api")
-include("dainius-lesson12-producer-app")
-include("dainius-lesson12-consumer-api")
-include("dainius-lesson12-consumer-app")
+include("arvydas-lesson12-producer-api")
+include("arvydas-lesson12-producer-app")
+include("arvydas-lesson12-consumer-api")
+include("arvydas-lesson12-consumer-app")

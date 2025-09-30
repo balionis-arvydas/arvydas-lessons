@@ -64,7 +64,7 @@ services:
   local-producer:
     container_name: local-producer
     hostname: local-producer
-    image: dainius-lesson10-producer:latest
+    image: arvydas-lesson10-producer:latest
     ports:
       - "9091:9090"
     environment:
@@ -80,7 +80,7 @@ services:
   local-consumer:
     container_name: local-consumer
     hostname: local-consumer
-    image: dainius-lesson10-consumer:latest
+    image: arvydas-lesson10-consumer:latest
     ports:
       - "9092:9090"
     environment:

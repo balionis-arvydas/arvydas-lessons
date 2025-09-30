@@ -1,0 +1,24 @@
+app:
+  service:
+    name: ${spring.application.name}
+    kafka:
+      topic-name: my-messages
+      timeout-seconds: 10
+
+server:
+  port: 9090
+  max-http-request-header-size: 16KB
+  shutdown: graceful
+
+spring:
+  application:
+    name: arvydas-lession10-producer
+  kafka:
+    bootstrap-servers: "localhost:3333"
+    producer:
+      acks: all
+      retries: 3
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+    properties:
+      "schema.registry.url": ${KAFKA_SCHEMA_REGISTRY_URL:mock://}

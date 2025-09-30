@@ -1,0 +1,78 @@
+app:
+  service:
+    name: ${spring.application.name}
+    pageSize: 100
+    kafka:
+      topic-name: my-messages
+      concurrency: 3
+
+server:
+  port: 9090
+  max-http-request-header-size: 16KB
+  shutdown: graceful
+
+spring:
+  application:
+    name: arvydas-lesson11-consumer
+  kafka:
+    bootstrap-servers: "localhost:3333"
+    consumer:
+      isolation-level: read_committed
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      group-id: ${spring.application.name}
+      client-id: ${spring.application.name}
+      fetch-max-wait: 3000
+      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        "specific.avro.reader": true
+    properties:
+      "schema.registry.url": ${KAFKA_SCHEMA_REGISTRY_URL:mock://}
+      "spring.deserializer.key.delegate.class": org.apache.kafka.common.serialization.StringDeserializer
+      "spring.deserializer.value.delegate.class": io.confluent.kafka.serializers.KafkaAvroDeserializer
+
+management:
+  endpoints:
+    web:
+      base-path: "/"
+      path-mapping:
+        prometheus: "actuator/prometheus"
+        health: "actuator/health"
+        info: "actuator/info"
+      exposure:
+        include:
+          - health
+          - info
+          - prometheus
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+      probes:
+        enabled: true
+      group:
+        liveness:
+          include:
+            - livenessState
+            - diskSpace
+            # - kafkaState (TODO: build a custom state)
+        readiness:
+          include:
+            - readinessState
+            # - db (TODO: add after db is added)
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+        step: 1m
+  server:
+    port: 9001
+
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: "${JAEGER_TRACING_URL:mock://}"
+

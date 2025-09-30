@@ -1,4 +1,4 @@
-# dainius-lesson1
+# arvydas-lesson1
 
 1. Monolith vs Dependencies
 
@@ -32,5 +32,5 @@
 
 # Run
 ```
-java -Dlogback.configurationFile=./src/test/resources/logback-test.xml -jar build/libs/dainius-lesson1-all.jar arg1 arg2 arg3
+java -Dlogback.configurationFile=./src/test/resources/logback-test.xml -jar build/libs/arvydas-lesson1-all.jar arg1 arg2 arg3
 ```

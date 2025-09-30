@@ -1,0 +1,94 @@
+---
+openapi: 3.0.0
+info:
+  title: Swagger arvydas lesson12 producer
+  description: |
+    This is a sample arvydas Lesson 12 producer
+  termsOfService: http://arvydas.balionis.com/terms/
+  version: 1.0.0
+servers:
+  - url: https://arvydas.balionis.com/api/1.0.0
+tags:
+  - name: heartbeat
+    description: Access to arvydas producer heartbeat api
+  - name: producer
+    description: Access to arvydas producer message api
+paths:
+  /api/v1/heartbeat:
+    get:
+      operationId: getHeartbeat
+      description: get heartbeat
+      tags:
+        - heartbeat
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetHeartbeatResponse'
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /api/v1/producer/message:
+    post:
+      operationId: addMessage
+      description: add message
+      tags:
+        - producer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddMessageRequest'
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddMessageResponse'
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message
+    GetHeartbeatResponse:
+      type: object
+      properties:
+        checkTs:
+          type: string
+          format: date-time
+      required:
+        - checkTs
+    AddMessageRequest:
+      type: object
+      properties:
+        failFactor:
+          type: integer
+      required:
+        - failFactor
+    AddMessageResponse:
+      type: object
+      properties:
+        messageId:
+          type: string
+          format: uuid
+      required:
+        - messageId

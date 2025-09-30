@@ -1,4 +1,4 @@
-# dainius-lesson11
+# arvydas-lesson11
 
 This project shows how to monitor and trace kafka messages. It is a clone from lesson10.
 

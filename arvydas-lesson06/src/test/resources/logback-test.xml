@@ -6,7 +6,7 @@
         </encoder>
     </appender>
 
-    <logger level="debug" name="com.balionis.dainius.lesson6"/>
+    <logger level="debug" name="com.balionis.arvydas.lesson6"/>
 
     <logger level="debug" name="liquibase.executor"/>
 

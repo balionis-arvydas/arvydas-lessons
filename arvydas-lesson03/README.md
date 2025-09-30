@@ -1,6 +1,6 @@
-# dainius-lesson3
+# arvydas-lesson3
 
-1. Baseline is dainius-lesson2
+1. Baseline is arvydas-lesson2
 
 2. Implement spring core value and component injection.
 
@@ -13,5 +13,5 @@
 
 # Run
 ```
-APP_SERVICE_FUNCTION=sum java -Dlogback.configurationFile=./src/test/resources/logback-test.xml -jar build/libs/dainius-lesson3-all.jar 2 3 5
+APP_SERVICE_FUNCTION=sum java -Dlogback.configurationFile=./src/test/resources/logback-test.xml -jar build/libs/arvydas-lesson3-all.jar 2 3 5
 ```

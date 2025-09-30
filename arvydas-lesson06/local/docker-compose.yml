@@ -13,7 +13,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres_pwd
-      POSTGRES_DB: dainius_db
+      POSTGRES_DB: arvydas_db
     volumes:
       - ./postgres-setup:/docker-entrypoint-initdb.d
     networks:
@@ -27,7 +27,7 @@ services:
 #  local-liquibase:
 #    image: liquibase/liquibase
 #    container_name: local-liquibase
-#    command: update --url=jdbc:postgresql://local-postgres:5432/dainius_db?user=postgres'&'password=postgres_pwd --changelog-file=changelog/db.changelog-master.yaml
+#    command: update --url=jdbc:postgresql://local-postgres:5432/arvydas_db?user=postgres'&'password=postgres_pwd --changelog-file=changelog/db.changelog-master.yaml
 #    volumes:
 #      - ../src/main/resources/db/changelog:/liquibase/changelog
 #      - ../src/main/resources/db/changeset:/liquibase/db/changeset
@@ -38,7 +38,7 @@ services:
 #        condition: service_healthy
   local-service:
     container_name: local-service
-    image: dainius-lesson6:latest
+    image: arvydas-lesson6:latest
     ports:
       - "8080:9090"
     environment:

@@ -59,15 +59,15 @@ dependencies {
 }
 
 openApiValidate {
-    inputSpec.set("$rootDir/specs/dainius-lesson7-api.yaml")
+    inputSpec.set("$rootDir/specs/arvydas-lesson7-api.yaml")
 }
 
 openApiGenerate {
     generatorName.set("spring")
-    inputSpec.set("$rootDir/specs/dainius-lesson7-api.yaml")
+    inputSpec.set("$rootDir/specs/arvydas-lesson7-api.yaml")
     outputDir.set("$buildDir/generated")
-    apiPackage.set("com.balionis.dainius.lesson7.generated.api")
-    modelPackage.set("com.balionis.dainius.lesson7.generated.model")
+    apiPackage.set("com.balionis.arvydas.lesson7.generated.api")
+    modelPackage.set("com.balionis.arvydas.lesson7.generated.model")
     configOptions.set(mapOf(
         "dateLibrary" to "java8",
         "generateApis" to "true",
@@ -127,10 +127,10 @@ tasks.jacocoTestCoverageVerification {
                 minimum = "0.90".toBigDecimal()
             }
             excludes = listOf(
-                "com.balionis.dainius.lesson7.Application",
-                "com.balionis.dainius.lesson7.configuration.*",
-                "com.balionis.dainius.lesson7.generated.*",
-                "com.balionis.dainius.lesson7.entity.*"
+                "com.balionis.arvydas.lesson7.Application",
+                "com.balionis.arvydas.lesson7.configuration.*",
+                "com.balionis.arvydas.lesson7.generated.*",
+                "com.balionis.arvydas.lesson7.entity.*"
             )
         }
     }
@@ -149,7 +149,7 @@ tasks.jacocoTestReport {
 }
 
 tasks.named<BootJar>("bootJar") {
-    mainClass.set("com.balionis.dainius.lesson7.Application")
+    mainClass.set("com.balionis.arvydas.lesson7.Application")
     archiveFileName.set("${archiveBaseName.get()}-all.${archiveExtension.get()}");
 }
 

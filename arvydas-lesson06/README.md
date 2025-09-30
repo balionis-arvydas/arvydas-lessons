@@ -1,6 +1,6 @@
-# dainius-lesson5
+# arvydas-lesson5
 
-1. Baseline is dainius-lesson5
+1. Baseline is arvydas-lesson5
 
 2. Add postgres sql.
 
@@ -28,11 +28,11 @@ make up
 ```
 % docker container ls
 CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                    NAMES
-2bb47c02965d   dainius-lesson6:latest   "/bin/sh -c 'java $J…"   12 seconds ago   Up 11 seconds   0.0.0.0:8080->9090/tcp   local-service
+2bb47c02965d   arvydas-lesson6:latest   "/bin/sh -c 'java $J…"   12 seconds ago   Up 11 seconds   0.0.0.0:8080->9090/tcp   local-service
 c7c914949a35   postgres:latest          "docker-entrypoint.s…"   12 seconds ago   Up 11 seconds   0.0.0.0:5432->5432/tcp   local-postgres
 arvydas@bamac01 local % docker logs -f 2bb47c02965d
 % docker logs -f 2bb47c02965d
-19:30:17.774 [main] INFO  c.b.dainius.lesson6.Application - starting
+19:30:17.774 [main] INFO  c.b.arvydas.lesson6.Application - starting
 19:30:18.611 [main] WARN  o.s.b.l.logback.LogbackLoggingSystem - Ignoring 'logback.configurationFile' system property. Please use 'logging.config' instead.
 
   .   ____          _            __ _ _
@@ -43,8 +43,8 @@ arvydas@bamac01 local % docker logs -f 2bb47c02965d
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.2)
 
-19:30:18.846 [main] INFO  c.b.dainius.lesson6.Application - Starting Application using Java 17-ea with PID 1 (/app/app.jar started by root in /app)
-19:30:18.847 [main] INFO  c.b.dainius.lesson6.Application - The following 1 profile is active: "docker"
+19:30:18.846 [main] INFO  c.b.arvydas.lesson6.Application - Starting Application using Java 17-ea with PID 1 (/app/app.jar started by root in /app)
+19:30:18.847 [main] INFO  c.b.arvydas.lesson6.Application - The following 1 profile is active: "docker"
 19:30:20.326 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 19:30:20.461 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 115 ms. Found 1 JPA repository interface.
 19:30:21.730 [main] INFO  o.s.b.w.e.j.JettyServletWebServerFactory - Server initialized with port: 9090
@@ -72,8 +72,8 @@ arvydas@bamac01 local % docker logs -f 2bb47c02965d
 19:30:27.698 [main] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
 19:30:27.771 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@7995d760{HTTP/1.1, (http/1.1)}{0.0.0.0:9090}
 19:30:27.780 [main] INFO  o.s.b.w.e.jetty.JettyWebServer - Jetty started on port 9090 (http/1.1) with context path '/'
-19:30:27.813 [main] INFO  c.b.dainius.lesson6.Application - Started Application in 9.798 seconds (process running for 11.482)
-19:30:27.825 [main] INFO  c.b.dainius.lesson6.Application - finishing
+19:30:27.813 [main] INFO  c.b.arvydas.lesson6.Application - Started Application in 9.798 seconds (process running for 11.482)
+19:30:27.825 [main] INFO  c.b.arvydas.lesson6.Application - finishing
 ```
 
 ## Call service heartbeat under docker
@@ -86,8 +86,8 @@ arvydas@bamac01 ~ % docker logs -f 99a13e4e3ac0
 ...
 19:30:27.771 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@7995d760{HTTP/1.1, (http/1.1)}{0.0.0.0:9090}
 19:30:27.780 [main] INFO  o.s.b.w.e.jetty.JettyWebServer - Jetty started on port 9090 (http/1.1) with context path '/'
-19:30:27.813 [main] INFO  c.b.dainius.lesson6.Application - Started Application in 9.798 seconds (process running for 11.482)
-19:30:27.825 [main] INFO  c.b.dainius.lesson6.Application - finishing
+19:30:27.813 [main] INFO  c.b.arvydas.lesson6.Application - Started Application in 9.798 seconds (process running for 11.482)
+19:30:27.825 [main] INFO  c.b.arvydas.lesson6.Application - finishing
 19:33:38.761 [qtp1147334625-44] INFO  c.b.d.l.rest.HeartbeatController - alive......
 ```
 
@@ -106,7 +106,7 @@ curl -X GET  http://localhost:8080/api/v1/pet/864bbd39-4ce5-43ee-8da6-b7701ae16c
 ```
 arvydas@bamac01 local % docker container ls
 CONTAINER ID   IMAGE                    COMMAND                  CREATED         STATUS         PORTS                    NAMES
-8157dab0bad5   dainius-lesson6:latest   "/bin/sh -c 'java $J…"   9 minutes ago   Up 9 minutes   0.0.0.0:8080->9090/tcp   local-service
+8157dab0bad5   arvydas-lesson6:latest   "/bin/sh -c 'java $J…"   9 minutes ago   Up 9 minutes   0.0.0.0:8080->9090/tcp   local-service
 80af3e73a2e8   postgres:latest          "docker-entrypoint.s…"   9 minutes ago   Up 9 minutes   0.0.0.0:5432->5432/tcp   local-postgres
 ...
 arvydas@bamac01 local % docker exec -it 80af3e73a2e8 sh
@@ -121,7 +121,7 @@ postgres=# \l
 List of databases
 Name    |  Owner   | Encoding | Locale Provider |  Collate   |   Ctype    | ICU Locale | ICU Rules |   Access privileges   
 ------------+----------+----------+-----------------+------------+------------+------------+-----------+-----------------------
-dainius_db | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           |
+arvydas_db | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           |
 postgres   | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           |
 template0  | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/postgres          +
 |          |          |                 |            |            |            |           | postgres=CTc/postgres
@@ -129,17 +129,17 @@ template1  | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |  
 |          |          |                 |            |            |            |           | postgres=CTc/postgres
 (4 rows)
 ...
-postgres=# \c dainius_db;
-You are now connected to database "dainius_db" as user "postgres".
+postgres=# \c arvydas_db;
+You are now connected to database "arvydas_db" as user "postgres".
 ...
-dainius_db=# \d
+arvydas_db=# \d
 List of relations
 Schema | Name | Type  |  Owner   
 --------+------+-------+----------
 public | pets | table | postgres
 (1 row)
 ...
-dainius_db=# \d pets
+arvydas_db=# \d pets
 Table "public.pets"
 Column   |            Type             | Collation | Nullable | Default
 ------------+-----------------------------+-----------+----------+---------
@@ -151,13 +151,13 @@ updated_at | timestamp without time zone |           | not null |
 Indexes:
 "pets_pkey" PRIMARY KEY, btree (pet_id)
 ...
-dainius_db=# select * from pets;
+arvydas_db=# select * from pets;
 pet_id                | name  |             status             |         created_at         |         updated_at         
 --------------------------------------+-------+--------------------------------+----------------------------+----------------------------
 864bbd39-4ce5-43ee-8da6-b7701ae16c5b | myDog | AVAILABLE                      | 2024-02-28 19:48:23.658357 | 2024-02-28 19:48:23.658357
 (1 row)
 ...
-dainius_db=# \q
+arvydas_db=# \q
 ...
 # exit
 % ... 

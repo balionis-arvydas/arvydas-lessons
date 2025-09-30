@@ -16,6 +16,6 @@ spring:
     hibernate:
       ddl-auto: none
   datasource:
-    url: jdbc:mysql://local-mysql:3306/dainius_db
+    url: jdbc:mysql://local-mysql:3306/arvydas_db
     username: mysql_adm
     password: mysql_pwd

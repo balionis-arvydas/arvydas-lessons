@@ -1,12 +1,12 @@
 openapi: 3.0.0
 info:
-  title: Swagger Dainius Lesson7
+  title: Swagger arvydas Lesson7
   description: |
-    This is a sample Dainius Lesson 7 server.
-  termsOfService: http://dainius.balionis.com/terms/
+    This is a sample arvydas Lesson 7 server.
+  termsOfService: http://arvydas.balionis.com/terms/
   version: 1.0.0
 servers:
-  - url: https://dainius.balionis.com/api/1.0.0
+  - url: https://arvydas.balionis.com/api/1.0.0
 tags:
   - name: pet
 paths:

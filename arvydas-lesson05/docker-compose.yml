@@ -6,7 +6,7 @@ networks:
 
 services:
   service1:
-    image: dainius-lesson5:latest
+    image: arvydas-lesson5:latest
     ports:
       - "8080:9090"
     environment:

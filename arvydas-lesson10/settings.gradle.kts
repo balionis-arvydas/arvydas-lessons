@@ -1,5 +1,5 @@
-rootProject.name = "dainius-lesson10"
+rootProject.name = "arvydas-lesson10"
 
-include("dainius-lesson10-avro")
-include("dainius-lesson10-producer")
-include("dainius-lesson10-consumer")
+include("arvydas-lesson10-avro")
+include("arvydas-lesson10-producer")
+include("arvydas-lesson10-consumer")

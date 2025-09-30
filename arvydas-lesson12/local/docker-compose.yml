@@ -6,7 +6,7 @@ services:
   local-producer:
     container_name: local-producer
     hostname: local-producer
-    image: dainius-lesson12-producer:latest
+    image: arvydas-lesson12-producer:latest
     ports:
       - "9091:9090"
       - "9001:9000"
@@ -27,7 +27,7 @@ services:
   local-consumer:
     container_name: local-consumer
     hostname: local-consumer
-    image: dainius-lesson12-consumer:latest
+    image: arvydas-lesson12-consumer:latest
     ports:
       - "9092:9090"
       - "9002:9000"

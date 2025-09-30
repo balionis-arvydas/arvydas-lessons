@@ -29,22 +29,22 @@ postgres=# \l
                                                        List of databases
     Name    |  Owner   | Encoding | Locale Provider |  Collate   |   Ctype    | ICU Locale | ICU Rules |   Access privileges   
 ------------+----------+----------+-----------------+------------+------------+------------+-----------+-----------------------
- dainius_db | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | 
+ arvydas_db | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | 
  postgres   | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | 
  template0  | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/postgres          +
             |          |          |                 |            |            |            |           | postgres=CTc/postgres
  template1  | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/postgres          +
             |          |          |                 |            |            |            |           | postgres=CTc/postgres
 (4 rows)
-postgres=# \c dainius_db
-You are now connected to database "dainius_db" as user "postgres".
-dainius_db=# \d
+postgres=# \c arvydas_db
+You are now connected to database "arvydas_db" as user "postgres".
+arvydas_db=# \d
         List of relations
  Schema | Name | Type  |  Owner   
 --------+------+-------+----------
  public | pets | table | postgres
 (1 row)
-dainius_db=# select * from pets limit 10;
+arvydas_db=# select * from pets limit 10;
  pet_id | name | status | created_at | last_modified_at 
 --------+------+--------+------------+------------------
 (0 rows)

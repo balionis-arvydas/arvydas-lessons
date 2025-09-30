@@ -1,7 +1,0 @@
-@namespace("com.balionis.dainius.lesson11.avro.generated.v1")
-protocol KafkaMessages {
-	record KafkaMessage {
-		string messageId;
-		string message;
-	}
-}

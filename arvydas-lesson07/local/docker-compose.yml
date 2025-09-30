@@ -18,7 +18,7 @@ services:
       MYSQL_ROOT_PASSWORD: root_pwd
       MYSQL_USER: mysql_adm
       MYSQL_PASSWORD: mysql_pwd
-      MYSQL_DATABASE: dainius_db
+      MYSQL_DATABASE: arvydas_db
     networks:
       - balionis-network
     healthcheck:
@@ -32,7 +32,7 @@ services:
   local-liquibase:
     image: liquibase/liquibase
     container_name: local-liquibase
-    command: update --url=jdbc:mysql://local-mysql:3306/dainius_db?user=root'&'password=root_pwd --changelog-file=changelog/db.changelog-master.yaml
+    command: update --url=jdbc:mysql://local-mysql:3306/arvydas_db?user=root'&'password=root_pwd --changelog-file=changelog/db.changelog-master.yaml
     environment:
       INSTALL_MYSQL: true
     volumes:
@@ -45,7 +45,7 @@ services:
         condition: service_healthy
   local-service:
     container_name: local-service
-    image: dainius-lesson7:latest
+    image: arvydas-lesson7:latest
     ports:
       - "8080:9090"
     environment:

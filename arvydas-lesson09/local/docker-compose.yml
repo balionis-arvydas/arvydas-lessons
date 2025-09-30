@@ -31,7 +31,7 @@ services:
       - balionis-network
   local-producer:
     container_name: local-producer
-    image: dainius-lesson9-producer:latest
+    image: arvydas-lesson9-producer:latest
     ports:
       - "8081:9090"
     environment:
@@ -43,7 +43,7 @@ services:
       - balionis-network
   local-consumer:
     container_name: local-consumer
-    image: dainius-lesson9-consumer:latest
+    image: arvydas-lesson9-consumer:latest
     ports:
       - "8082:9090"
     environment:

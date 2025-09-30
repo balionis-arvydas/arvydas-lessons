@@ -23,14 +23,14 @@ make down
 In order to validate the database, run:
 ```shell
 % docker exec -it local-mysql bash 
-bash-4.4# mysql dainius_db --user root --password
+bash-4.4# mysql arvydas_db --user root --password
 Enter password: root_pwd 
 
 mysql> show databases;
 +--------------------+
 | Database           |
 +--------------------+
-| dainius_db         |
+| arvydas_db         |
 | information_schema |
 | mysql              |
 | performance_schema |
@@ -38,11 +38,11 @@ mysql> show databases;
 +--------------------+
 5 rows in set (0.00 sec)
 
-mysql> use dainius_db;
+mysql> use arvydas_db;
 Database changed
 mysql> show tables;
 +-----------------------+
-| Tables_in_dainius_db  |
+| Tables_in_arvydas_db  |
 +-----------------------+
 | DATABASECHANGELOG     |
 | DATABASECHANGELOGLOCK |

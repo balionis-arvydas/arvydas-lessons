@@ -1,16 +1,16 @@
 ---
 openapi: 3.0.0
 info:
-  title: Swagger Dainius Lesson4
+  title: Swagger arvydas Lesson4
   description: |
-    This is a sample Dainius Lesson 4 server.
-  termsOfService: http://dainius.balionis.com/terms/
+    This is a sample arvydas Lesson 4 server.
+  termsOfService: http://arvydas.balionis.com/terms/
   version: 1.0.0
 servers:
-  - url: https://dainius.balionis.com/api/1.0.0
+  - url: https://arvydas.balionis.com/api/1.0.0
 tags:
   - name: moving
-    description: Access to Dainius moving calculator
+    description: Access to arvydas moving calculator
 paths:
   /api/v1/moving:
     get:

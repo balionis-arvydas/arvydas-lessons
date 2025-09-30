@@ -1,0 +1,58 @@
+app:
+  service:
+    name: ${spring.application.name}
+
+server:
+  port: 9090
+  max-http-request-header-size: 16KB
+  shutdown: graceful
+
+spring:
+  application:
+    name: arvydas-lesson11-producer
+  main:
+    banner-mode: "off"
+
+management:
+  endpoints:
+    web:
+      base-path: "/"
+      path-mapping:
+        prometheus: "actuator/prometheus"
+        health: "actuator/health"
+        info: "actuator/info"
+      exposure:
+        include:
+          - health
+          - info
+          - prometheus
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+      probes:
+        enabled: true
+      group:
+        liveness:
+          include:
+            - livenessState
+            - diskSpace
+            # - kafkaState (TODO: build a custom state)
+        readiness:
+          include:
+            - readinessState
+            # - db (TODO: add after db is added)
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+        step: 1m
+  server:
+    port: 9000
+
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: "${JAEGER_TRACING_URL:mock://}"

@@ -1,4 +1,4 @@
-# dainius-lesson12
+# arvydas-lesson12
 
 This project shows how to retry web services. 
 

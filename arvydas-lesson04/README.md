@@ -1,6 +1,6 @@
-# dainius-lesson4
+# arvydas-lesson4
 
-1. Baseline is dainius-lesson3
+1. Baseline is arvydas-lesson3
 
 2. Implement spring web.
 
@@ -13,7 +13,7 @@
 
 # Run
 ```
-APP_SERVICE_FUNCTION=sum java -Dlogback.configurationFile=./src/test/resources/logback-test.xml -jar build/libs/dainius-lesson4-all.jar
+APP_SERVICE_FUNCTION=sum java -Dlogback.configurationFile=./src/test/resources/logback-test.xml -jar build/libs/arvydas-lesson4-all.jar
 ```
 
 # Test

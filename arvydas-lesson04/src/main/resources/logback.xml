@@ -6,7 +6,7 @@
         </encoder>
     </appender>
 
-    <logger level="info" name="com.balionis.dainius.lesson4"/>
+    <logger level="info" name="com.balionis.arvydas.lesson4"/>
 
     <root level="info">
         <appender-ref ref="STDOUT" />

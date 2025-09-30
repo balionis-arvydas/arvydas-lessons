@@ -12,24 +12,24 @@ plugins {
 }
 
 val javaProjects = setOf(
-    "dainius-lesson9-producer",
-    "dainius-lesson9-consumer"
+    "arvydas-lesson9-producer",
+    "arvydas-lesson9-consumer"
 )
 
 val jacocoExclusions = mapOf(
-    "dainius-lesson9-producer" to listOf(
-        "com.balionis.dainius.lesson9.producer.Application",
-        "com.balionis.dainius.lesson9.producer.configuration.*"
+    "arvydas-lesson9-producer" to listOf(
+        "com.balionis.arvydas.lesson9.producer.Application",
+        "com.balionis.arvydas.lesson9.producer.configuration.*"
     ),
-    "dainius-lesson9-consumer" to listOf(
-        "com.balionis.dainius.lesson9.consumer.Application",
-        "com.balionis.dainius.lesson9.consumer.configuration.*"
+    "arvydas-lesson9-consumer" to listOf(
+        "com.balionis.arvydas.lesson9.consumer.Application",
+        "com.balionis.arvydas.lesson9.consumer.configuration.*"
     )
 )
 
 val dockerProjects = setOf(
-    "dainius-lesson9-producer",
-    "dainius-lesson9-consumer"
+    "arvydas-lesson9-producer",
+    "arvydas-lesson9-consumer"
 )
 
 subprojects {

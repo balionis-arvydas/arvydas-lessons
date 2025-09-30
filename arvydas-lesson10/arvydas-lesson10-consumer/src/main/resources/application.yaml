@@ -1,0 +1,34 @@
+app:
+  service:
+    name: ${spring.application.name}
+    pageSize: 100
+    kafka:
+      topic-name: my-messages
+      concurrency: 3
+
+server:
+  port: 9090
+  max-http-request-header-size: 16KB
+  shutdown: graceful
+
+spring:
+  application:
+    name: arvydas-lession10-consumer
+  kafka:
+    bootstrap-servers: "localhost:3333"
+    consumer:
+      isolation-level: read_committed
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      group-id: ${spring.application.name}
+      client-id: ${spring.application.name}
+      fetch-max-wait: 3000
+      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        "specific.avro.reader": true
+    properties:
+      "schema.registry.url": ${KAFKA_SCHEMA_REGISTRY_URL:mock://}
+      "spring.deserializer.key.delegate.class": org.apache.kafka.common.serialization.StringDeserializer
+      "spring.deserializer.value.delegate.class": io.confluent.kafka.serializers.KafkaAvroDeserializer
+

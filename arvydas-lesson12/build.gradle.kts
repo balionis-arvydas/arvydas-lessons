@@ -16,18 +16,18 @@ plugins {
 }
 
 val javaProjects = setOf(
-    "dainius-lesson12-producer-app",
-    "dainius-lesson12-consumer-app"
+    "arvydas-lesson12-producer-app",
+    "arvydas-lesson12-consumer-app"
 )
 
 val apiProjects = setOf(
-    "dainius-lesson12-producer-api",
-    "dainius-lesson12-consumer-api"
+    "arvydas-lesson12-producer-api",
+    "arvydas-lesson12-consumer-api"
 )
 
 val dockerProjects = setOf(
-    "dainius-lesson12-producer-app",
-    "dainius-lesson12-consumer-app"
+    "arvydas-lesson12-producer-app",
+    "arvydas-lesson12-consumer-app"
 )
 
 subprojects {
