@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.0
 info:
-  title: Swagger arvydas Lesson4
+  title: Swagger arvydas Lesson04
   description: |
     This is a sample arvydas Lesson 4 server.
   termsOfService: http://arvydas.balionis.com/terms/

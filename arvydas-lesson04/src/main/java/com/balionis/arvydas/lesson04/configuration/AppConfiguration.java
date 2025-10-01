@@ -1,9 +1,9 @@
-package com.balionis.arvydas.lesson4.configuration;
+package com.balionis.arvydas.lesson04.configuration;
 
-import com.balionis.arvydas.lesson4.service.AvgMovingServiceFunction;
-import com.balionis.arvydas.lesson4.service.MovingService;
-import com.balionis.arvydas.lesson4.service.MovingServiceFunction;
-import com.balionis.arvydas.lesson4.service.SumMovingServiceFunction;
+import com.balionis.arvydas.lesson04.service.AvgMovingServiceFunction;
+import com.balionis.arvydas.lesson04.service.MovingService;
+import com.balionis.arvydas.lesson04.service.MovingServiceFunction;
+import com.balionis.arvydas.lesson04.service.SumMovingServiceFunction;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;

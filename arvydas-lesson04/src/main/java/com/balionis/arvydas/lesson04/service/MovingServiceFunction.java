@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson4.service;
+package com.balionis.arvydas.lesson04.service;
 
 import java.util.List;
 import java.util.function.Function;

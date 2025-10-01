@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson4.rest;
+package com.balionis.arvydas.lesson04.rest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.within;
@@ -6,10 +6,10 @@ import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.Mockito.*;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
-import com.balionis.arvydas.lesson4.Application;
-import com.balionis.arvydas.lesson4.generated.model.AddNumberRequest;
-import com.balionis.arvydas.lesson4.generated.model.GetMovingResponse;
-import com.balionis.arvydas.lesson4.service.MovingService;
+import com.balionis.arvydas.lesson04.Application;
+import com.balionis.arvydas.lesson04.generated.model.AddNumberRequest;
+import com.balionis.arvydas.lesson04.generated.model.GetMovingResponse;
+import com.balionis.arvydas.lesson04.service.MovingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson4.configuration;
+package com.balionis.arvydas.lesson04.configuration;
 
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;

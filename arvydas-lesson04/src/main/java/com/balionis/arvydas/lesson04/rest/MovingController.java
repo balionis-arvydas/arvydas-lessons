@@ -1,9 +1,9 @@
-package com.balionis.arvydas.lesson4.rest;
+package com.balionis.arvydas.lesson04.rest;
 
-import com.balionis.arvydas.lesson4.generated.api.MovingApi;
-import com.balionis.arvydas.lesson4.generated.model.AddNumberRequest;
-import com.balionis.arvydas.lesson4.generated.model.GetMovingResponse;
-import com.balionis.arvydas.lesson4.service.MovingService;
+import com.balionis.arvydas.lesson04.generated.api.MovingApi;
+import com.balionis.arvydas.lesson04.generated.model.AddNumberRequest;
+import com.balionis.arvydas.lesson04.generated.model.GetMovingResponse;
+import com.balionis.arvydas.lesson04.service.MovingService;
 import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
