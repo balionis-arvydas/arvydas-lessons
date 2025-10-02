@@ -38,9 +38,9 @@ services:
 #        condition: service_healthy
   local-service:
     container_name: local-service
-    image: arvydas-lesson6:latest
+    image: arvydas-lesson06:latest
     ports:
-      - "8080:9090"
+      - "9090:9090"
     environment:
       JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
     volumes:
