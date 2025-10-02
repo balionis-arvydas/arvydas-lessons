@@ -27,12 +27,7 @@ make up
 ## Tail Docker Logs
 
 ```
-% docker container ls
-CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                    NAMES
-2bb47c02965d   arvydas-lesson06:latest   "/bin/sh -c 'java $J…"   12 seconds ago   Up 11 seconds   0.0.0.0:8080->9090/tcp   local-service
-c7c914949a35   postgres:latest          "docker-entrypoint.s…"   12 seconds ago   Up 11 seconds   0.0.0.0:5432->5432/tcp   local-postgres
-arvydas@bamac01 local % docker logs -f 2bb47c02965d
-% docker logs -f 2bb47c02965d
+% docker logs -f local-service
 19:30:17.774 [main] INFO  c.b.arvydas.lesson06.Application - starting
 19:30:18.611 [main] WARN  o.s.b.l.logback.LogbackLoggingSystem - Ignoring 'logback.configurationFile' system property. Please use 'logging.config' instead.
 
@@ -79,11 +74,11 @@ arvydas@bamac01 local % docker logs -f 2bb47c02965d
 
 ## Call service heartbeat under docker
 ```
-curl -X GET http://localhost:9090/api/v1/heartbeat
+curl -X GET http://localhost:9091/api/v1/heartbeat
 
 // see docker container logs (see: 'Tail Docker Logs' above for how-to)
 ... 
-arvydas@bamac01 ~ % docker logs -f 99a13e4e3ac0                                     
+arvydas@bamac01 ~ % docker logs -f local-service                                     
 ...
 19:30:27.771 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@7995d760{HTTP/1.1, (http/1.1)}{0.0.0.0:9090}
 19:30:27.780 [main] INFO  o.s.b.w.e.jetty.JettyWebServer - Jetty started on port 9090 (http/1.1) with context path '/'
@@ -94,10 +89,10 @@ arvydas@bamac01 ~ % docker logs -f 99a13e4e3ac0
 
 ## Call pet store service under docker
 ```
-curl -X POST http://localhost:8080/api/v1/pet --header 'Content-Type: application/json' --data '{ "pet": { "name": "myDog", "status": "AVAILABLE" } }'
+curl -X POST http://localhost:9091/api/v1/pet --header 'Content-Type: application/json' --data '{ "pet": { "name": "myDog", "status": "AVAILABLE" } }'
 {"id":"864bbd39-4ce5-43ee-8da6-b7701ae16c5b"}
 ...
-curl -X GET  http://localhost:8080/api/v1/pet/864bbd39-4ce5-43ee-8da6-b7701ae16c5b
+curl -X GET  http://localhost:9091/api/v1/pet/864bbd39-4ce5-43ee-8da6-b7701ae16c5b
 {"id":"864bbd39-4ce5-43ee-8da6-b7701ae16c5b","name":"myDog","status":"AVAILABLE"}
 ...
 ```
@@ -105,12 +100,7 @@ curl -X GET  http://localhost:8080/api/v1/pet/864bbd39-4ce5-43ee-8da6-b7701ae16c
 ## Postgres troubleshooting 
 
 ```
-arvydas@bamac01 local % docker container ls
-CONTAINER ID   IMAGE                    COMMAND                  CREATED         STATUS         PORTS                    NAMES
-8157dab0bad5   arvydas-lesson06:latest   "/bin/sh -c 'java $J…"   9 minutes ago   Up 9 minutes   0.0.0.0:8080->9090/tcp   local-service
-80af3e73a2e8   postgres:latest          "docker-entrypoint.s…"   9 minutes ago   Up 9 minutes   0.0.0.0:5432->5432/tcp   local-postgres
-...
-arvydas@bamac01 local % docker exec -it 80af3e73a2e8 sh
+arvydas@bamac01 local % docker exec -it local-postgres sh
 ...
 # psql -U postgres
 psql (16.2 (Debian 16.2-1.pgdg120+2))
