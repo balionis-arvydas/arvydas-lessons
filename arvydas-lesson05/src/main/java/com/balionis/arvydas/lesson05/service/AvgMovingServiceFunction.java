@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson5.service;
+package com.balionis.arvydas.lesson05.service;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package com.balionis.arvydas.lesson5.configuration;
+package com.balionis.arvydas.lesson05.configuration;
 
-import com.balionis.arvydas.lesson5.service.AvgMovingServiceFunction;
-import com.balionis.arvydas.lesson5.service.MovingService;
-import com.balionis.arvydas.lesson5.service.MovingServiceFunction;
+import com.balionis.arvydas.lesson05.service.AvgMovingServiceFunction;
+import com.balionis.arvydas.lesson05.service.MovingService;
+import com.balionis.arvydas.lesson05.service.MovingServiceFunction;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

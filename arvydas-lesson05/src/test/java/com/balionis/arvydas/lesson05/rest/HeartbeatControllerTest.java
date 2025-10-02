@@ -1,8 +1,8 @@
-package com.balionis.arvydas.lesson5.rest;
+package com.balionis.arvydas.lesson05.rest;
 
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
-import com.balionis.arvydas.lesson5.Application;
+import com.balionis.arvydas.lesson05.Application;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
