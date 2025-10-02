@@ -1,14 +1,14 @@
-package com.balionis.arvydas.lesson6.rest;
+package com.balionis.arvydas.lesson06.rest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
-import com.balionis.arvydas.lesson6.Application;
-import com.balionis.arvydas.lesson6.generated.model.AddPetRequest;
-import com.balionis.arvydas.lesson6.generated.model.AddPetResponse;
-import com.balionis.arvydas.lesson6.generated.model.Pet;
-import com.balionis.arvydas.lesson6.service.PetService;
+import com.balionis.arvydas.lesson06.Application;
+import com.balionis.arvydas.lesson06.generated.model.AddPetRequest;
+import com.balionis.arvydas.lesson06.generated.model.AddPetResponse;
+import com.balionis.arvydas.lesson06.generated.model.Pet;
+import com.balionis.arvydas.lesson06.service.PetService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

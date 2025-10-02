@@ -1,6 +1,6 @@
-package com.balionis.arvydas.lesson6;
+package com.balionis.arvydas.lesson06;
 
-import com.balionis.arvydas.lesson6.configuration.AppConfigurationProperties;
+import com.balionis.arvydas.lesson06.configuration.AppConfigurationProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

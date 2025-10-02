@@ -1,6 +1,6 @@
-package com.balionis.arvydas.lesson6.repository;
+package com.balionis.arvydas.lesson06.repository;
 
-import com.balionis.arvydas.lesson6.entity.PetEntity;
+import com.balionis.arvydas.lesson06.entity.PetEntity;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.UUID;
 
-import static com.balionis.arvydas.lesson6.TestHelper.createMockPetEntity;
+import static com.balionis.arvydas.lesson06.TestHelper.createMockPetEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;

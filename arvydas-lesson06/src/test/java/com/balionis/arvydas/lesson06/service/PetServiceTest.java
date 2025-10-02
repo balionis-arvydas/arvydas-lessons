@@ -1,6 +1,6 @@
-package com.balionis.arvydas.lesson6.service;
+package com.balionis.arvydas.lesson06.service;
 
-import static com.balionis.arvydas.lesson6.TestHelper.createMockPetEntity;
+import static com.balionis.arvydas.lesson06.TestHelper.createMockPetEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -8,10 +8,9 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
-import com.balionis.arvydas.lesson6.entity.PetEntity;
-import com.balionis.arvydas.lesson6.entity.PetStatus;
-import com.balionis.arvydas.lesson6.generated.model.Pet;
-import com.balionis.arvydas.lesson6.repository.PetRepository;
+import com.balionis.arvydas.lesson06.entity.PetEntity;
+import com.balionis.arvydas.lesson06.generated.model.Pet;
+import com.balionis.arvydas.lesson06.repository.PetRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

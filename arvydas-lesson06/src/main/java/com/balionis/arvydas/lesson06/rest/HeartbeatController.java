@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson6.rest;
+package com.balionis.arvydas.lesson06.rest;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

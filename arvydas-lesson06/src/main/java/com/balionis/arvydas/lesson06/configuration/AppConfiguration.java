@@ -1,7 +1,7 @@
-package com.balionis.arvydas.lesson6.configuration;
+package com.balionis.arvydas.lesson06.configuration;
 
-import com.balionis.arvydas.lesson6.repository.PetRepository;
-import com.balionis.arvydas.lesson6.service.PetService;
+import com.balionis.arvydas.lesson06.repository.PetRepository;
+import com.balionis.arvydas.lesson06.service.PetService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;

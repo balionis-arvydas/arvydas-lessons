@@ -1,9 +1,9 @@
-package com.balionis.arvydas.lesson6.service;
+package com.balionis.arvydas.lesson06.service;
 
-import com.balionis.arvydas.lesson6.entity.PetEntity;
-import com.balionis.arvydas.lesson6.entity.PetStatus;
-import com.balionis.arvydas.lesson6.generated.model.Pet;
-import com.balionis.arvydas.lesson6.repository.PetRepository;
+import com.balionis.arvydas.lesson06.entity.PetEntity;
+import com.balionis.arvydas.lesson06.entity.PetStatus;
+import com.balionis.arvydas.lesson06.generated.model.Pet;
+import com.balionis.arvydas.lesson06.repository.PetRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

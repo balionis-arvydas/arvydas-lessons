@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson6.entity;
+package com.balionis.arvydas.lesson06.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

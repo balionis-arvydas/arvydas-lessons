@@ -1,10 +1,10 @@
-package com.balionis.arvydas.lesson6.rest;
+package com.balionis.arvydas.lesson06.rest;
 
-import com.balionis.arvydas.lesson6.generated.api.PetApi;
-import com.balionis.arvydas.lesson6.generated.model.AddPetRequest;
-import com.balionis.arvydas.lesson6.generated.model.AddPetResponse;
-import com.balionis.arvydas.lesson6.generated.model.Pet;
-import com.balionis.arvydas.lesson6.service.PetService;
+import com.balionis.arvydas.lesson06.generated.api.PetApi;
+import com.balionis.arvydas.lesson06.generated.model.AddPetRequest;
+import com.balionis.arvydas.lesson06.generated.model.AddPetResponse;
+import com.balionis.arvydas.lesson06.generated.model.Pet;
+import com.balionis.arvydas.lesson06.service.PetService;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 import java.util.UUID;

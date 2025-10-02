@@ -59,15 +59,15 @@ dependencies {
 }
 
 openApiValidate {
-    inputSpec.set("$rootDir/specs/arvydas-lesson6-api.yaml")
+    inputSpec.set("$rootDir/specs/arvydas-lesson06-api.yaml")
 }
 
 openApiGenerate {
     generatorName.set("spring")
-    inputSpec.set("$rootDir/specs/arvydas-lesson6-api.yaml")
+    inputSpec.set("$rootDir/specs/arvydas-lesson06-api.yaml")
     outputDir.set("$buildDir/generated")
-    apiPackage.set("com.balionis.arvydas.lesson6.generated.api")
-    modelPackage.set("com.balionis.arvydas.lesson6.generated.model")
+    apiPackage.set("com.balionis.arvydas.lesson06.generated.api")
+    modelPackage.set("com.balionis.arvydas.lesson06.generated.model")
     configOptions.set(mapOf(
         "dateLibrary" to "java8",
         "generateApis" to "true",
@@ -127,10 +127,10 @@ tasks.jacocoTestCoverageVerification {
                 minimum = "0.90".toBigDecimal()
             }
             excludes = listOf(
-                "com.balionis.arvydas.lesson6.Application",
-                "com.balionis.arvydas.lesson6.configuration.*",
-                "com.balionis.arvydas.lesson6.generated.*",
-                "com.balionis.arvydas.lesson6.entity.*"
+                "com.balionis.arvydas.lesson06.Application",
+                "com.balionis.arvydas.lesson06.configuration.*",
+                "com.balionis.arvydas.lesson06.generated.*",
+                "com.balionis.arvydas.lesson06.entity.*"
             )
         }
     }
@@ -149,7 +149,7 @@ tasks.jacocoTestReport {
 }
 
 tasks.named<BootJar>("bootJar") {
-    mainClass.set("com.balionis.arvydas.lesson6.Application")
+    mainClass.set("com.balionis.arvydas.lesson06.Application")
     archiveFileName.set("${archiveBaseName.get()}-all.${archiveExtension.get()}");
 }
 

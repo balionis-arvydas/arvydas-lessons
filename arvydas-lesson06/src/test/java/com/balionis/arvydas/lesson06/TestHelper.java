@@ -1,7 +1,7 @@
-package com.balionis.arvydas.lesson6;
+package com.balionis.arvydas.lesson06;
 
-import com.balionis.arvydas.lesson6.entity.PetEntity;
-import com.balionis.arvydas.lesson6.entity.PetStatus;
+import com.balionis.arvydas.lesson06.entity.PetEntity;
+import com.balionis.arvydas.lesson06.entity.PetStatus;
 
 import java.time.Clock;
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson6;
+package com.balionis.arvydas.lesson06;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

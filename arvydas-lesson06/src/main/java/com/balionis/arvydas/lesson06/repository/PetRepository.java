@@ -1,6 +1,6 @@
-package com.balionis.arvydas.lesson6.repository;
+package com.balionis.arvydas.lesson06.repository;
 
-import com.balionis.arvydas.lesson6.entity.PetEntity;
+import com.balionis.arvydas.lesson06.entity.PetEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
-# arvydas-lesson5
+# arvydas-lesson06
 
-1. Baseline is arvydas-lesson5
+1. Baseline is arvydas-lesson06
 
 2. Add postgres sql.
 
@@ -12,7 +12,8 @@
 
 # Build
 ```
-./gradlew clean dockerBuild --console=plain
+./gradlew clean build --console=plain
+./gradlew dockerBuild --console=plain
 ```
 
 # Run (Start under docker)
@@ -28,11 +29,11 @@ make up
 ```
 % docker container ls
 CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                    NAMES
-2bb47c02965d   arvydas-lesson6:latest   "/bin/sh -c 'java $J…"   12 seconds ago   Up 11 seconds   0.0.0.0:8080->9090/tcp   local-service
+2bb47c02965d   arvydas-lesson06:latest   "/bin/sh -c 'java $J…"   12 seconds ago   Up 11 seconds   0.0.0.0:8080->9090/tcp   local-service
 c7c914949a35   postgres:latest          "docker-entrypoint.s…"   12 seconds ago   Up 11 seconds   0.0.0.0:5432->5432/tcp   local-postgres
 arvydas@bamac01 local % docker logs -f 2bb47c02965d
 % docker logs -f 2bb47c02965d
-19:30:17.774 [main] INFO  c.b.arvydas.lesson6.Application - starting
+19:30:17.774 [main] INFO  c.b.arvydas.lesson06.Application - starting
 19:30:18.611 [main] WARN  o.s.b.l.logback.LogbackLoggingSystem - Ignoring 'logback.configurationFile' system property. Please use 'logging.config' instead.
 
   .   ____          _            __ _ _
@@ -43,8 +44,8 @@ arvydas@bamac01 local % docker logs -f 2bb47c02965d
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.2)
 
-19:30:18.846 [main] INFO  c.b.arvydas.lesson6.Application - Starting Application using Java 17-ea with PID 1 (/app/app.jar started by root in /app)
-19:30:18.847 [main] INFO  c.b.arvydas.lesson6.Application - The following 1 profile is active: "docker"
+19:30:18.846 [main] INFO  c.b.arvydas.lesson06.Application - Starting Application using Java 17-ea with PID 1 (/app/app.jar started by root in /app)
+19:30:18.847 [main] INFO  c.b.arvydas.lesson06.Application - The following 1 profile is active: "docker"
 19:30:20.326 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 19:30:20.461 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 115 ms. Found 1 JPA repository interface.
 19:30:21.730 [main] INFO  o.s.b.w.e.j.JettyServletWebServerFactory - Server initialized with port: 9090
@@ -72,13 +73,13 @@ arvydas@bamac01 local % docker logs -f 2bb47c02965d
 19:30:27.698 [main] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
 19:30:27.771 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@7995d760{HTTP/1.1, (http/1.1)}{0.0.0.0:9090}
 19:30:27.780 [main] INFO  o.s.b.w.e.jetty.JettyWebServer - Jetty started on port 9090 (http/1.1) with context path '/'
-19:30:27.813 [main] INFO  c.b.arvydas.lesson6.Application - Started Application in 9.798 seconds (process running for 11.482)
-19:30:27.825 [main] INFO  c.b.arvydas.lesson6.Application - finishing
+19:30:27.813 [main] INFO  c.b.arvydas.lesson06.Application - Started Application in 9.798 seconds (process running for 11.482)
+19:30:27.825 [main] INFO  c.b.arvydas.lesson06.Application - finishing
 ```
 
 ## Call service heartbeat under docker
 ```
-curl -X GET http://localhost:8080/api/v1/heartbeat
+curl -X GET http://localhost:9090/api/v1/heartbeat
 
 // see docker container logs (see: 'Tail Docker Logs' above for how-to)
 ... 
@@ -86,8 +87,8 @@ arvydas@bamac01 ~ % docker logs -f 99a13e4e3ac0
 ...
 19:30:27.771 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@7995d760{HTTP/1.1, (http/1.1)}{0.0.0.0:9090}
 19:30:27.780 [main] INFO  o.s.b.w.e.jetty.JettyWebServer - Jetty started on port 9090 (http/1.1) with context path '/'
-19:30:27.813 [main] INFO  c.b.arvydas.lesson6.Application - Started Application in 9.798 seconds (process running for 11.482)
-19:30:27.825 [main] INFO  c.b.arvydas.lesson6.Application - finishing
+19:30:27.813 [main] INFO  c.b.arvydas.lesson06.Application - Started Application in 9.798 seconds (process running for 11.482)
+19:30:27.825 [main] INFO  c.b.arvydas.lesson06.Application - finishing
 19:33:38.761 [qtp1147334625-44] INFO  c.b.d.l.rest.HeartbeatController - alive......
 ```
 
@@ -106,7 +107,7 @@ curl -X GET  http://localhost:8080/api/v1/pet/864bbd39-4ce5-43ee-8da6-b7701ae16c
 ```
 arvydas@bamac01 local % docker container ls
 CONTAINER ID   IMAGE                    COMMAND                  CREATED         STATUS         PORTS                    NAMES
-8157dab0bad5   arvydas-lesson6:latest   "/bin/sh -c 'java $J…"   9 minutes ago   Up 9 minutes   0.0.0.0:8080->9090/tcp   local-service
+8157dab0bad5   arvydas-lesson06:latest   "/bin/sh -c 'java $J…"   9 minutes ago   Up 9 minutes   0.0.0.0:8080->9090/tcp   local-service
 80af3e73a2e8   postgres:latest          "docker-entrypoint.s…"   9 minutes ago   Up 9 minutes   0.0.0.0:5432->5432/tcp   local-postgres
 ...
 arvydas@bamac01 local % docker exec -it 80af3e73a2e8 sh
