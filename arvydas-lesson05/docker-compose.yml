@@ -1,15 +1,24 @@
 version: '3.5'
 
 networks:
-  balionis:
-    name: balionis
+  balionis-network:
+    name: balionis-network
 
 services:
-  service1:
+  local-service:
+    container_name: local-service
     image: arvydas-lesson05:latest
     ports:
-      - "9090:8080"
+      - "9091:9090"
     environment:
       JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
     volumes:
       - ./docker/config:/app/config
+    networks:
+      - balionis-network
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://local-service:9090/api/v1/heartbeat" ]
+      interval: 10s
+      timeout: 60s
+      retries: 5
+      start_period: 10s

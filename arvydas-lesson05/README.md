@@ -23,9 +23,9 @@
 ```
 docker container ls
 CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                    NAMES
-99a13e4e3ac0   arvydas-lesson05:latest   "/bin/sh -c 'java $J…"   21 seconds ago   Up 20 seconds   0.0.0.0:8080->9090/tcp   arvydas-lesson05-service1-1
+99a13e4e3ac0   arvydas-lesson05:latest   "/bin/sh -c 'java $J…"   21 seconds ago   Up 20 seconds   0.0.0.0:8080->9090/tcp   local-service
 
-arvydas@bamac01 ~ % docker logs -f 99a13e4e3ac0                                     
+arvydas@bamac01 ~ % docker logs -f local-service                                    
 16:36:13.516 [main] INFO  c.b.arvydas.lesson05.Application - starting
 16:36:14.388 [main] WARN  o.s.b.l.logback.LogbackLoggingSystem - Ignoring 'logback.configurationFile' system property. Please use 'logging.config' instead.
 
@@ -47,14 +47,14 @@ arvydas@bamac01 ~ % docker logs -f 99a13e4e3ac0
 
 ## Call service under docker
 ```
-curl -X GET http://localhost:9090/api/v1/heartbeat
+curl -X GET http://localhost:9091/api/v1/heartbeat
 ...
-curl -X POST http://localhost:9090/api/v1/moving --header 'Content-Type: application/json' --data '{ "number": "2.0"}'
-curl -X GET http://localhost:9090/api/v1/moving
+curl -X POST http://localhost:9091/api/v1/moving --header 'Content-Type: application/json' --data '{ "number": "2.0"}'
+curl -X GET http://localhost:9091/api/v1/moving
 
 // see docker container logs (see: 'Tail Docker Logs' above for how-to)
 ... 
-arvydas@bamac01 ~ % docker logs -f 99a13e4e3ac0                                     
+arvydas@bamac01 ~ % docker logs -f local-service                                     
 ...
 16:36:17.383 [main] INFO  c.b.arvydas.lesson05.Application - finishing
 16:37:28.965 [http-nio-9090-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'

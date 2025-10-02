@@ -3,6 +3,6 @@ app:
     limit: 3
 
 server:
-  port: 8080
+  port: 9090
   max-http-request-header-size: 16KB
   shutdown: graceful
