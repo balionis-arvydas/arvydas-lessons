@@ -20,4 +20,4 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
-        "spring.json.type.mapping": "message:com.balionis.arvydas.lesson8.producer.stream.model.KafkaMessage"
+        "spring.json.type.mapping": "message:com.balionis.arvydas.lesson08.producer.stream.model.KafkaMessage"

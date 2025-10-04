@@ -39,15 +39,15 @@ dependencies {
 }
 
 openApiValidate {
-    inputSpec.set("$projectDir/specs/arvydas-lesson8-producer-api.yaml")
+    inputSpec.set("$projectDir/specs/arvydas-lesson08-producer-api.yaml")
 }
 
 openApiGenerate {
     generatorName.set("spring")
-    inputSpec.set("$projectDir/specs/arvydas-lesson8-producer-api.yaml")
+    inputSpec.set("$projectDir/specs/arvydas-lesson08-producer-api.yaml")
     outputDir.set("$buildDir/generated")
-    apiPackage.set("com.balionis.arvydas.lesson8.producer.generated.api")
-    modelPackage.set("com.balionis.arvydas.lesson8.producer.generated.model")
+    apiPackage.set("com.balionis.arvydas.lesson08.producer.generated.api")
+    modelPackage.set("com.balionis.arvydas.lesson08.producer.generated.model")
     configOptions.set(mapOf(
         "dateLibrary" to "java8",
         "generateApis" to "true",
@@ -91,10 +91,10 @@ tasks.jacocoTestCoverageVerification {
                 minimum = "0.90".toBigDecimal()
             }
             excludes = listOf(
-                "com.balionis.arvydas.lesson8.producer.Application",
-                "com.balionis.arvydas.lesson8.producer.configuration.*",
-                "com.balionis.arvydas.lesson8.producer.generated.*",
-                "com.balionis.arvydas.lesson8.producer.stream.mappers.impl.*"
+                "com.balionis.arvydas.lesson08.producer.Application",
+                "com.balionis.arvydas.lesson08.producer.configuration.*",
+                "com.balionis.arvydas.lesson08.producer.generated.*",
+                "com.balionis.arvydas.lesson08.producer.stream.mappers.impl.*"
             )
         }
     }
@@ -103,6 +103,6 @@ tasks.jacocoTestCoverageVerification {
 }
 
 tasks.named<BootJar>("bootJar") {
-    mainClass.set("com.balionis.arvydas.lesson8.producer.Application")
+    mainClass.set("com.balionis.arvydas.lesson08.producer.Application")
     archiveFileName.set("${archiveBaseName.get()}-all.${archiveExtension.get()}");
 }

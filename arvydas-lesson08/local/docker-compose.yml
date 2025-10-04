@@ -5,7 +5,7 @@ networks:
 services:
   local-zookeeper:
     container_name: local-zookeeper
-    image: wurstmeister/zookeeper
+    image: wurstmeister/zookeeper:latest
     ports:
       - "2181:2181"
     networks:
@@ -31,7 +31,7 @@ services:
       - balionis-network
   local-producer:
     container_name: local-producer
-    image: arvydas-lesson8-producer:latest
+    image: arvydas-lesson08-producer:latest
     ports:
       - "8081:9090"
     environment:
@@ -43,7 +43,7 @@ services:
       - balionis-network
   local-consumer:
     container_name: local-consumer
-    image: arvydas-lesson8-consumer:latest
+    image: arvydas-lesson08-consumer:latest
     ports:
       - "8082:9090"
     environment:

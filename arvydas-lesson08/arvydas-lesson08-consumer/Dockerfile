@@ -2,7 +2,7 @@ FROM openjdk:17-jdk-alpine@sha256:57c2bd64588e39a7d00581b094136e4b13d2056b5a4f5a
 
 WORKDIR /app
 
-COPY ./build/libs/arvydas-lesson8-consumer-all.jar ./app.jar
+COPY ./build/libs/arvydas-lesson08-consumer-all.jar ./app.jar
 
 EXPOSE 9090
 
