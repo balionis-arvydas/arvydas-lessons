@@ -1,10 +1,10 @@
-package com.balionis.arvydas.lesson9.producer.rest;
+package com.balionis.arvydas.lesson09.producer.rest;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
-import com.balionis.arvydas.lesson9.producer.Application;
-import com.balionis.arvydas.lesson9.producer.service.HeartbeatService;
+import com.balionis.arvydas.lesson09.producer.Application;
+import com.balionis.arvydas.lesson09.producer.service.HeartbeatService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

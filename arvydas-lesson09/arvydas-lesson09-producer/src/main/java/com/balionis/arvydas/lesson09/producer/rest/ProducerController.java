@@ -1,8 +1,8 @@
-package com.balionis.arvydas.lesson9.producer.rest;
+package com.balionis.arvydas.lesson09.producer.rest;
 
-import com.balionis.arvydas.lesson9.producer.generated.api.ProducerApi;
-import com.balionis.arvydas.lesson9.producer.generated.model.SendMessageRequest;
-import com.balionis.arvydas.lesson9.producer.service.ProducerService;
+import com.balionis.arvydas.lesson09.producer.generated.api.ProducerApi;
+import com.balionis.arvydas.lesson09.producer.generated.model.SendMessageRequest;
+import com.balionis.arvydas.lesson09.producer.service.ProducerService;
 import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

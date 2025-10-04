@@ -1,7 +1,7 @@
-package com.balionis.arvydas.lesson9.producer.configuration;
+package com.balionis.arvydas.lesson09.producer.configuration;
 
-import com.balionis.arvydas.lesson9.producer.stream.mappers.KafkaMessageMapper;
-import com.balionis.arvydas.lesson9.producer.stream.model.KafkaMessage;
+import com.balionis.arvydas.lesson09.producer.stream.mappers.KafkaMessageMapper;
+import com.balionis.arvydas.lesson09.producer.stream.model.KafkaMessage;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;

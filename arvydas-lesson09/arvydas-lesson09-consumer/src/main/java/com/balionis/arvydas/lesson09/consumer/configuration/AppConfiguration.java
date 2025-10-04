@@ -1,7 +1,7 @@
-package com.balionis.arvydas.lesson9.consumer.configuration;
+package com.balionis.arvydas.lesson09.consumer.configuration;
 
-import com.balionis.arvydas.lesson9.consumer.service.ConsumerService;
-import com.balionis.arvydas.lesson9.consumer.service.HeartbeatService;
+import com.balionis.arvydas.lesson09.consumer.service.ConsumerService;
+import com.balionis.arvydas.lesson09.consumer.service.HeartbeatService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;

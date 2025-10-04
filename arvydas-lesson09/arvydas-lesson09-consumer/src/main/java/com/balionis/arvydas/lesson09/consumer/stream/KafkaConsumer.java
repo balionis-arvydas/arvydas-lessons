@@ -1,8 +1,8 @@
-package com.balionis.arvydas.lesson9.consumer.stream;
+package com.balionis.arvydas.lesson09.consumer.stream;
 
-import com.balionis.arvydas.lesson9.consumer.service.ConsumerService;
-import com.balionis.arvydas.lesson9.consumer.stream.mappers.KafkaMessageMapper;
-import com.balionis.arvydas.lesson9.consumer.stream.model.KafkaMessage;
+import com.balionis.arvydas.lesson09.consumer.service.ConsumerService;
+import com.balionis.arvydas.lesson09.consumer.stream.mappers.KafkaMessageMapper;
+import com.balionis.arvydas.lesson09.consumer.stream.model.KafkaMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;

@@ -1,6 +1,6 @@
-package com.balionis.arvydas.lesson9.consumer.service;
+package com.balionis.arvydas.lesson09.consumer.service;
 
-import com.balionis.arvydas.lesson9.consumer.generated.model.Message;
+import com.balionis.arvydas.lesson09.consumer.generated.model.Message;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

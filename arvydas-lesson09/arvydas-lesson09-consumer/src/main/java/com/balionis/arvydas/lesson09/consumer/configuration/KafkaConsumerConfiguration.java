@@ -1,7 +1,7 @@
-package com.balionis.arvydas.lesson9.consumer.configuration;
+package com.balionis.arvydas.lesson09.consumer.configuration;
 
-import com.balionis.arvydas.lesson9.consumer.stream.mappers.KafkaMessageMapper;
-import com.balionis.arvydas.lesson9.consumer.stream.model.KafkaMessage;
+import com.balionis.arvydas.lesson09.consumer.stream.mappers.KafkaMessageMapper;
+import com.balionis.arvydas.lesson09.consumer.stream.model.KafkaMessage;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;

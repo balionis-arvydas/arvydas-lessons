@@ -1,9 +1,9 @@
-package com.balionis.arvydas.lesson9.producer.configuration;
+package com.balionis.arvydas.lesson09.producer.configuration;
 
-import com.balionis.arvydas.lesson9.producer.service.HeartbeatService;
-import com.balionis.arvydas.lesson9.producer.stream.KafkaProducer;
-import com.balionis.arvydas.lesson9.producer.stream.mappers.KafkaMessageMapper;
-import com.balionis.arvydas.lesson9.producer.stream.model.KafkaMessage;
+import com.balionis.arvydas.lesson09.producer.service.HeartbeatService;
+import com.balionis.arvydas.lesson09.producer.stream.KafkaProducer;
+import com.balionis.arvydas.lesson09.producer.stream.mappers.KafkaMessageMapper;
+import com.balionis.arvydas.lesson09.producer.stream.model.KafkaMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

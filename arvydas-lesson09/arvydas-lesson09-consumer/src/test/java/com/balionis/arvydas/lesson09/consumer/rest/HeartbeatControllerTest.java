@@ -1,10 +1,10 @@
-package com.balionis.arvydas.lesson9.consumer.rest;
+package com.balionis.arvydas.lesson09.consumer.rest;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
-import com.balionis.arvydas.lesson9.consumer.Application;
-import com.balionis.arvydas.lesson9.consumer.service.HeartbeatService;
+import com.balionis.arvydas.lesson09.consumer.Application;
+import com.balionis.arvydas.lesson09.consumer.service.HeartbeatService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

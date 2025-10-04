@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson9.consumer.configuration;
+package com.balionis.arvydas.lesson09.consumer.configuration;
 
 import jakarta.annotation.PostConstruct;
 import lombok.Data;

@@ -1,6 +1,6 @@
-package com.balionis.arvydas.lesson9.consumer.stream;
+package com.balionis.arvydas.lesson09.consumer.stream;
 
-import com.balionis.arvydas.lesson9.consumer.stream.model.KafkaMessage;
+import com.balionis.arvydas.lesson09.consumer.stream.model.KafkaMessage;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Autowired;

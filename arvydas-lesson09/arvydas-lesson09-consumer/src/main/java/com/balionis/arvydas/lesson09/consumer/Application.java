@@ -1,7 +1,7 @@
-package com.balionis.arvydas.lesson9.consumer;
+package com.balionis.arvydas.lesson09.consumer;
 
-import com.balionis.arvydas.lesson9.consumer.configuration.AppConfigurationProperties;
-import com.balionis.arvydas.lesson9.consumer.configuration.KafkaConsumerConfigurationProperties;
+import com.balionis.arvydas.lesson09.consumer.configuration.AppConfigurationProperties;
+import com.balionis.arvydas.lesson09.consumer.configuration.KafkaConsumerConfigurationProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

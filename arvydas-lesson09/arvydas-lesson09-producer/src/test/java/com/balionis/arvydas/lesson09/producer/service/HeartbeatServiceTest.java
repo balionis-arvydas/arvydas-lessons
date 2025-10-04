@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson9.producer.service;
+package com.balionis.arvydas.lesson09.producer.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

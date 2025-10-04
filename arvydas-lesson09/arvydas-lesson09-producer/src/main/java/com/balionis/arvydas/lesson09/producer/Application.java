@@ -1,7 +1,7 @@
-package com.balionis.arvydas.lesson9.producer;
+package com.balionis.arvydas.lesson09.producer;
 
-import com.balionis.arvydas.lesson9.producer.configuration.AppConfigurationProperties;
-import com.balionis.arvydas.lesson9.producer.configuration.KafkaProducerConfigurationProperties;
+import com.balionis.arvydas.lesson09.producer.configuration.AppConfigurationProperties;
+import com.balionis.arvydas.lesson09.producer.configuration.KafkaProducerConfigurationProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

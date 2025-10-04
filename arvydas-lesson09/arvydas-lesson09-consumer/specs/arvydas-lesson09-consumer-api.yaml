@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.0
 info:
-  title: Swagger arvydas lesson9 Consumer
+  title: Swagger arvydas lesson09 Consumer
   description: |
     This is a sample arvydas Lesson 8 Consumer.
   termsOfService: http://arvydas.balionis.com/terms/

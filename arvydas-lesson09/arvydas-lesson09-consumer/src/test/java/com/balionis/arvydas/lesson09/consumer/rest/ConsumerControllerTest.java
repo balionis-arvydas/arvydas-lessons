@@ -1,13 +1,13 @@
-package com.balionis.arvydas.lesson9.consumer.rest;
+package com.balionis.arvydas.lesson09.consumer.rest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
-import com.balionis.arvydas.lesson9.consumer.Application;
-import com.balionis.arvydas.lesson9.consumer.generated.model.GetMessageResponse;
-import com.balionis.arvydas.lesson9.consumer.service.ConsumerService;
+import com.balionis.arvydas.lesson09.consumer.Application;
+import com.balionis.arvydas.lesson09.consumer.generated.model.GetMessageResponse;
+import com.balionis.arvydas.lesson09.consumer.service.ConsumerService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

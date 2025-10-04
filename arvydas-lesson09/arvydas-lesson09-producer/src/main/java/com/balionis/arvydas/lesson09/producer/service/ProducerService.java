@@ -1,7 +1,7 @@
-package com.balionis.arvydas.lesson9.producer.service;
+package com.balionis.arvydas.lesson09.producer.service;
 
-import com.balionis.arvydas.lesson9.producer.generated.model.SendMessageRequest;
-import com.balionis.arvydas.lesson9.producer.stream.KafkaProducer;
+import com.balionis.arvydas.lesson09.producer.generated.model.SendMessageRequest;
+import com.balionis.arvydas.lesson09.producer.stream.KafkaProducer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,9 +1,9 @@
-package com.balionis.arvydas.lesson9.producer.stream;
+package com.balionis.arvydas.lesson09.producer.stream;
 
-import com.balionis.arvydas.lesson9.producer.ApplicationException;
-import com.balionis.arvydas.lesson9.producer.generated.model.SendMessageRequest;
-import com.balionis.arvydas.lesson9.producer.stream.mappers.KafkaMessageMapper;
-import com.balionis.arvydas.lesson9.producer.stream.model.KafkaMessage;
+import com.balionis.arvydas.lesson09.producer.ApplicationException;
+import com.balionis.arvydas.lesson09.producer.generated.model.SendMessageRequest;
+import com.balionis.arvydas.lesson09.producer.stream.mappers.KafkaMessageMapper;
+import com.balionis.arvydas.lesson09.producer.stream.model.KafkaMessage;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

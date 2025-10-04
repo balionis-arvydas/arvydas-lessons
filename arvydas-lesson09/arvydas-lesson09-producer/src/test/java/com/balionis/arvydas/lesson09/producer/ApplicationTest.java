@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson9.producer;
+package com.balionis.arvydas.lesson09.producer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

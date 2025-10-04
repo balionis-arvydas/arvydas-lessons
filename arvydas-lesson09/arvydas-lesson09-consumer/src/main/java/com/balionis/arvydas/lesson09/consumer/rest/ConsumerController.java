@@ -1,8 +1,8 @@
-package com.balionis.arvydas.lesson9.consumer.rest;
+package com.balionis.arvydas.lesson09.consumer.rest;
 
-import com.balionis.arvydas.lesson9.consumer.generated.api.ConsumerApi;
-import com.balionis.arvydas.lesson9.consumer.generated.model.GetMessageResponse;
-import com.balionis.arvydas.lesson9.consumer.service.ConsumerService;
+import com.balionis.arvydas.lesson09.consumer.generated.api.ConsumerApi;
+import com.balionis.arvydas.lesson09.consumer.generated.model.GetMessageResponse;
+import com.balionis.arvydas.lesson09.consumer.service.ConsumerService;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import lombok.RequiredArgsConstructor;

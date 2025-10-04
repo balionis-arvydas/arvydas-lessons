@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson9.producer.rest;
+package com.balionis.arvydas.lesson09.producer.rest;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyDouble;
@@ -6,9 +6,9 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
-import com.balionis.arvydas.lesson9.producer.Application;
-import com.balionis.arvydas.lesson9.producer.generated.model.SendMessageRequest;
-import com.balionis.arvydas.lesson9.producer.service.ProducerService;
+import com.balionis.arvydas.lesson09.producer.Application;
+import com.balionis.arvydas.lesson09.producer.generated.model.SendMessageRequest;
+import com.balionis.arvydas.lesson09.producer.service.ProducerService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

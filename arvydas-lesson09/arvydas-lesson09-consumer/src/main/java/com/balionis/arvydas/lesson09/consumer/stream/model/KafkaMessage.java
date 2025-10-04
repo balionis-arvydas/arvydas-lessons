@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson9.consumer.stream.model;
+package com.balionis.arvydas.lesson09.consumer.stream.model;
 
 import lombok.Builder;
 import lombok.Data;

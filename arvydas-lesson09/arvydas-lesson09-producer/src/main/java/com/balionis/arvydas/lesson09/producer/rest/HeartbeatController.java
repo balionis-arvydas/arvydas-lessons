@@ -1,6 +1,6 @@
-package com.balionis.arvydas.lesson9.producer.rest;
+package com.balionis.arvydas.lesson09.producer.rest;
 
-import com.balionis.arvydas.lesson9.producer.service.HeartbeatService;
+import com.balionis.arvydas.lesson09.producer.service.HeartbeatService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson9.consumer.service;
+package com.balionis.arvydas.lesson09.consumer.service;
 
 import org.springframework.http.HttpStatus;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.0
 info:
-  title: Swagger arvydas lesson9 Producer
+  title: Swagger arvydas lesson09 Producer
   description: |
     This is a sample arvydas Lesson 8 Producer.
   termsOfService: http://arvydas.balionis.com/terms/

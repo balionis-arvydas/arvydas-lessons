@@ -1,4 +1,4 @@
-rootProject.name = "arvydas-lesson9"
+rootProject.name = "arvydas-lesson09"
 
-include("arvydas-lesson9-producer")
-include("arvydas-lesson9-consumer")
+include("arvydas-lesson09-producer")
+include("arvydas-lesson09-consumer")

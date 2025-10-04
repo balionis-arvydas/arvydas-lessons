@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson9.consumer.stream;
+package com.balionis.arvydas.lesson09.consumer.stream;
 
 import static org.awaitility.Awaitility.await;
 import static org.awaitility.Durations.ONE_SECOND;
@@ -6,10 +6,10 @@ import static org.awaitility.Durations.FIVE_SECONDS;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 
-import com.balionis.arvydas.lesson9.consumer.Application;
-import com.balionis.arvydas.lesson9.consumer.generated.model.Message;
-import com.balionis.arvydas.lesson9.consumer.service.ConsumerService;
-import com.balionis.arvydas.lesson9.consumer.stream.model.KafkaMessage;
+import com.balionis.arvydas.lesson09.consumer.Application;
+import com.balionis.arvydas.lesson09.consumer.generated.model.Message;
+import com.balionis.arvydas.lesson09.consumer.service.ConsumerService;
+import com.balionis.arvydas.lesson09.consumer.stream.model.KafkaMessage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

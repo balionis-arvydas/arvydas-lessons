@@ -1,6 +1,6 @@
-# arvydas-lesson9
+# arvydas-lesson09
 
-This project is a clone of lesson8 except
+This project is a clone of lesson08 except
 - kafka factory and kafka template are created manually.
 - message is a json rather than a string.
 

@@ -39,15 +39,15 @@ dependencies {
 }
 
 openApiValidate {
-    inputSpec.set("$projectDir/specs/arvydas-lesson9-consumer-api.yaml")
+    inputSpec.set("$projectDir/specs/arvydas-lesson09-consumer-api.yaml")
 }
 
 openApiGenerate {
     generatorName.set("spring")
-    inputSpec.set("$projectDir/specs/arvydas-lesson9-consumer-api.yaml")
+    inputSpec.set("$projectDir/specs/arvydas-lesson09-consumer-api.yaml")
     outputDir.set("$buildDir/generated")
-    apiPackage.set("com.balionis.arvydas.lesson9.consumer.generated.api")
-    modelPackage.set("com.balionis.arvydas.lesson9.consumer.generated.model")
+    apiPackage.set("com.balionis.arvydas.lesson09.consumer.generated.api")
+    modelPackage.set("com.balionis.arvydas.lesson09.consumer.generated.model")
     configOptions.set(mapOf(
         "dateLibrary" to "java8",
         "generateApis" to "true",
@@ -90,10 +90,10 @@ tasks.jacocoTestCoverageVerification {
                 minimum = "0.90".toBigDecimal()
             }
             excludes = listOf(
-                "com.balionis.arvydas.lesson9.consumer.Application",
-                "com.balionis.arvydas.lesson9.consumer.configuration.*",
-                "com.balionis.arvydas.lesson9.consumer.generated.*",
-                "com.balionis.arvydas.lesson9.consumer.stream.mappers.impl.*"
+                "com.balionis.arvydas.lesson09.consumer.Application",
+                "com.balionis.arvydas.lesson09.consumer.configuration.*",
+                "com.balionis.arvydas.lesson09.consumer.generated.*",
+                "com.balionis.arvydas.lesson09.consumer.stream.mappers.impl.*"
             )
         }
     }
@@ -102,6 +102,6 @@ tasks.jacocoTestCoverageVerification {
 }
 
 tasks.named<BootJar>("bootJar") {
-    mainClass.set("com.balionis.arvydas.lesson9.consumer.Application")
+    mainClass.set("com.balionis.arvydas.lesson09.consumer.Application")
     archiveFileName.set("${archiveBaseName.get()}-all.${archiveExtension.get()}");
 }
