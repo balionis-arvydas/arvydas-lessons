@@ -4,10 +4,14 @@ networks:
   balionis-network:
     name: balionis-network
 
+volumes:
+  balionis-data:
+    name: balionis-data
+
 services:
   local-postgres:
     container_name: local-postgres
-    image: postgres:latest
+    image: postgres:18.0-alpine3.22
     ports:
       - "5432:5432"
     environment:
@@ -16,6 +20,7 @@ services:
       POSTGRES_DB: arvydas_db
     volumes:
       - ./postgres-setup:/docker-entrypoint-initdb.d
+      - balionis-data:/var/lib/postgresql/data
     networks:
       - balionis-network
     healthcheck:

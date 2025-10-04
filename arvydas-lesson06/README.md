@@ -90,10 +90,10 @@ arvydas@bamac01 ~ % docker logs -f local-service
 ## Call pet store service under docker
 ```
 curl -X POST http://localhost:9091/api/v1/pet --header 'Content-Type: application/json' --data '{ "pet": { "name": "myDog", "status": "AVAILABLE" } }'
-{"id":"864bbd39-4ce5-43ee-8da6-b7701ae16c5b"}
+{"id":"dc6accda-a328-44bf-8845-599980e6987c"}
 ...
-curl -X GET  http://localhost:9091/api/v1/pet/864bbd39-4ce5-43ee-8da6-b7701ae16c5b
-{"id":"864bbd39-4ce5-43ee-8da6-b7701ae16c5b","name":"myDog","status":"AVAILABLE"}
+curl -X GET  http://localhost:9091/api/v1/pet/dc6accda-a328-44bf-8845-599980e6987c
+{"id":"dc6accda-a328-44bf-8845-599980e6987c","name":"myDog","status":"AVAILABLE"}
 ...
 ```
 
