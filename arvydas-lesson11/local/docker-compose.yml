@@ -107,7 +107,7 @@ services:
     profiles:
       - service
   local-prometheus:
-    image: prom/prometheus:latest
+    image: prom/prometheus:v3.4.2
     container_name: local-prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
@@ -122,7 +122,7 @@ services:
     profiles:
       - monitoring
   local-grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana:11.6.6
     container_name: local-grafana
     ports:
       - 3000:3000
@@ -138,7 +138,7 @@ services:
     profiles:
       - monitoring
   local-jaeger:
-    image: jaegertracing/all-in-one:latest
+    image: jaegertracing/all-in-one:1.71.0
     container_name: local-jaeger
     ports:
       - "16686:16686" # the Jaeger UI

@@ -176,7 +176,7 @@ curl -X GET 'http://admin:grafana@localhost:3000/api/datasources'
 curl -X POST 'http://admin:grafana@localhost:3000/api/dashboards/db' \
   -H 'Accept: application/json' \
   -H 'Content-Type: application/json' \
-  --data-binary '@docker/config/dashboards/demo-consumer.json'
+  --data-binary '@docker/config/grafana/dashboards/demo-consumer.json'
 ...
 ```
 
@@ -214,7 +214,7 @@ password: grafana
 #### Find traceId in Jaeger UI (macOS)
 
 ```
-open -a "Google Chrome" "http://localhost:16686/trace/3541e014d9cf00757069e32fa23a59c1" 
+open -a "Google Chrome" "http://localhost:16686/trace/4beb043d9849cbaee9755fa0723b1691" 
 ...
 ```
 
