@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Swagger arvydas Lesson7
+  title: Swagger arvydas lesson07
   description: |
     This is a sample arvydas Lesson 7 server.
   termsOfService: http://arvydas.balionis.com/terms/

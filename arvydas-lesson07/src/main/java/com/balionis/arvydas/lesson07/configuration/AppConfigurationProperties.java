@@ -1,4 +1,4 @@
-package com.balionis.arvydas.lesson7.configuration;
+package com.balionis.arvydas.lesson07.configuration;
 
 import jakarta.annotation.PostConstruct;
 import lombok.Data;

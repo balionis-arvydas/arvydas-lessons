@@ -1,10 +1,10 @@
-package com.balionis.arvydas.lesson7.rest;
+package com.balionis.arvydas.lesson07.rest;
 
-import com.balionis.arvydas.lesson7.generated.api.PetApi;
-import com.balionis.arvydas.lesson7.generated.model.AddPetRequest;
-import com.balionis.arvydas.lesson7.generated.model.AddPetResponse;
-import com.balionis.arvydas.lesson7.generated.model.Pet;
-import com.balionis.arvydas.lesson7.service.PetService;
+import com.balionis.arvydas.lesson07.generated.api.PetApi;
+import com.balionis.arvydas.lesson07.generated.model.AddPetRequest;
+import com.balionis.arvydas.lesson07.generated.model.AddPetResponse;
+import com.balionis.arvydas.lesson07.generated.model.Pet;
+import com.balionis.arvydas.lesson07.service.PetService;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import lombok.RequiredArgsConstructor;

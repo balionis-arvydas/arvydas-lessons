@@ -54,20 +54,20 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     testImplementation("com.h2database:h2:2.2.224")
     testImplementation("org.liquibase:liquibase-core:4.21.1")
-    runtimeOnly("mysql:mysql-connector-java:8.0.33")
+    runtimeOnly("com.mysql:mysql-connector-j:8.4.0")
 
 }
 
 openApiValidate {
-    inputSpec.set("$rootDir/specs/arvydas-lesson7-api.yaml")
+    inputSpec.set("$rootDir/specs/arvydas-lesson07-api.yaml")
 }
 
 openApiGenerate {
     generatorName.set("spring")
-    inputSpec.set("$rootDir/specs/arvydas-lesson7-api.yaml")
+    inputSpec.set("$rootDir/specs/arvydas-lesson07-api.yaml")
     outputDir.set("$buildDir/generated")
-    apiPackage.set("com.balionis.arvydas.lesson7.generated.api")
-    modelPackage.set("com.balionis.arvydas.lesson7.generated.model")
+    apiPackage.set("com.balionis.arvydas.lesson07.generated.api")
+    modelPackage.set("com.balionis.arvydas.lesson07.generated.model")
     configOptions.set(mapOf(
         "dateLibrary" to "java8",
         "generateApis" to "true",
@@ -127,10 +127,10 @@ tasks.jacocoTestCoverageVerification {
                 minimum = "0.90".toBigDecimal()
             }
             excludes = listOf(
-                "com.balionis.arvydas.lesson7.Application",
-                "com.balionis.arvydas.lesson7.configuration.*",
-                "com.balionis.arvydas.lesson7.generated.*",
-                "com.balionis.arvydas.lesson7.entity.*"
+                "com.balionis.arvydas.lesson07.Application",
+                "com.balionis.arvydas.lesson07.configuration.*",
+                "com.balionis.arvydas.lesson07.generated.*",
+                "com.balionis.arvydas.lesson07.entity.*"
             )
         }
     }
@@ -149,7 +149,7 @@ tasks.jacocoTestReport {
 }
 
 tasks.named<BootJar>("bootJar") {
-    mainClass.set("com.balionis.arvydas.lesson7.Application")
+    mainClass.set("com.balionis.arvydas.lesson07.Application")
     archiveFileName.set("${archiveBaseName.get()}-all.${archiveExtension.get()}");
 }
 

@@ -11,7 +11,7 @@ volumes:
 services:
   local-mysql:
     container_name: local-mysql
-    image: mysql:latest
+    image: mysql:8.4.6
     ports:
       - "3306:3306"
     environment:
@@ -30,7 +30,7 @@ services:
     volumes:
       - balionis-data:/var/lib/mysql
   local-liquibase:
-    image: liquibase/liquibase
+    image: liquibase/liquibase:4.29.2
     container_name: local-liquibase
     command: update --url=jdbc:mysql://local-mysql:3306/arvydas_db?user=root'&'password=root_pwd --changelog-file=changelog/db.changelog-master.yaml
     environment:
@@ -45,9 +45,9 @@ services:
         condition: service_healthy
   local-service:
     container_name: local-service
-    image: arvydas-lesson7:latest
+    image: arvydas-lesson07:latest
     ports:
-      - "8080:9090"
+      - "9091:9090"
     environment:
       JAVA_OPTS: "-Dspring.profiles.active=docker -Dlogback.configurationFile=/app/config/logback-docker.xml"
     volumes:
