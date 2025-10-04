@@ -36,4 +36,7 @@
   - use arvydas-lession10 as baseline
   - add kafka monitoring with grafana
   - add kafka tracing with spring 3
-...
+11. [arvydas-lesson12](./arvydas-lesson12)
+- WARNING: this is work-in-progress with heartbeat skeletons only.
+- use arvydas-lession11 as baseline
+- add kafka retries and rest retries (producer(retry on send?) -> consumer with web retries to enricher service and retry topic)
